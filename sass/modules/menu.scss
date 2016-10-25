@@ -1,0 +1,30 @@
+.menu {
+    background-color: #0288D1;
+    
+    .navigation {
+        width: 90%;
+        font-size: 0;
+
+        &__item {
+            display: inline-block;
+        }
+
+        &__link {
+            font-size: 15px;
+            color: #fff;
+            padding: 15px;
+            display: block;
+            text-decoration: none;
+            -webkit-transition: .15s;
+            transition: .15s;
+
+            &:hover {
+                background-color: #03A9F4;
+            }
+
+            &--active {
+                background-color: #03A9F4;
+            }
+        }
+    }
+}
