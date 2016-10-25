@@ -403,3 +403,7 @@ __pycache__/
 
 ### VisualStudio Patch ###
 build/
+
+####
+Compresses CSS files
+css/
