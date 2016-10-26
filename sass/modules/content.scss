@@ -1,0 +1,29 @@
+.content{
+    margin-top:25px;
+}
+
+.product {
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 4px;
+    overflow: hidden;
+    
+    &__image{
+        vertical-align: middle;
+        height: 150px;
+        overflow: hidden;
+    }
+    &__info{
+        text-align:center;
+        //padding: 10px; GEBRUIK ALLEEN ALS NODIG
+    }
+    &__title{
+        font-size: 50;
+    }
+    &__price{
+        font-weight: bold;
+    }
+}
+
+.row{
+    margin-bottom:10px;
+}
