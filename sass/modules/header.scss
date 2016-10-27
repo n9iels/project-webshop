@@ -1,9 +1,37 @@
 .header{
-    
     .logo{
         margin-top:-50px;
         span{
             font-size:150px;
+        }
+    }
+    .cart{
+        margin-top:-50px;
+        span{
+            font-size:150px;
+        }
+    }
+
+    .search{
+        .searchtools{
+            .searchbar{
+                input[type="text"]{
+                    margin-top:10px;
+                    height:45px;
+                    width:100%;
+                    border-radius: 0px;
+                    padding-left:10px;
+                    box-sizing:border-box;
+                    overflow: hidden;
+                }
+            }
+
+        .searchbutton{
+            button{
+                margin-top:10px;
+                height:45px;
+            }
+        }
         }
     }
 }

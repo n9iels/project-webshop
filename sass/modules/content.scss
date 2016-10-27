@@ -9,12 +9,12 @@
     
     &__image{
         vertical-align: middle;
-        height: 150px;
+        height: 125px;
         overflow: hidden;
     }
     &__info{
         text-align:center;
-        //padding: 10px; GEBRUIK ALLEEN ALS NODIG
+        margin-bottom: 10px;
     }
     &__title{
         font-size: 50;

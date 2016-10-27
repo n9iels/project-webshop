@@ -49,27 +49,37 @@
 
         <div class="header">        <!-- Header begint hier! -->
                 <div class="container">
-                        <div class="col-12">
-                                <div class="row">
-                                        <div class="col-2">
+                        <div class="col-12">                    <!-- COL-12 BEGINT -->
+                                <div class="row">               <!-- ROW BEGINT HIER! -->
+                                        <div class="col-2">     <!-- COL VAN LOGO BEGINT ! -->
                                                 <div class="logo">
                                                         <span class="fa fa-gamepad"></span>
                                                 </div>
-                                        </div>
+                                        </div>                  <!-- COL VAN LOGO EINDIGT ! -->
 
-                                        <div class="col-7">
+                                        <div class="col-10">     <!-- COL VAN ZOEK BAR BEGINT ! -->
                                                 <div class="search">
-                                                        <form>
-                                                                <input type="text" name="searched" placeholder="Zoek naar een game...">
-                                                        </form>
-                                                </div>
-                                        </div>
+                                                        <form class="searchtools">      <!-- FORMULIER EN KNOP BEGINNEN HIER! -->
+                                                                <div class="col-10">
+                                                                        <div class="searchbar">
+                                                                                        <input type="text" name="searched" placeholder="Zoek naar een game...">
+                                                                        </div>
+                                                                </div>
 
-                                        <div class="col-3">
-                                        MANDJE HIER
-                                        </div>
-                                </div>
-                        </div>
+                                                                <div class="col-2">
+                                                                        <div class="searchbutton">
+                                                                                        <button type="submit">
+                                                                                                <span class="fa fa-search"></span>
+                                                                                        </button>
+                                                                        </div>
+                                                                </div>
+                                                        </form>                               <!-- FORMULIER EN KNOP EINDIGEN HIER! -->
+                                                </div>
+                                        </div>                  <!-- COL VAN ZOEK BAR EINDIGT ! -->
+                                </div>                          <!-- ROW EINDIGT HIER! -->
+
+                        </div>                                  <!-- COL-12 EINDIGT -->
+                        
                 </div>
         </div>                      <!-- Header eindigt hier! -->
 
@@ -100,11 +110,11 @@
                             </div>
                             <div class="genrefilter"> <!-- GENRE CHECKLIST BEGINT HIER -->
                                 <form>      
-                                    <div class="form-group"> <input type="checkbox" name="genre-1" id="genre1" value="genrevalue1" /> <label for="genre1">Actie</label> </div>
-                                    <div class="form-group"> <input type="checkbox" name="genre-2" id="genre2" value="genrevalue2" /> <label for="genre2">Avontuur</label> </div>
-                                    <div class="form-group"> <input type="checkbox" name="genre-3" id="genre3" value="genrevalue3" /> <label for="genre3">Role-Playing</label> </div>
-                                    <div class="form-group"> <input type="checkbox" name="genre-4" id="genre4" value="genrevalue4" /> <label for="genre4">Strategie</label> </div>
-                                    <div class="form-group"> <input type="checkbox" name="genre-5" id="genre5" value="genrevalue5" /> <label for="genre5">Sport</label> </div>
+                                    <div class="form-group"> <input type="checkbox" name="genre-1" id="genre1" value="genrevalue1" /> <label for="genre1">Actie <span class="fa fa-bomb"></label> </div>
+                                    <div class="form-group"> <input type="checkbox" name="genre-2" id="genre2" value="genrevalue2" /> <label for="genre2">Avontuur <span class="fa fa-fighter-jet"></span></label> </div>
+                                    <div class="form-group"> <input type="checkbox" name="genre-3" id="genre3" value="genrevalue3" /> <label for="genre3">Role-Playing <span class="fa fa-group"></label> </div>
+                                    <div class="form-group"> <input type="checkbox" name="genre-4" id="genre4" value="genrevalue4" /> <label for="genre4">Strategie <span class="fa fa-book"></span></label> </div>
+                                    <div class="form-group"> <input type="checkbox" name="genre-5" id="genre5" value="genrevalue5" /> <label for="genre5">Sport <span class="fa fa-soccer-ball-o"></label> </div>
                                 </form>
                             </div>                  <!-- GENRE CHECKLIST EINDIGT HIER -->
                         </div> <!-- GENRE EINDIGT HIER!-->
