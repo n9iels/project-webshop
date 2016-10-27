@@ -7,8 +7,8 @@ const notify			= require('gulp-notify');
 const cssnano           = require('gulp-cssnano');
 
 /* src folders */
-const sassDir           = 'sass';
-const targetCss         = 'css';
+const sassDir           = __dirname + '/sass';
+const targetCss         = __dirname + '/css';
 
 /* Gulp tasks */
 gulp.task('sass', function () {
