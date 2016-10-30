@@ -23,38 +23,37 @@
     <body>
         <div class="menu">    <!-- Menu begint hier! -->
             <div class="container">
-                <ul class="navigation">
-                    <li class="navigation__item">
-                        <a href="index.html" class="navigation__link navigation__link--active">
-                            <span class="fa fa-home"></span> Home
-                            </a>
-                    </li>
-                    <li class="navigation__item">
-                        <a href="#" class="navigation__link">
-                             <span class="fa fa-user-plus"></span> Registreer
-                             </a>
-                    </li>
-                    <li class="navigation__item">
-                        <a href="#" class="navigation__link facebook">
-                             <span class="fa fa-facebook-square"></span> Social Media
-                             </a>
-                    </li>
-                    <li class="navigation__item">
-                        <a href="#" class="navigation__link">
-                             <span class="fa fa-envelope-o"></span> Contact
-                             </a>
-                    </li>
-                    <li class="navigation__item">
-                        <a href="#" class="navigation__link">
-                             <span class="fa fa-users"></span> Login
-                             </a>
-                    </li>
-                </ul>
+                <div class="col-3 col-mobile-6">
+                        <div class="menu__logo">
+                                <a href="/"><span class="fa fa-gamepad"></span> <span class="logo__text hidden-mobile">A-Z Games</span></a>
+                        </div>
+                </div>
+                <div class="col-7 hidden-mobile">
+                        <form class="searchtools">
+                                <div class="searchbar">
+                                        <input type="text" name="searched" placeholder="Zoek naar een game...">
+                                </div>
+                                <div class="searchbutton">
+                                        <button type="submit">
+                                                <span class="fa fa-search"></span>
+                                        </button>
+                                </div>
+                        </form>
+                </div>
+                <div class="col-1 col-mobile-3">
+                        <a href="#" class="menu__link">Inloggen</a>
+                </div>
+                <div class="col-1 col-mobile-3">
+                        <a href="#" class="cart_button">
+                                <span class="fa fa-shopping-cart"></span> <span class="count">5</span>
+                        </a>
+                </div>
             </div>
         </div>      <!-- Menu eindigt hier! -->
 
         <div class="content"> <!-- Content begint hier! -->
             <div class="container" id="component">
+
             </div>
         </div>
     </body>
