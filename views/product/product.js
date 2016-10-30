@@ -1,10 +1,5 @@
 var ViewHelper = function()
 {
-    function getInputText()
-    {
-        return $('#inputText').val();
-    }
-
     // Change the view of the page
     function setView(viewData)
     {
@@ -37,8 +32,6 @@ var ViewHelper = function()
             // Remove the first list item, because this item is always empty
             $("#product__list__item").first().remove();
         });
-
-        
     }
 
     // ActionListener that executes actions on specific events

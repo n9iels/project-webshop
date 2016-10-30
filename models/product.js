@@ -8,6 +8,9 @@ var Model = function()
             dataType: 'json',
             success: function (data) {
                 callback(data);
+            },
+            error: function (xhr, status, error) {
+                $("#component").html("Producten konden niet opgehaald worden :-(");
             }
         });
     }
