@@ -1,4 +1,4 @@
-var Model = function()
+var ProductsModel = function()
 {
     function getPage(callback)
     {

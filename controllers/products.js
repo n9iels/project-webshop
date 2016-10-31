@@ -1,4 +1,4 @@
-var Controller = function(viewHelper, model)
+var ProductsController = function(viewHelper, model)
 {
     var Model = model;
     var View  = viewHelper;

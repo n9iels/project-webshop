@@ -1,9 +1,9 @@
-var ViewHelper = function()
+var ProductsViewHelper = function()
 {
     // Change the view of the page
     function setView(viewData)
     {
-        $("#component").load('views/product/product.html', function () { 
+        $("#component").load('views/products/products.html', function () { 
             $.each(viewData, function(key, value) {
                 // Clone product
                 var product = $('<div>').append($('#product__list__item').clone());
