@@ -1,6 +1,9 @@
 .menu {
-    background-color: #0288D1;
-    min-height: 50px;
+    background-color: #746DFE; /* Color should be #0288D1 */
+    
+    .navigation {
+        width: 90%;
+        font-size: 0;
 
     &__link {
         font-size: 15px;
