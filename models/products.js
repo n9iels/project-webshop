@@ -10,7 +10,7 @@ var ProductsModel = function()
                 callback(data);
             },
             error: function (xhr, status, error) {
-                $("#component").html("Producten konden niet opgehaald worden :-(");
+                $("#component").load("error.html");
             }
         });
     }
