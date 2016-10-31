@@ -1,16 +1,18 @@
 /* plugins */
-const gulp              = require('gulp');
-const sass              = require('gulp-sass');
-const sourcemaps        = require('gulp-sourcemaps');
-const autoprefixer      = require('gulp-autoprefixer');
-const notify			= require('gulp-notify');
-const cssnano           = require('gulp-cssnano');
+var gulp              = require('gulp');
+var concat            = require('gulp-concat');
+var uglify            = require('gulp-uglify');
+var sass              = require('gulp-sass');
+var sourcemaps        = require('gulp-sourcemaps');
+var autoprefixer      = require('gulp-autoprefixer');
+var notify			  = require('gulp-notify');
+var cssnano           = require('gulp-cssnano');
 
 /* src folders */
-const sassDir           = __dirname + '/sass';
-const targetCss         = __dirname + '/css';
+var sassDir           = __dirname + '/sass';
+var targetCss         = __dirname + '/css';
 
-/* Gulp tasks */
+/* Compile SASS to CSS */
 gulp.task('sass', function () {
     gulp.src(sassDir + '/layout.scss')
         .pipe(sourcemaps.init())
@@ -23,7 +25,18 @@ gulp.task('sass', function () {
         .pipe(notify('SASS compiled successfully'));
 });
 
+/* Combine all scripts */
+gulp.task('scripts', function() {
+    gulp.src(['./models/*.js', './controllers/*.js', './views/**/*.js', './js/pageSwitcher.js'])
+        .pipe(sourcemaps.init())
+        .pipe(concat('app.js'))
+        .pipe(uglify())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('./js'));
+});
+
 gulp.task('default', function(){
     gulp.start(['sass']);
+    gulp.start(['scripts']);
     gulp.watch(sassDir + '/**/*.scss', ['sass']);
 });
