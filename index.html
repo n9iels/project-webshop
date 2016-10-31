@@ -14,8 +14,13 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
         <script>
+                // niet if docu ready, maar if pressed button 'login'
             $(document).ready(function() {
-                cont = new ProductsController(new ProductsViewHelper(), new ProductsModel());
+                //cont = PageFactory.getInstance(url);
+                //cont.main();
+                //cont = new ProductsController(new ProductsViewHelper(), new ProductsModel());
+                //cont.main();
+                cont = new LoginController(new LoginViewHelper(), new LoginModel());
                 cont.main();
             });
         </script>

@@ -1,16 +1,16 @@
-var ProductsModel = function()
+var LoginModel = function()
 {
     function getPage(callback)
     {
         $.ajax({
-            url: "http://84.84.245.29:243/products",
+            url: "http://84.84.245.29:243/login", //? http://84.84.245.29:243 = API-locatie?
             type: "get",
             dataType: 'json',
             success: function (data) {
                 callback(data);
             },
             error: function (xhr, status, error) {
-                $("#component").html("Producten konden niet opgehaald worden :-(");
+                $("#component").html("query voor login doet t niet? :-(");
             }
         });
     }

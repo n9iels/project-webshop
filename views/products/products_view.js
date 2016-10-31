@@ -3,13 +3,14 @@ var ProductsViewHelper = function()
     // Change the view of the page
     function setView(viewData)
     {
-        $("#component").load('views/products/products.html', function () { 
+        $("#component").load('views/products/products_view.html', function () { // waar id = 'component' doe .load......
             $.each(viewData, function(key, value) {
                 // Clone product
                 var product = $('<div>').append($('#product__list__item').clone());
                 
                 // Add product info
                 $(product).find(".product__title").html(value.ean_number);
+                $(product).find(".product__price").html(value.price);
                 
                 // Determin what we have to do with the rows
                 if (key % 4 == 0 && key == 0)
@@ -34,10 +35,12 @@ var ProductsViewHelper = function()
         });
     }
 
-    // ActionListener that executes actions on specific events
-    function setActionListener(eventHandler)
+    // Execute the event when 'something' happens (when a button is clicked for example)
+    function setActionListener(action)
     {
-        $(document).ready(eventHandler);
+        $(document).ready(action); // if 'document ready' perform "action"
+
+
     }
 
     // Return the methods that can be used by other programs (the controller in this case)
