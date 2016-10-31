@@ -56,7 +56,7 @@
           <div class="container"> <!-- Container begint hier! -->
               <div class="registerscreen:">    <!-- GESLACHT: BEGINT HIER -->                    
                             <div class="registerscreentitle">
-                                <h1>REGISTREER SCHERM</h1>
+                                <h1>Registreer scherm</h1>
                             </div>
               </div> <!-- GESLACHT: EINDIGT HIER!-->
 
@@ -253,11 +253,41 @@
                                 <form>      
                                     <div class="form-group"> <input type="text" name="E-mailadres" id="e-mailadres"/> <label for="e-mailadres">E-mailadres</label> </div>
                                     <div class="form-group"> <input type="text" name="Wachtwoord" id="wachtwoord"/> <label for="wachtwoord">Wachtwoord</label> </div>
-                                    <div class="form-group"> <input type="checkbox" name="Toon wachtwoord" id="toonwachtwoord"/> <label for="toonwachtwoord">Toon wachtwoord</label> </div>
+                                    <!-- <div class="form-group"> <input type="checkbox" name="Toon wachtwoord" id="toonwachtwoord"/> <label for="toonwachtwoord">Toon wachtwoord</label> </div> -->
                                     <div class="form-group"> <input type="text" name="Herhaal wachtwoord" id="herhaalwachtwoord"/> <label for="herhaalwachtwoord">Herhaal wachtwoord</label> </div>
                                 </form>
                             </div>                  <!-- ACCOUNT GEGEVENS INVOERVELDEN EINDIGT HIER -->
               </div> <!-- ACCOUNT GEGEVENS EINDIGT HIER!-->
+
+              <div class="security_question">    <!-- BEVEILIGINGSVRAAG BEGINT HIER -->                    
+                            <div class="security_question_title">
+                                <h1>KIES EEN BEVEILIGINGSVRAAG:</h1>
+                            </div>
+                            <div class="security_question_fields"> <!-- BEVEILIGINGSVRAAG INVOERVELD BEGINT HIER -->
+                                <form>      
+                                  <div class="form-group"> <select>
+                                    <option value="1">Wat is de naam van de eerste persoon die je hebt gekust?</option> 
+                                    <option value="2">Wat is de achternaam van de leraar die jou je eerste onvoldoende heeft gegeven?</option>
+                                    <option value="3">Wat is de naam van de plaats van waar je bruiloft is gehouden?</option> 
+                                    <option value="4">Wat is de naam van de basisschool waar je hebt gezeten?</option>
+                                    <option value="5">In welke stad of dorp woont je dichtsbijzijnde broer of zus?</option> 
+                                                   
+                                                             </select><label for="gebruikersnaam"></label> </div>
+                                </form>
+                            </div>                  <!-- BEVEILIGINGSVRAAG INVOERVELD EINDIGT HIER -->
+              </div> <!-- BEVEILIGINGSVRAAG EINDIGT HIER!-->
+
+              <div class="question_answer">    <!-- QUESTION ANSWER BEGINT HIER -->                    
+                            <div class="question_answer_title">
+                                <h1>ANTWOORD:</h1>
+                            </div>
+                            <div class="question_answer_fields"> <!-- ANTWOORD BEVEILIGINGSVRAAG INVOERVELD BEGINT HIER -->
+                                <form> 
+                                    <div class="form-group"> <input type="text" name="Questionanswer" id="questionanswer"/> <label for="questionanswer"></label> </div>
+
+                                </form>
+                            </div>                  <!-- ANTWOORD BEVEILIGINGSVRAAG INVOERVELD EINDIGT HIER -->
+              </div> <!-- QUESTION ANSWER EINDIGT HIER!-->
 
               
 
