@@ -14,8 +14,8 @@ var LoginController = function(viewHelper, model)
     function main()
     {
         // set view to login form
-        ViewHelper.setView();  
-        
+        ViewHelper.setView();
+
         // user fills in email and password; clicks 'login'
         // email and password are send to API; API validates them, sends one of following messages:
         // 1 email already has an account

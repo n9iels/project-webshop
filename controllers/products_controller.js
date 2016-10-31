@@ -4,7 +4,7 @@ var ProductsController = function(viewHelper, model)
     var ViewHelper = viewHelper;
     
     // Function that is executed on a action listener
-    function actionPerformed(event)
+    function actionPerformed()
     {
         Model.getPage(function (data) { ViewHelper.setView(data); });
     }

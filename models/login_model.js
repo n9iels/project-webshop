@@ -4,13 +4,13 @@ var LoginModel = function()
     {
         $.ajax({
             url: "http://84.84.245.29:243/login", //? http://84.84.245.29:243 = API-locatie?
-            type: "get",
+            type: "post",
             dataType: 'json',
             success: function (data) {
                 callback(data);
             },
             error: function (xhr, status, error) {
-                $("#component").html("query voor login doet t niet? :-(");
+                $("#component").html("post naar API doet t niet :-(");
             }
         });
     }
