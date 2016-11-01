@@ -26,6 +26,12 @@
                 //cont = new RegisterController(new RegisterViewHelper(), new RegisterModel());
                 console.log("main starts");
                 cont.main();
+
+            // test klikken op 'Inloggen'
+            //$("#menu_inloggen_button").on("click", function(){
+            //    new LoginController(new LoginViewHelper(), new LoginModel()).main();
+            //});
+
             });
         </script>
     </head>
@@ -50,7 +56,7 @@
                         </form>
                 </div>
                 <div class="col-1 col-mobile-3" id="inloggen_text" style="display: block;">
-                    <a href="#" class="menu__link">Inloggen</a>
+                    <a href="#" class="menu__link" id="menu_inloggen_button">Inloggen</a>
                 </div>
                 <div class="col-1 col-mobile-3" id="uitloggen_text" style="display: none;">
                     <a href="#" class="menu__link">Uitloggen</a>
