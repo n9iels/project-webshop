@@ -13,7 +13,7 @@ var LoginViewHelper = function()
         // user presses 'login'
 
         // if user presses 'login', perform action (make controller send email and password to API)
-        $("#component").on("click", "#loginbutton", action);
+        $("#component").on("submit", "#loginform", action);
     }
 
     // Return the methods that can be used by other programs (the controller in this case)
