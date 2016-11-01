@@ -1,11 +1,11 @@
 .menu {
-    background-color: #746DFE; /* Color should be #0288D1 */
+    background-color: #0288D1;
+    overflow: hidden;
     
     .navigation {
         width: 90%;
         font-size: 0;
     }
-    
     &__link {
         font-size: 15px;
         color: #fff;
