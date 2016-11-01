@@ -1,22 +1,34 @@
 var LoginModel = function()
 {
-    function getPage(callback)
+    function login(email, password, callback)
     {
         $.ajax({
-            url: "http://84.84.245.29:243/login", //? http://84.84.245.29:243 = API-locatie?
+            url: "http://84.84.245.29:243/user/login", //? http://84.84.245.29:243 = API-locatie?
             type: "post",
             dataType: 'json',
+            data: JSON.stringify({
+                email : email,
+                password : password
+            }),
             success: function (data) {
+                // put token in cookie
+
+                // let controller resume with stuff
                 callback(data);
+                console.log(data); //test
+
             },
             error: function (xhr, status, error) {
-                $("#component").html("post naar API doet t niet :-(");
+                // show 'not good email or password to user'
+                $("#error_message").show();
+
+                //$("#component").html("error function");
             }
         });
     }
 
     // Return the methods that can be used by other programs (the controller in this case)
     return {
-        getPage: getPage
+        login: login
     }
 };

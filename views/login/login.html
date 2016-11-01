@@ -2,8 +2,13 @@
     <div class="loginscreentitle">
         <h1>Login scherm</h1>
     </div>
+
+    <div class="error_message" id="error_message" style="display: none">
+        Verkeerde email of wachtwoord ingevoerd.<br>Probeer opnieuw alstublieft.
+    </div>
+
     <div class="loginscreenfields"> <!-- LOGIN INVOERVELDEN BEGINT HIER -->
-        <form>      
+        <form name="login" id="loginform">      
             <div class="form-group"> <input type="text" name="E-mailadres" id="e-mailadres"/> <label for="e-mailadres">E-mailadres</label> </div>
             <div class="form-group"> <input type="text" name="Wachtwoord" id="wachtwoord"/> <label for="wachtwoord">Wachtwoord</label> </div>
             <!--<div class="form-group"> <input type="checkbox" name="Toon wachtwoord" id="toonwachtwoord"/> <label for="toonwachtwoord">Toon wachtwoord</label> </div> -->
@@ -14,8 +19,9 @@
 
 
 <div class="loginbutton"> <!-- LOGIN BUTTON BEGINT HIER! -->
-    <button class="login_button">
-    <border-radius= 10px text-align=center :activebackground-color=#FF8C00 color=#FF8C00 /><h1>Login</h1></button>
+    <button class="login_button"  id="loginbutton">
+        Login
+    </button>
 </div> <!-- LOGIN BUTTON EINDIGT HIER! -->
 
 <div class="forgotpasswordtext"> <!-- FORGOT PASSWORD TEXT BEGINT HIER! -->

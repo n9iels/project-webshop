@@ -3,7 +3,7 @@ var ProductsViewHelper = function()
     // Change the view of the page
     function setView(viewData)
     {
-        $("#component").load('views/products/products_view.html', function () { // waar id = 'component' doe .load......
+        $("#component").load('views/products/products.html', function () { // waar id = 'component' doe .load......
             $.each(viewData, function(key, value) {
                 // Clone product
                 var product = $('<div>').append($('#product__list__item').clone());
