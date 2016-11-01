@@ -10,6 +10,7 @@ var ProductsViewHelper = function()
                 
                 // Add product info
                 $(product).find(".product__title").html(value.ean_number);
+                $(product).find(".product__image img").attr("src", value.image);
                 
                 // Determin what we have to do with the rows
                 if (key % 4 == 0 && key == 0)
