@@ -15,12 +15,16 @@
         <script type="text/javascript" src="js/app.js"></script>
         <script>
                 // niet if docu ready, maar if pressed button 'login'
+
             $(document).ready(function() {
                 //cont = PageFactory.getInstance(url);
                 //cont.main();
                 //cont = new ProductsController(new ProductsViewHelper(), new ProductsModel());
                 //cont.main();
-                cont = new LoginController(new LoginViewHelper(), new LoginModel());
+                //cont = new LoginController(new LoginViewHelper(), new LoginModel());
+                //cont.main();
+                cont = new RegisterController(new RegisterViewHelper(), new RegisterModel());
+                console.log("main starts");
                 cont.main();
             });
         </script>
