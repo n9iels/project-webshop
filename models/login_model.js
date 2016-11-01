@@ -12,11 +12,10 @@ var LoginModel = function()
             }),
             success: function (data) {
                 // put token in cookie
+                document.cookie='access_token=' + data.access_token
 
                 // let controller resume with stuff
                 callback(data);
-                console.log(data); //test
-
             },
             error: function (xhr, status, error) {
                 // show 'not good email or password to user'

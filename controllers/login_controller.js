@@ -11,9 +11,6 @@ var LoginController = function(viewHelper, model)
 
         // let model send email and password to API
         Model.login(email, password, function (data) {
-            // sla token op in cookie
-
-
             // show uitloggen button
             console.log("should show uitloggenbutton now");
             $("#inloggen_text").hide();
@@ -21,9 +18,7 @@ var LoginController = function(viewHelper, model)
 
 
             // Weergeef een andere pagina gebasseerd op 'admin' of 'registered user'
-
-
-
+            new PageController(new PageViewHelper(), new PageModel()).main();
         });
 
         //Model.getPage(function (data) { ViewHelper.setView(data); });
