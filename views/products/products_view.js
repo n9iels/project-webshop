@@ -9,7 +9,7 @@ var ProductsViewHelper = function()
                 var product = $('<div>').append($('#product__list__item').clone());
                 
                 // Add product info
-                $(product).find(".product__title").html(value.ean_number);
+                $(product).find(".product__title").html(value.title);
                 $(product).find(".product__price").html(value.price);
                 $(product).find(".product__image img").attr("src", value.image);
                 

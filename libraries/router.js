@@ -24,6 +24,9 @@ var Router = function ()
             case "login":
                 new LoginController(new LoginViewHelper(), new LoginModel()).main();
                 break;
+            case "logout":
+                new LogoutController(new LogoutViewHelper(), new LogoutModel()).main();
+                break;
             default:
                 new ErrorController(new ErrorViewHelper()).main();
                 break;
