@@ -29,10 +29,10 @@
                     var url = $(this).attr("href");
                     router.route(url);
                 });
-
-                $(window).on('popstate', function() {
-                    router.route(window.location.pathname, false);
-                });
+            });
+            
+            $(window).on('popstate', function() {
+                router.route(window.location.pathname, false);
             });
         </script>
     </head>
