@@ -1,10 +1,14 @@
 <div class="login screen">    <!-- LOGIN SCREEN BEGINT HIER -->                    
     <div class="loginscreentitle">
-        <h1><span class="fa fa-user"></span> Inloggen</h1>
+        <h1>Inloggen</h1>
     </div>
 
-    <div class="error_message" id="error_message" style="display: none">
-        Verkeerde email of wachtwoord ingevoerd.<br>Probeer opnieuw alstublieft.
+    <div  class="message message--error" id="error_message" style="display: none">
+        Het ingevoerde wachtwoord en email addres komen niet overeen.
+    </div>
+
+    <div class="message message--info">
+        Vul hieronder je e-mail adres en wachtwoord in om in te loggen.
     </div>
 
     <div class="loginscreenfields"> <!-- LOGIN INVOERVELDEN BEGINT HIER -->
@@ -18,7 +22,7 @@
                 <input type="password" name="password" id="wachtwoord"/>
             </div>
             <div class="form-group">
-                <input type="submit" value="login" id="loginbutton">
+                <input type="submit" value="Login" id="loginbutton" class="btn">
             </div>
         </form>
     </div>                  <!-- LOGIN INVOERVELDEN EINDIGT HIER -->

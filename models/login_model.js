@@ -3,7 +3,7 @@ var LoginModel = function()
     function login(email, password, callback)
     {
         $.ajax({
-            url: "http://84.84.245.29:243/user/login", //? http://84.84.245.29:243 = API-locatie?
+            url: "http:///84.84.245.29:243/user/login",
             type: "post",
             dataType: 'json',
             data: JSON.stringify({
@@ -11,8 +11,10 @@ var LoginModel = function()
                 password : password
             }),
             success: function (data) {
+                console.log(data)
                 // put token in cookie
-                document.cookie='access_token=' + data.access_token
+                document.cookie='access_token=' + data.access_token;
+                document.cookie='user_id=' + data.user_id;
 
                 // let controller resume with stuff
                 callback(data);
