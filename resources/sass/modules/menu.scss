@@ -84,7 +84,7 @@
     .cart_button { 
         padding: 10px;
         display: block;
-        font-size: 27px;
+        font-size: 26px;
         color: #fff;
         text-align: right;
         text-decoration: none;
@@ -96,14 +96,13 @@
         }
         span.count {
             position: absolute;
-            padding: 3px;
+            padding: 2px;
             vertical-align: super;
             font-size: 13px;
             font-weight: 600;
             text-align: center;
             margin: -3px 0 0 -10px;
-            height: 12px;
-            width: 12px;
+            width: 16px;
             background-color: #D32F2F;
             border-radius: 100%;
         }

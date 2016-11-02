@@ -7,63 +7,70 @@ select{
     border-radius:5px;
 }
 
-.filter{
+form.product_filter{
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 4px;
     overflow: hidden;
-}
 
-.form-group{
-    margin-top:5px;
-}
+    .form-group {
+        margin-top:5px;
 
-.price{
-    .pricetitle{
+        label {
+            display: inline-block;
+        }
+    }
+
+    .price{
+        .pricetitle{
+            font-weight:bold;
+            margin-bottom:5px;
+            padding-left:5px;
+            margin-top:10px;
+        }
+        .pricefilter{
+            display:inline-block;
+        }
+        label {
+            display: inline-block;
+        }
+    }
+
+    .genre{
+        .genretitle{
         font-weight:bold;
         margin-bottom:5px;
         padding-left:5px;
         margin-top:10px;
-    }
-    .pricefilter{
+        }
+
+        .genrefilter{
         display:inline-block;
-    }
-}
-
-.genre{
-    .genretitle{
-    font-weight:bold;
-    margin-bottom:5px;
-    padding-left:5px;
-    margin-top:10px;
+        }
     }
 
-    .genrefilter{
-    display:inline-block;
-    }
-}
+    .platform{
+        .platformtitle{
+            font-weight:bold;
+            margin-bottom:5px;
+            padding-left:5px;
+            margin-top:10px;
+        }
 
-.platform{
-    .platformtitle{
+        .platformfilter{
+        display:inline-block;
+        }
+    }
+
+    .publisher{
+        .publishertitle{
         font-weight:bold;
         margin-bottom:5px;
         padding-left:5px;
         margin-top:10px;
-    }
+        }
 
-    .platformfilter{
-    display:inline-block;
-    }
-}
-
-.publisher{
-    .publishertitle{
-    font-weight:bold;
-    margin-bottom:5px;
-    padding-left:5px;
-    margin-top:10px;
-    }
-
-    .publisherfilter{
-    display:inline-block;
+        .publisherfilter{
+        display:inline-block;
+        }
     }
 }

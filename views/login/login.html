@@ -1,29 +1,29 @@
 <div class="login screen">    <!-- LOGIN SCREEN BEGINT HIER -->                    
-    <div class="loginscreentitle">
+    <div class="col-6 login-col">
         <h1>Inloggen</h1>
-    </div>
-
-    <div  class="message message--error" id="error_message" style="display: none">
-        Het ingevoerde wachtwoord en email addres komen niet overeen.
-    </div>
-
-    <div class="message message--info">
-        Vul hieronder je e-mail adres en wachtwoord in om in te loggen.
-    </div>
-
-    <div class="loginscreenfields"> <!-- LOGIN INVOERVELDEN BEGINT HIER -->
-        <form name="login" id="loginform">      
-            <div class="form-group">
-                <label for="e-mailadres">E-mailadres</label>
-                <input type="text" name="email" id="e-mailadres"/>
+        <div  class="message message--error" id="error_message" style="display: none">
+            Het ingevoerde wachtwoord en email addres komen niet overeen.
+        </div>
+        <div class="message message--info">
+            Vul hieronder je e-mail adres en wachtwoord in om in te loggen.
+        </div>
+        <form name="login" id="loginform" class="loginform">      
+            <div class="form-group form-group--merge">
+                <input type="text" name="email" id="e-mailadres" placeholder="E-mailadres" />
+                <input type="password" name="password" id="wachtwoord" placeholder="Wachtwoord" />
             </div>
-            <div class="form-group">
-                <label for="wachtwoord">Wachtwoord</label>
-                <input type="password" name="password" id="wachtwoord"/>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Login" id="loginbutton" class="btn">
+            <div class="form-group buttons">
+                <input type="submit" value="Login" id="loginbutton" class="btn"> <a href="reset-password" class="reset">Ik ben mijn wachtwoord vergeten</a>
             </div>
         </form>
-    </div>                  <!-- LOGIN INVOERVELDEN EINDIGT HIER -->
+    </div>
+    <div class="col-6 register-col">
+        <h1>Nog geen account?</h1>
+        <ul class="icon-list">
+            <li>Snelle registratie</li>
+            <li>Bestel geschiedenis</li>
+            <li>Direct producten bestellen</li>
+        </ul>
+        <a href="register" class="btn btn--success">Maak een account aan</a>
+    </div>
 </div> <!-- LOGIN SCREEN EINDIGT HIER!-->

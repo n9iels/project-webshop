@@ -29,10 +29,10 @@
                     var url = $(this).attr("href");
                     router.route(url);
                 });
-            });
-            
-            $(window).on('popstate', function() {
-                router.route(window.location.pathname, false);
+
+                $(window).on('popstate', function() {
+                    router.route(window.location.pathname, false);
+                });
             });
         </script>
     </head>
@@ -45,9 +45,9 @@
                         </div>
                 </div>
                 <div class="col-7 hidden-mobile">
-                        <form class="searchtools">
-                                <div class="searchbar">
-                                        <input type="text" name="searched" placeholder="Zoek naar een game...">
+                        <form class="searchtools form--inline">
+                                <div class="searchbar form-group">
+                                        <input type="text" name="search" placeholder="Zoek naar een game...">
                                 </div>
                                 <div class="searchbutton">
                                         <button type="submit">
