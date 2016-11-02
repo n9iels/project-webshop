@@ -14,9 +14,25 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="resources/js/app.js"></script>
         <script>
-            $(document).ready(function() {
-                cont = new ProductsController(new ProductsViewHelper(), new ProductsModel());
-                cont.main();
+            $(document).ready(function()
+            {
+                // Create route instance
+                var router = new Router();
+
+                // Route the current url when the page is load
+                router.route(window.location.pathname);
+
+                // Route internal urls
+                $("body").on("click", "a", function (event) {
+                    event.preventDefault();
+
+                    var url = $(this).attr("href");
+                    router.route(url);
+                });
+
+                $(window).on('popstate', function() {
+                    router.route(window.location.pathname, false);
+                });
             });
         </script>
     </head>
@@ -25,7 +41,7 @@
             <div class="container">
                 <div class="col-3 col-mobile-6">
                         <div class="menu__logo">
-                                <a href="/"><span class="fa fa-gamepad"></span> <span class="logo__text hidden-mobile">A-Z Games</span></a>
+                                <a href=""><span class="fa fa-gamepad"></span> <span class="logo__text hidden-mobile">A-Z Games</span></a>
                         </div>
                 </div>
                 <div class="col-7 hidden-mobile">
@@ -41,7 +57,7 @@
                         </form>
                 </div>
                 <div class="col-1 col-mobile-3" id="inloggen_text" style="display: block;">
-                    <a href="#" class="menu__link">Inloggen</a>
+                    <a href="login" class="menu__link">Inloggen</a>
                 </div>
                 <div class="col-1 col-mobile-3" id="uitloggen_text" style="display: none;">
                     <a href="#" class="menu__link">Uitloggen</a>

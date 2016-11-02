@@ -1,12 +1,8 @@
 <IfModule mod_rewrite.c>
-    Options +FollowSymLinks
-    RewriteEngine on
+RewriteEngine On
+RewriteBase /project-webshop/
 
-    RewriteBase /project-webshop
-
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-l
-
-    RewriteRule .* index.html [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.html [L]
 </IfModule>

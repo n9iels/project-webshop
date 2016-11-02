@@ -9,8 +9,8 @@ var notify			  = require('gulp-notify');
 var cssnano           = require('gulp-cssnano');
 
 /* src folders */
-var sassDir           = __dirname + '/sass';
-var targetCss         = __dirname + '/css';
+var sassDir           = __dirname + '/resources/sass';
+var targetCss         = __dirname + '/resources/css';
 
 /* Compile SASS to CSS */
 gulp.task('sass', function () {
@@ -27,12 +27,12 @@ gulp.task('sass', function () {
 
 /* Combine all scripts */
 gulp.task('scripts', function() {
-    gulp.src(['./models/*.js', './controllers/*.js', './views/**/*.js', './js/pageSwitcher.js'])
+    gulp.src(['./libraries/*.js', './models/*.js', './controllers/*.js', './views/**/*.js', './js/pageSwitcher.js'])
         .pipe(sourcemaps.init())
         .pipe(concat('app.js'))
         .pipe(uglify())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./js'));
+        .pipe(gulp.dest('./resources/js'));
 });
 
 gulp.task('default', function(){
