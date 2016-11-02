@@ -11,6 +11,8 @@ var LogoutModel = function()
             }),
             success: function (data) {
                 // let controller resume with stuff
+                document.cookie='access_token=';
+                document.cookie='user_id=';
                 callback(data);
             },
             error: function (xhr, status, error) {
@@ -29,7 +31,7 @@ var LogoutModel = function()
             {
                 var cookie = cookies[i].split("=");
 
-                if (cookie[0] == name)
+                if (cookie[0].trim() == name)
                 {
                     return cookie[1];
                 }
