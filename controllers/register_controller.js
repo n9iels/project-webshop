@@ -6,20 +6,22 @@ var RegisterController = function(viewHelper, model)
     // Function that is executed on a action listener
     function actionPerformed()
     {
-        var email = $("#e-mailadres").val();
-        var password = $("#wachtwoord").val();
-        var first_name = $("#voornaam").val();
-        var surname = $("#achternaam").val();
-        var gender = $("#gender_select option:selected").text();
-        var date_of_birth = new Date($("#jaar_select option:selected").val(),
-                                     $("#maand_select option:selected").val(),
-                                     $("#dag_select option:selected").val());
-        var phone_number = $("#mobiel nummer (optioneel)").val();
+        // Prevent sending the form
+        event.preventDefault();
 
+        // Loop trough the form data and get all fields
+        var formData = {};
+        $.each($(this).serializeArray(), function (i, field) {
+            formData[field.name] = field.value;
+        });
+
+        console.log(formData.e_mailadres);
+        console.log(formData.gender);
+        console.log(formData.birth_date);
 
 
         // let model send user info to API
-        Model.register(email, password, first_name, surname, gender, date_of_birth, phone_number, function (data) {
+        Model.register(formData, function (data) {
             
 
             // Weergeef een andere pagina als registratie proces correct uitgevoerd

@@ -1,14 +1,14 @@
 var RegisterModel = function()
 {
-    function register(email, password, callback)
+    function register(formData, callback)
     {
         $.ajax({
             url: "http://84.84.245.29:243/user/login", //? http://84.84.245.29:243 = API-locatie?
             type: "post",
             dataType: 'json',
             data: JSON.stringify({
-                email : email,
-                password : password
+                email : formData.e_mailadres,
+                password : formData.wachtwoord
             }),
             success: function (data) {
                 // let controller resume with stuff
