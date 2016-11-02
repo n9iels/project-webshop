@@ -10,7 +10,7 @@ var ProductsModel = function()
                 callback(data);
             },
             error: function (xhr, status, error) {
-                $("#component").load("error.html");
+                $("#component").load("views/error/error.html");
             }
         });
     }
