@@ -3,7 +3,7 @@ var LoginModel = function()
     function login(email, password, callback)
     {
         $.ajax({
-            url: "http://localhost:8080/user/login", //? http://84.84.245.29:243 = API-locatie?
+            url: "http:///84.84.245.29:243/user/login",
             type: "post",
             dataType: 'json',
             data: JSON.stringify({
