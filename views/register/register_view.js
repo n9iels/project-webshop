@@ -1,9 +1,9 @@
 var RegisterViewHelper = function()
 {
     // Change the view of the page
-    function setView()
+    function setView(viewToShow)
     {
-        $("#component").load('views/register/register.html');
+        $("#component").load(viewToShow);
     }
 
     // Execute the event when 'something' happens (when a button is clicked for example)
