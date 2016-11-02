@@ -11,7 +11,6 @@ var LoginModel = function()
                 password : password
             }),
             success: function (data) {
-                console.log(data)
                 // put token in cookie
                 document.cookie='access_token=' + data.access_token;
                 document.cookie='user_id=' + data.user_id;
