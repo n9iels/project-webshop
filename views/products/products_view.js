@@ -3,7 +3,15 @@ var ProductsViewHelper = function()
     // Change the view of the page
     function setView(viewData)
     {
-        $("#component").load('views/products/products.html', function () { // waar id = 'component' doe .load......
+        $("#component").html('<div class="col-12"><div class="col-3" id="filters"></div><div class="col-9" id="products"></div></div>');
+        $("#filters").load('views/products/filters.html');
+
+        loadProducts(viewData);
+    }
+
+    function loadProducts(viewData)
+    {
+        $("#products").load('views/products/products.html', function () { // waar id = 'component' doe .load......
             $.each(viewData, function(key, value) {
                 // Clone product
                 var product = $('<div>').append($('#product__list__item').clone());
@@ -40,13 +48,23 @@ var ProductsViewHelper = function()
     function setActionListener(action)
     {
         $(document).ready(action); // if 'document ready' perform "action"
+    }
 
+    function setFilterListener(action)
+    {
+         // Hier het formulier versturen als we op een checkbox drukken
+        $("#component").on("click", "input[type=checkbox]", function(event) {
+            $("#product_filter").submit();
+        });
 
+        $("#component").on("submit", "#product_filter", action);
     }
 
     // Return the methods that can be used by other programs (the controller in this case)
     return {
         setView: setView,
-        setActionListener: setActionListener
+        loadProducts: loadProducts,
+        setActionListener: setActionListener,
+        setFilterListener: setFilterListener
     }
 };
