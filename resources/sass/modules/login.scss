@@ -1,4 +1,28 @@
-.error_message{
-    color:red;
-    margin-bottom:20px;
+form.loginform {
+    .reset {
+        color: #464646;
+        font-weight: bold;
+        float: right;
     }
+    .buttons {
+        line-height: 32px;
+    }
+}
+ul.icon-list {
+    margin: 20px 0;
+    line-height: 1.5;
+
+    li::before {
+        content:"\f00c";
+        font: normal normal normal 14px/1 FontAwesome;
+        margin-right: 10px;
+        color: #1e7946;
+    }
+}
+@media (min-width: 768px)
+{
+    .login-col {
+        padding-right: 25px;
+        border-right: 1px solid #ccc;
+    }
+}
