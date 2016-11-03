@@ -3,7 +3,7 @@ var ProductsViewHelper = function()
     // Change the view of the page
     function setView(viewData)
     {
-        $("#component").append('<div class="col-12"><div class="col-3" id="filters"></div><div class="col-9" id="products"></div></div>');
+        $("#component").html('<div class="col-12"><div class="col-3" id="filters"></div><div class="col-9" id="products"></div></div>');
         $("#filters").load('views/products/filters.html');
 
         loadProducts(viewData);
