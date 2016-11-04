@@ -9,13 +9,29 @@ var RegisterController = function(viewHelper, model)
         // Prevent sending the form
         event.preventDefault();
 
-        // check if any mandatory field is empty
-        var completeList = $(this).serializeArray();
-        var mandatoryFields = ["gender", "voornaam", "achternaam"];
+        // put form fields in javascript Object
+        var formData = {};
+
+        $.each($(this).serializeArray(), function (i, field) {
+            formData[field.name] = field.value;
+        });
+
+        // fix date of birth (API expects certain format)
+        formData["birth_date"] = formData.jaar + "-" + formData.maand + "-" + formData.dag;
+
+        // check whether any mandatory field is left empty by user and
+        // if so, abort function
         var abortFunction = false;
+        var mandatoryFields = ["voornaam", "achternaam", "postcode", "huisnummer", "e_mailadres", "wachtwoord", "wachtwoord2", "security_answer"]; //dropdowns (like gender) are always filled in, so don't put in this list
+
+        // (reset all fields to 'valid' because user may have filled in fields since
+        // the previous time this function was called)
+        $.each(mandatoryFields, function (i, manField) {
+            $("#" + manField).removeClass("invalid");
+        })
 
         $.each(mandatoryFields, function (i, manField) {
-            if (completeList[manField] == "")
+            if (formData[manField] == "")
             {
                 $("#" + manField).addClass("invalid");
 
@@ -23,22 +39,20 @@ var RegisterController = function(viewHelper, model)
             }
         })
 
-        // if a mandatory field is empty, don't resume function
-        if (abortFunction) { return false; };
+        // if a mandatory field is empty, show error message to user and abort function
+        if (abortFunction)
+        { 
+            // scroll to top of page so that users see message "something is not filled in"
+            window.scrollTo(0, 0);
+            // show message "something is not filled in"
+            $("#register_error_message").show();
 
-        // save all fields in an id:value format
-        // IS THIS NECESSARY? NOT UNNECESSARILY CREATE duplicate OF LIST?
-        var formData = {};
+            return false; 
+        };
 
-        $.each(completeList, function (i, field) {
-            formData[field.name] = field.value;
-        });
+        console.log("function not aborted"); //test
 
-        // fix date of birth (API expects certain format)
-        formData["birth_date"] = formData.jaar + "-" + formData.maand + "-" + formData.dag;
-
-        console.log(formData); //test
-
+        /*
         // let model send user info to API
         Model.register(formData, function (data) {
             
@@ -51,6 +65,8 @@ var RegisterController = function(viewHelper, model)
             //$("#uitloggen_text").show();
 
         });
+        */
+        ViewHelper.setView('views/register/after_register.html');
 
         //Model.getPage(function (data) { ViewHelper.setView(data); });
     }
