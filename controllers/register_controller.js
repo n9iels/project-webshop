@@ -31,14 +31,17 @@ var RegisterController = function(viewHelper, model)
         })
 
         $.each(mandatoryFields, function (i, manField) {
+            console.log(manField);
             if (formData[manField] == "")
             {
+                console.log("in if");
                 $("#" + manField).addClass("invalid");
 
                 abortFunction = true;
             }
         })
 
+        
         // if a mandatory field is empty, show error message to user and abort function
         if (abortFunction)
         { 
