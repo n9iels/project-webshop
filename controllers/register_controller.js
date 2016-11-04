@@ -66,6 +66,9 @@ var RegisterController = function(viewHelper, model)
 
         });
         */
+
+        $("#inloggen_text").hide();
+        $("#uitloggen_text").show();
         ViewHelper.setView('views/register/after_register.html');
 
         //Model.getPage(function (data) { ViewHelper.setView(data); });
