@@ -24,7 +24,7 @@ var RegisterModel = function()
             },
             error: function (xhr, status, error) {
                 // show 'email al gebonden aan een account?'
-                $("#error_message").show();
+                $("#regi_api_error_message").show();
 
                 //$("#component").html("error function");
             }

@@ -1,18 +1,16 @@
-<div class="registerscreen:">                    
-    <div class="registerscreentitle">
-        <h1>Registreren</h1>
-    </div>
-</div> 
+<div class="title"> <!--title is in form.scss-->
+    Registreren
+</div>
 <div class="message message--error" id="register_error_message" style="display: none">
     Sommige verplichte velden zijn nog niet ingevuld.<br>
-    Vul deze alstublieft in.
+    Vul deze alsjeblieft in.
 </div>
 
-<form name="registerform" id="registerform">
+<form class="registerform" name="registerform" id="registerform">
     <div class="user_info">    <!-- USER INFO BEGINT HIER -->                    
         <div class="userinfofields"> <!-- USER INFO FIELDS BEGINT HIER -->
             <div class="form-group"> <!-- GESLACHT: BEGINT HIER!-->
-                <label for="gender">Geslacht</label> 
+                <label class="form_title" for="gender">Geslacht</label> 
                 <select name="gender" id="gender">
                     <option value="male">Man</option>
                     <option value="female">Vrouw</option>
@@ -23,11 +21,11 @@
                 <input type="text" name="voornaam" id="voornaam"/>
             </div>
             <div class="form-group">
-                <label for="tussenvoegsel">Tussenvoegsel</label>
+                <label class="form_title" for="tussenvoegsel">Tussenvoegsel</label>
                 <input type="text" name="tussenvoegsel" id="tussenvoegsel"/>
             </div>
             <div class="form-group">
-                <label for="achternaam">Achternaam</label>
+                <label class="form_title" for="achternaam">Achternaam</label>
                 <input type="text" name="achternaam" id="achternaam"/>
             </div>
         </div>      <!-- USER INFO FIELDS EINDIGT HIER -->
@@ -35,11 +33,13 @@
 
     <div class="birth_date">    <!-- BIRTH DATE BEGINT HIER -->                    
         <div class="birth_date_title">
-            <h1>GEBOORTEDATUM</h1>
+            <div class="title">
+                Geboortedatum
+            </div>
         </div>
         <div class="birth_date_fields"> <!-- BIRTH DATE INVOERVELDEN BEGINT HIER -->
             <div class="form-group">
-                <label for="dag">Dag</label> 
+                <label class="form_title" for="dag">Dag</label> 
                 <select name="dag" id="dag">
                     <option value="01">1</option> 
                     <option value="02">2</option>
@@ -74,7 +74,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="maand">Maand</label> 
+                <label class="form_title" for="maand">Maand</label> 
                 <select name="maand" id="maand">
                     <option value="01">Januari</option> 
                     <option value="02">Februari</option>
@@ -91,7 +91,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="jaar">Jaar</label> 
+                <label class="form_title" for="jaar">Jaar</label> 
                 <select name="jaar" id="jaar">
                     <option value="1916">1916</option> 
                     <option value="1917">1917</option>
@@ -189,8 +189,9 @@
 
     <div class="address">    <!-- ADRES BEGINT HIER -->                    
         <div class="address_title">
-            <h1>ADRES:</h1>
-        </div>
+            <div class="title">
+                Adres
+            </div>        </div>
         <div class="address_fields"> <!-- ADRES INVOERVELDEN BEGINT HIER -->
             <div class="form-group">
                 <label for="postcode">Postcode</label>
@@ -213,7 +214,9 @@
 
     <div class="phone_number">    <!-- TELEFOONNUMMER (OPTIONEEL) BEGINT HIER -->                    
         <div class="phone_number_title">
-            <h1>TELEFOONNUMMER (OPTIONEEL):</h1>
+            <div class="title">
+                Telefoonnummer (optioneel)
+            </div>
         </div>
         <div class="phone_number_fields"> <!-- TELEFOONNUMMER (OPTIONEEL) INVOERVELDEN BEGINT HIER -->
             <div class="form-group">
@@ -229,8 +232,9 @@
 
     <div class="account data">    <!-- ACCOUNT GEGEVENS BEGINT HIER -->                    
         <div class="accountdatatitle">
-            <h1>ACCOUNT GEGEVENS</h1>
-        </div>
+            <div class="title">
+                Account gegevens
+            </div>        </div>
         <div class="accountdatafields"> <!-- ACCOUNT GEGEVENS INVOERVELDEN BEGINT HIER -->   
             <div class="form-group">
                 <label for="e_mailadres">E-mailadres</label>
@@ -250,8 +254,9 @@
 
     <div class="security_question">    <!-- BEVEILIGINGSVRAAG BEGINT HIER -->                    
         <div class="security_question_title">
-            <h1>KIES EEN BEVEILIGINGSVRAAG</h1>
-        </div>
+            <div class="form_title">
+                Beveiligingsvraag
+            </div>        </div>
         <div class="security_question_fields"> <!-- BEVEILIGINGSVRAAG INVOERVELD BEGINT HIER -->
             <div class="form-group">
                 <label for="security_question"></label>
@@ -268,8 +273,9 @@
 
     <div class="question_answer">    <!-- QUESTION ANSWER BEGINT HIER -->                    
         <div class="question_answer_title">
-            <h1>ANTWOORD</h1>
-        </div>
+            <div class="form_title">
+                Antwoord
+            </div>        </div>
         <div class="question_answer_fields"> <!-- ANTWOORD BEVEILIGINGSVRAAG INVOERVELD BEGINT HIER -->
             <div class="form-group">
                 <label for="security_answer"></label>
@@ -278,7 +284,10 @@
         </div>                  <!-- ANTWOORD BEVEILIGINGSVRAAG INVOERVELD EINDIGT HIER -->
     </div> <!-- QUESTION ANSWER EINDIGT HIER!-->
 
-    <div class="registerbutton"> <!-- REGISTREER BUTTON BEGINT HIER! -->
-        <input type="submit" value="Registreer" id="registerbutton"/>
-    </div> <!-- REGISTREER BUTTON EINDIGT HIER! -->
+    <div class="message message--error" id="regi_api_error_message" style="display: none">
+        Er gaat wat fout bij de API, joh!<br>
+    </div>
+
+    <!-- <button class="btn"></button> -->
+    <input class="btn" type="submit" value="Registreer" id="registerbutton"/>
 </form>

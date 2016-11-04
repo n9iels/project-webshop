@@ -6,8 +6,13 @@ var RegisterController = function(viewHelper, model)
     // Function that is executed on a action listener
     function actionPerformed()
     {
+        console.log("in actionPerformed"); //test
+
         // Prevent sending the form
         event.preventDefault();
+
+        // reset register api error message
+        $("#regi_api_error_message").hide();
 
         // put form fields in javascript Object
         var formData = {};
@@ -31,10 +36,8 @@ var RegisterController = function(viewHelper, model)
         })
 
         $.each(mandatoryFields, function (i, manField) {
-            console.log(manField);
             if (formData[manField] == "")
             {
-                console.log("in if");
                 $("#" + manField).addClass("invalid");
 
                 abortFunction = true;
@@ -55,7 +58,7 @@ var RegisterController = function(viewHelper, model)
 
         console.log("function not aborted"); //test
 
-        /*
+        console.log(formData);
         // let model send user info to API
         Model.register(formData, function (data) {
             
@@ -68,12 +71,12 @@ var RegisterController = function(viewHelper, model)
             //$("#uitloggen_text").show();
 
         });
-        */
-
+        
+/*
         $("#inloggen_text").hide();
         $("#uitloggen_text").show();
         ViewHelper.setView('views/register/after_register.html');
-
+*/
         //Model.getPage(function (data) { ViewHelper.setView(data); });
     }
 

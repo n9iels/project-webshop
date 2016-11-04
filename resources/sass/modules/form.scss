@@ -1,4 +1,8 @@
 form {
+    .form_title{
+        //font-size: 110px;
+        font-weight: normal;
+    }
     &.form--inline {
         .form-group {
             display: inline-block;
@@ -29,9 +33,9 @@ form {
                 outline: none;
             }
 
-            .invalid {
+            &.invalid {
+                outline-style: ridge;
                 outline-color: #ff0000;
-                outline-style: dotted;
             }
         }
         input[type=checkbox] {
@@ -73,5 +77,16 @@ form {
         background-color: #1e7946;
         border-color: #135631;
         color: #fff;
+    }
+}
+
+.title{
+    font-weight: normal; //should be bold
+}
+
+.registerform {
+    label {
+        //font-size: 100px;
+        font-weight: normal; //doesn't work?
     }
 }
