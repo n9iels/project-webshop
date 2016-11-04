@@ -19,8 +19,7 @@ form {
             border: 1px solid #ccc;
             border-radius: 2px;
             width: 100%;
-            height: 43px;
-            padding-left: 7px;
+            padding: 10px 10px 10px 7px;
             font-size: 17px;
             font-weight: 300;
             font-family: 'Open Sans', sans-serif;
@@ -31,6 +30,28 @@ form {
         }
         input[type=checkbox] {
             display: inline-block;
+        }
+
+        .input-group {
+            display: flex;
+
+            .btn {
+                padding: 15px 14px 14px;
+            }
+            input[type=text]:first-child,
+            input[type=password]:first-child {
+                display: table-cell;
+                border-radius: 3px 0 0 3px;
+            }
+            &--btn {
+                display: table-cell;
+                vertical-align: middle;
+                
+                .btn {
+                    border-radius: 0 3px 3px 0;
+                    margin-left: -1px;
+                }
+            }
         }
 
         &--merge {
