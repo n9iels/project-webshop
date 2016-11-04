@@ -6,30 +6,70 @@ var RegisterController = function(viewHelper, model)
     // Function that is executed on a action listener
     function actionPerformed()
     {
-        var email = $("#e-mailadres").val();
-        var password = $("#wachtwoord").val();
-        var first_name = $("#voornaam").val();
-        var surname = $("#achternaam").val();
-        var gender = $("#gender_select option:selected").text();
-        var date_of_birth = new Date($("#jaar_select option:selected").val(),
-                                     $("#maand_select option:selected").val(),
-                                     $("#dag_select option:selected").val());
-        var phone_number = $("#mobiel nummer (optioneel)").val();
+        // Prevent sending the form
+        event.preventDefault();
 
+        // put form fields in javascript Object
+        var formData = {};
 
+        $.each($(this).serializeArray(), function (i, field) {
+            formData[field.name] = field.value;
+        });
 
+        // fix date of birth (API expects certain format)
+        formData["birth_date"] = formData.jaar + "-" + formData.maand + "-" + formData.dag;
+
+        // check whether any mandatory field is left empty by user and
+        // if so, abort function
+        var abortFunction = false;
+        var mandatoryFields = ["voornaam", "achternaam", "postcode", "huisnummer", "e_mailadres", "wachtwoord", "wachtwoord2", "security_answer"]; //dropdowns (like gender) are always filled in, so don't put in this list
+
+        // (reset all fields to 'valid' because user may have filled in fields since
+        // the previous time this function was called)
+        $.each(mandatoryFields, function (i, manField) {
+            $("#" + manField).removeClass("invalid");
+        })
+
+        $.each(mandatoryFields, function (i, manField) {
+            if (formData[manField] == "")
+            {
+                $("#" + manField).addClass("invalid");
+
+                abortFunction = true;
+            }
+        })
+
+        // if a mandatory field is empty, show error message to user and abort function
+        if (abortFunction)
+        { 
+            // scroll to top of page so that users see message "something is not filled in"
+            window.scrollTo(0, 0);
+            // show message "something is not filled in"
+            $("#register_error_message").show();
+
+            return false; 
+        };
+
+        console.log("function not aborted"); //test
+
+        /*
         // let model send user info to API
-        Model.register(email, password, first_name, surname, gender, date_of_birth, phone_number, function (data) {
+        Model.register(formData, function (data) {
             
 
             // Weergeef een andere pagina als registratie proces correct uitgevoerd
-            //ViewHelper.setView('views/register/after_register.html');
+            ViewHelper.setView('views/register/after_register.html');
 
             // gelijk inloggen als nieuwe user zich geregistreerd heeft?
             //$("#inloggen_text").hide();
             //$("#uitloggen_text").show();
 
         });
+        */
+
+        $("#inloggen_text").hide();
+        $("#uitloggen_text").show();
+        ViewHelper.setView('views/register/after_register.html');
 
         //Model.getPage(function (data) { ViewHelper.setView(data); });
     }
@@ -38,7 +78,7 @@ var RegisterController = function(viewHelper, model)
     function main()
     {
         // set view to register form
-        ViewHelper.setView();
+        ViewHelper.setView('views/register/register.html');
 
         // user fills in register info; clicks 'register': view notices this and reacts
         ViewHelper.setActionListener(actionPerformed);
