@@ -11,8 +11,9 @@ var RegisterController = function(viewHelper, model)
         // Prevent sending the form
         event.preventDefault();
 
-        // reset register api error message
+        // reset error messages
         $("#regi_api_error_message").hide();
+        $("#ww2_error_message").hide();
 
         // put form fields in javascript Object
         var formData = {};
@@ -26,7 +27,7 @@ var RegisterController = function(viewHelper, model)
 
         // check whether any mandatory field is left empty by user and
         // if so, abort function
-        var abortFunction = false;
+        var mandatoryFieldMisses = false;
         var mandatoryFields = ["voornaam", "achternaam", "postcode", "huisnummer", "e_mailadres", "wachtwoord", "wachtwoord2", "security_answer"]; //dropdowns (like gender) are always filled in, so don't put in this list
 
         // (reset all fields to 'valid' because user may have filled in fields since
@@ -40,21 +41,35 @@ var RegisterController = function(viewHelper, model)
             {
                 $("#" + manField).addClass("invalid");
 
-                abortFunction = true;
+                mandatoryFieldMisses = true;
             }
         })
 
         
         // if a mandatory field is empty, show error message to user and abort function
-        if (abortFunction)
+        if (mandatoryFieldMisses)
         { 
             // scroll to top of page so that users see message "something is not filled in"
             window.scrollTo(0, 0);
             // show message "something is not filled in"
             $("#register_error_message").show();
-
-            return false; 
         };
+
+        var passwordsNotIdentical = false;
+
+        if (formData.wachtwoord != formData.wachtwoord2) 
+        {
+            passwordsNotIdentical = true;
+            $("#ww2_error_message").show();
+            $("#wachtwoord").addClass("invalid");
+            $("#wachtwoord2").addClass("invalid");
+        }
+
+        // abort function if mandatory field misses or passwords not identical
+        if (mandatoryFieldMisses || passwordsNotIdentical)
+        {
+            return false;
+        }
 
         console.log("function not aborted"); //test
 
