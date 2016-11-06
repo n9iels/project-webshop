@@ -1,7 +1,8 @@
 .cart {
+    padding: 0;
+
     &__item {
         display: block;
-        margin: -15px;
         padding: 15px;
         border-bottom: 1px solid #ccc;
         
@@ -28,10 +29,13 @@
             color: #545454;
             cursor: pointer;
         }
+
+        &--removed {
+            @include remove-right(300px);
+        }
     }
 
     &__total {
-        margin: 15px -15px -15px -15px;
         padding: 15px;
 
         .total {
@@ -43,9 +47,13 @@
     }
 
     &__checkout {
-        margin: 15px -15px -15px -15px;
         padding: 15px;
         color: #fff;
         background-color: #5b9460;
+        cursor: pointer;
+
+        .fa {
+            float: right;
+        }
     }
 }

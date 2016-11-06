@@ -5,19 +5,23 @@ $(document).ready(function()
         // Prevent default click action
         e.preventDefault();
 
+        // Id of the sidebar to toggle
         var sidebar = $(this).data("sidebar");
-        $("#" + sidebar).toggleClass("sidebar--open");
-        $(".overlay").toggleClass("overlay--visible");
+
+        toggleSidebar($("#" + sidebar));
     });
 
     $(".sidebar__close").click(function (e) {
-        var sidebar = $(this).parent().parent();
-        $(sidebar).toggleClass("sidebar--open");
-        $(".overlay").toggleClass("overlay--visible");
+        toggleSidebar($(this).parent().parent());
     })
 
     $(".overlay").click(function (e) {
-        $(".sidebar").toggleClass("sidebar--open");
+        toggleSidebar($(".sidebar"));
+    });
+
+    function toggleSidebar(sidebar)
+    {
+        $(sidebar).toggleClass("sidebar--open");
         $(".overlay").toggleClass("overlay--visible");
-    })
+    }
 });
