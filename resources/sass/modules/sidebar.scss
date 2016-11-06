@@ -6,7 +6,7 @@
     width: 250px;
     background-color: #fff;
     box-shadow: 1px 2px 7px 0px rgba(0, 0, 0, 0.4);
-    transform: translate3d(250px, 0, 0);
+    transform: translate3d(260px, 0, 0);
     transition: transform 0.3s;
 
     &__title {
@@ -22,6 +22,9 @@
     &__close {
         font: normal normal normal 23px/1 FontAwesome;
         float: right;
+        padding: 16px;
+        margin: -16px;
+        cursor: pointer;
 
         &::before {
             content: "\f00d";
