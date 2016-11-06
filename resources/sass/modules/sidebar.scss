@@ -1,0 +1,42 @@
+.sidebar {
+    position: fixed;
+    top: 50px;
+    z-index: 1;
+    height: 100%;
+    width: 250px;
+    background-color: #fff;
+    box-shadow: 1px 2px 7px 0px rgba(0, 0, 0, 0.4);
+    transform: translate3d(250px, 0, 0);
+    transition: transform 0.3s;
+
+    &__title {
+        font-size: 23px;
+        padding: 15px;
+        border-bottom: 1px solid #ccc;
+    }
+    
+    &__content {
+        padding: 15px;
+    }
+
+    &__close {
+        font: normal normal normal 23px/1 FontAwesome;
+        float: right;
+
+        &::before {
+            content: "\f00d";
+        }
+    }
+
+    &--right {
+        right: 0;
+    }
+
+    &--left {
+        left: 0;
+    }
+
+    &--open {
+        transform: translate3d(0, 0, 0);
+    }
+}

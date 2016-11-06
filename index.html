@@ -57,11 +57,9 @@
                                 </div>
                         </form>
                 </div>
-                <div class="col-2 col-mobile-3" id="inloggen_text" style="display: block;">
-                    <a href="login" class="menu__link">Inloggen</a>
-                </div>
-                <div class="col-2 col-mobile-3" id="uitloggen_text" style="display: none;">
-                    <a href="logout" class="menu__link">Uitloggen</a>
+                <div class="col-2 col-mobile-3 nav-right"  style="display: block;">
+                    <a href="login" id="inloggen_text" class="menu__link">Inloggen</a>
+                    <a href="logout" id="uitloggen_text" style="display: none;" class="menu__link">Uitloggen</a>
                 </div>
 
                 <div class="col-1 col-mobile-3">
@@ -77,5 +75,14 @@
 
             </div>
         </div>
+        <div class="sidebar sidebar--right" id="cart-sidebar">
+            <div class="sidebar__title">
+                Winkelwagen <span class="sidebar__close"></span>
+            </div>
+            <div class="sidebar__content">
+                Inhoud van de winkelwagen
+            </div>
+        </div>
+        <div class="overlay"></div>
     </body>
 </html>
