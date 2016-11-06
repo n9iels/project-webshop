@@ -1,3 +1,10 @@
+body.sidebar--open {
+    overflow: none;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
 .sidebar {
     position: fixed;
     top: 50px;

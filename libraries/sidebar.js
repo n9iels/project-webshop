@@ -23,5 +23,6 @@ $(document).ready(function()
     {
         $(sidebar).toggleClass("sidebar--open");
         $(".overlay").toggleClass("overlay--visible");
+        $("body").toggleClass("sidebar--open");
     }
 });
