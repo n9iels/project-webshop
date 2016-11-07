@@ -2,6 +2,7 @@ var RegisterModel = function()
 {
     function register(gender, first_name, prefix, surname, date_of_birth, street, number, postal_code, city, mobile_number, phone_number, email, password, repeat_password, security_question, security_question_answer, callback)
     {
+        console.log(formData);
         $.ajax({
             url: "http://84.84.245.29:243/user/register", //? http://84.84.245.29:243 = API-locatie?
             // url: "http://84.84.245.29:243/user/login", //? http://84.84.245.29:243 = API-locatie?
@@ -28,13 +29,10 @@ var RegisterModel = function()
             success: function (data) {
                 // let controller resume with stuff
                 callback(data);
-                console.log(data); //test
-
             },
             error: function (xhr, status, error) {
-                // show 'not good email or password to user'
-                $("#error_message").show();
-
+                // show 'email al gebonden aan een account?'
+                $("#regi_api_error_message").show();
                 //$("#component").html("error function");
             }
         });

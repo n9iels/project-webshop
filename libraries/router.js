@@ -21,6 +21,9 @@ var Router = function ()
             case "product":
                 new ProductController(new ProductViewHelper(), new ProductModel(particles[1])).main();
                 break;
+            case "register":
+                new RegisterController(new RegisterViewHelper(), new RegisterModel()).main();
+                break;
             case "login":
                 new LoginController(new LoginViewHelper(), new LoginModel()).main();
                 break;
