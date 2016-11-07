@@ -59,3 +59,14 @@ body {
         }
     }
 }
+
+.singleproduct{
+        &__image{
+        vertical-align: middle;
+        text-align:center;
+        
+        img{
+            max-height: 180px;
+        }
+    }
+}

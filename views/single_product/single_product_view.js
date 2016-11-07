@@ -22,9 +22,9 @@ var ProductViewHelper = function()
     {
         $("#component").load('views/single_product/single_product.html', function () {
 
-                $(".product__image img").attr("src", product.image);
-                $(".product__title").html(product.title);
-                $(".product__price").html("€ " + product.price);
+                $(".singleproduct__image img").attr("src", product.image);
+                $(".singleproduct__title").html(product.title);
+                $(".singleproduct__price").html("€ " + product.price);
                 //li voor list
                 $(".liproduct__ean").append(product.ean_number);
                 $(".liproduct__platform").append(product.platform);
@@ -40,7 +40,7 @@ var ProductViewHelper = function()
                 $(".liproduct__genre").append(product.genre);
                 $(".liproduct__franchise").append(product.franchise);
 
-                $(".product__descr").html(product.description);
+                $(".singleproduct__descr").html(product.description);
 
 
                 /*
