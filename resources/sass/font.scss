@@ -7,9 +7,20 @@ p {
     line-height: 1.5em;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 h1 {
     font-size: 35px;
     margin-bottom: 20px;
+    font-family: 'Lato', sans-serif;
+}
+
+h2 {
+    font-size: 25px;
+    margin-bottom: 10px;
+    font-family: 'Lato', sans-serif;
 }
 
 ol.numberlist {

@@ -13,7 +13,6 @@ body {
         
         img{
             max-height: 180px;
-        
         }
     }
     &__info{
@@ -39,9 +38,9 @@ body {
             height:20px;
         }
     }
-    &__buttons{
+    &__description {
+        line-height: 1.4;
     }
-
 }
 
 .row{
@@ -60,13 +59,41 @@ body {
     }
 }
 
-.singleproduct{
-        &__image{
-        vertical-align: middle;
-        text-align:center;
-        
-        img{
-            max-height: 180px;
+.singleproduct {
+    &__title {
+        margin-bottom: 15px;
+    }
+
+    &__subtitle {
+        font-size: 18px;
+    }
+
+    &__info {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+
+        .row {
+            padding: 10px 15px;
         }
+
+        ul {
+            line-height: 1.6;
+            border-top: 1px solid #ccc;
+            margin: -15px;
+            padding: 15px;
+        }
+    }
+
+    &__image img {
+        max-height: 400px;
+    }
+
+    &__price {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    &__descr {
+        line-height: 1.5;
     }
 }
