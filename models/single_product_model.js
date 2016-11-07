@@ -1,6 +1,6 @@
 var ProductModel = function(ean)
 {
-    function GetProductInfo(formData, callback)
+    function GetProductInfo(callback)
     {
         $.ajax({
             url: "http://84.84.245.29:243/products/" + ean, //http://localhost:8080/user/register
@@ -8,11 +8,11 @@ var ProductModel = function(ean)
             dataType: 'json',
             success: function (data) {
                 // let controller resume with stuff
-                callback(data);
+                callback(data[0]);
                 console.log(data); //test
             },
             error: function (xhr, status, error) {
-                
+                console.log("something wrong with API, BITCH");
 
 
 
@@ -25,6 +25,6 @@ var ProductModel = function(ean)
 
     // Return the methods that can be used by other programs (the controller in this case)
     return {
-        register: register
+        GetProductInfo: GetProductInfo
     }
 };

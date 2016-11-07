@@ -53,10 +53,10 @@ var ProductController = function(viewHelper, model)
 
 
         // set view to login form
-        ViewHelper.setView();
+        //ViewHelper.setView();
 
         // user fills in email and password; clicks 'login': VIEW notices this and reacts
-        ViewHelper.setActionListener(actionPerformed);
+        //ViewHelper.setActionListener(actionPerformed);
     }
 
     // Return the methods that can be used by other programs (the controller in this case)
