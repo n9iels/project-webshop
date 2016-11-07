@@ -1,24 +1,30 @@
 var RegisterModel = function()
 {
-    function register(email, password, callback)
+    function register(formData, callback)
     {
         $.ajax({
-            url: "http://84.84.245.29:243/user/login", //? http://84.84.245.29:243 = API-locatie?
+            url: "http://84.84.245.29:243/user/register", //http://localhost:8080/user/register
             type: "post",
             dataType: 'json',
             data: JSON.stringify({
-                email : email,
-                password : password
+                e_mail : formData.e_mailadres,
+                password : formData.wachtwoord,
+                first_name : formData.voornaam,
+                surname : formData.achternaam,
+                gender : formData.gender,
+                date_of_birth : formData.birth_date,
+                phone_number : formData.mobiel_nummer,
+                secret_question : formData.security_question,
+                secret_question_answer : formData.security_answer
             }),
             success: function (data) {
                 // let controller resume with stuff
                 callback(data);
                 console.log(data); //test
-
             },
             error: function (xhr, status, error) {
-                // show 'not good email or password to user'
-                $("#error_message").show();
+                // show 'email al gebonden aan een account?'
+                $("#regi_api_error_message").show();
 
                 //$("#component").html("error function");
             }
