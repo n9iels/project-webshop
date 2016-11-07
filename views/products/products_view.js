@@ -50,21 +50,25 @@ var ProductsViewHelper = function()
     };
 
     //Platform Logo's
-    function PlatformLogo(platformnaam){
-        if (platformnaam.toUpperCase() === "PS4"){
-            return "<img src='https://maxcdn.icons8.com/Android_L/PNG/48/Logos/play_station_copyrighted-48.png' />";
-        }
-
-        else if (platformnaam.toUppercase() === "PC"){
-            return "<img src='https://maxcdn.icons8.com/Color/PNG/48/Operating_Systems/windows_logo_copyrighted-48.png' />";
-        }
-
-        else if (platformnaam.toUppercase() === "XBOX"){
-            return "<img src='https://maxcdn.icons8.com/Color/PNG/48/Logos/xbox-48.png' />";
-        }
-
-        else{
-            return platformnaam;
+    function PlatformLogo(platformnaam)
+    {
+        platformnaam = platformnaam.toUpperCase();
+        switch (platformnaam)
+        {
+            case "PS4":
+                return "<img src='https://maxcdn.icons8.com/Android_L/PNG/48/Logos/play_station_copyrighted-48.png' />";
+                break;
+            case "PC":
+                return "<img src='https://maxcdn.icons8.com/Color/PNG/48/Operating_Systems/windows_logo_copyrighted-48.png' />";
+                break;
+            case "XBOX":
+                return "<img src='https://maxcdn.icons8.com/Color/PNG/48/Logos/xbox-48.png' />";
+                break;
+            case "NINTENDO":
+                return "<img src='https://maxcdn.icons8.com/Color/PNG/48/Gaming/nintendo-48.png' />";
+                break;
+            default:
+                return platformnaam;
         }
     }
 

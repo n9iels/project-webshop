@@ -9,10 +9,14 @@ body {
 .product {
     &__image{
         vertical-align: middle;
-        overflow: hidden;
+        text-align:center;
+        
+        img{
+            max-height: 180px;
+        
+        }
     }
     &__info{
-        text-align: center;
         margin-bottom: 10px;
     }
     &__title{
@@ -21,10 +25,10 @@ body {
     }
     &__price{
         margin-top: 15px;
-        font-size: 30px;
+        font-size: 20px;
         font-weight: bold;
-        text-align: center;
         margin-bottom: 10px;
+        text-align: center;
     }
     &__subtitle{ //Is Genre | Age | Platform tekst
         margin-bottom: 10px;
@@ -36,7 +40,6 @@ body {
         }
     }
     &__buttons{
-        text-align: center;
     }
 
 }
@@ -47,4 +50,12 @@ body {
 #product__list__item{
     border-bottom:1px solid #ccc;
     padding-bottom:10px;
+}
+
+@media (min-width: 768px) {
+    .product {
+        &__price {
+            font-size: 30px;
+        }
+    }
 }

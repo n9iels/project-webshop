@@ -4,12 +4,16 @@
             Prijs
         </div>
         <div class="pricefilter"> <!-- PRIJS CHECKLIST BEGINT HIER -->   
-            <div class="form-group"> <input type="checkbox" name="price" id="price1" value="5" /> <label for="price1">€5,00 - €15,00</label> </div>
-            <div class="form-group"> <input type="checkbox" name="price" id="price2" value="16"/> <label for="price2">€16,00 - €30,00</label> </div>
-            <div class="form-group"> <input type="checkbox" name="price" id="price3" value="31" /> <label for="price3">€31,00 - €45,00</label> </div>
-            <div class="form-group"> <input type="checkbox" name="price" id="price4" value="46" /> <label for="price4">€46,00 - €60,00</label> </div>
-            <div class="form-group"> <input type="checkbox" name="price" id="price5" value="61" /> <label for="price5">€61,00 - €100,00</label> </div>
-        </div>                  <!-- PRIJS CHECKLIST EINDIGT HIER -->
+            <div data-role="rangeslider">
+            <form method="post" action="">
+                <label for="price-min">Van</label>
+                <input type="range" name="price-min" id="price-min" value="5" min="0" max="100">
+                <label for="price-max">Tot</label>
+                <input type="range" name="price-max" id="price-max" value="95" min="0" max="100">
+                <input type="submit" data-inline="true" value="Zoek">
+            </form>
+            </div>
+        </div><!-- PRIJS CHECKLIST EINDIGT HIER -->
     </div> <!-- PRIJS EINDIGT HIER!-->
     
     <div class="genre">    <!-- GENRE BEGINT HIER -->                    
