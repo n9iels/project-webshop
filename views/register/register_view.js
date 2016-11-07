@@ -1,10 +1,18 @@
 var RegisterViewHelper = function()
 {
     // Change the view of the page
+    function setView()
+    {
+        $("#component").load('views/register/register.html');
+    }
+
+    // Change the view of the page
+    /** 
     function setView(viewToLoad)
     {
         $("#component").load(viewToLoad); //example of viewToLoad: 'views/register/register.html'
     }
+    */
 
     // Execute the event when 'something' happens (when a button is clicked for example)
     function setActionListener(action)

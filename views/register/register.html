@@ -66,7 +66,7 @@
                                 <form>      
                                     <div class="form-group"> <select id="gender_select"><option value="man">Man</option> <option value="vrouw">Vrouw</option></select><label for="geslachtskeuze">Geslacht</label> </div>
                                     <div class="form-group"> <input type="text" name="Voornaam" id="voornaam"/> <label for="voornaam">Voornaam</label> </div>
-                                    <div class="form-group"> <input type="text" name="Tussenvoegsel(optioneel)" id="tussenvoegsel(optioneel)"/> <label for="tussenvoegsel(optioneel)">Tussenvoegsel (optioneel)</label> </div>
+                                    <div class="form-group"> <input type="text" name="Tussenvoegsel(optioneel)" id="tussenvoegsel_optioneel"/> <label for="tussenvoegsel_optioneel">Tussenvoegsel (optioneel)</label> </div>
                                     <div class="form-group"> <input type="text" name="Achternaam" id="achternaam"/> <label for="achternaam">Achternaam</label> </div>
                                 </form>
                             </div>                  <!-- USER INFO FIELDS EINDIGT HIER -->
@@ -239,8 +239,8 @@
                             </div>
                             <div class="optional_phone_number_fields"> <!-- TELEFOONNUMMER (OPTIONEEL) INVOERVELDEN BEGINT HIER -->
                                 <form>      
-                                    <div class="form-group"> <input type="text" name="Mobiel nummer (optioneel)" id="mobiel nummer (optioneel)"/> <label for="mobiel nummer (optioneel)">Mobiel nummer (optioneel)</label> </div>
-                                    <div class="form-group"> <input type="text" name="Telefoon (optioneel)" id="telefoon (optioneel)"/> <label for="telefoon (optioneel)">Telefoon (optioneel)</label> </div>
+                                    <div class="form-group"> <input type="text" name="Mobiel nummer (optioneel)" id="mobiel_nummer_optioneel"/> <label for="mobiel_nummer_optioneel">Mobiel nummer (optioneel)</label> </div>
+                                    <div class="form-group"> <input type="text" name="Telefoon (optioneel)" id="telefoon_optioneel"/> <label for="telefoon_optioneel">Telefoon (optioneel)</label> </div>
                                 </form>
                             </div>                  <!-- TELEFOONNUMMER (OPTIONEEL) INVOERVELDEN EINDIGT HIER -->
               </div> <!-- TELEFOONNUMMER (OPTIONEEL) EINDIGT HIER!-->
@@ -265,7 +265,7 @@
                             </div>
                             <div class="security_question_fields"> <!-- BEVEILIGINGSVRAAG INVOERVELD BEGINT HIER -->
                                 <form>      
-                                  <div class="form-group"> <select>
+                                  <div class="form-group"> <select id="security_question_select">
                                     <option value="1">Wat is de naam van de eerste persoon die je hebt gekust?</option> 
                                     <option value="2">Wat is de achternaam van de leraar die jou je eerste onvoldoende heeft gegeven?</option>
                                     <option value="3">Wat is de naam van de plaats van waar je bruiloft is gehouden?</option> 
@@ -289,22 +289,16 @@
                             </div>                  <!-- ANTWOORD BEVEILIGINGSVRAAG INVOERVELD EINDIGT HIER -->
               </div> <!-- QUESTION ANSWER EINDIGT HIER!-->
 
-              
-
-
-
-
-
-
-
-
-
-              <div class="registerbutton"> <!-- REGISTREER BUTTON BEGINT HIER! -->
-               <button class="register_button"> <border-radius= 10px text-align=center background-color=#FF8C00 color=#FF8C00 />Registreer</button>
-              </div> <!-- REGISTREER BUTTON EINDIGT HIER! -->
-
+              <div class="registerbutton">
+                <input type="submit" value="Registreer" id="registerbutton" class="btn"> <a href="after_register" class="after_register"></a>
+            </div>
               
           </div>  <!-- Container eindigt hier -->
         </div>   <!-- Content eindigt hier! -->
     </body>
 </html>
+
+<!--
+<div class="registerbutton"> REGISTREER BUTTON BEGINT HIER! 
+               <button class="register_button"> <border-radius= 10px text-align=center background-color=#FF8C00 color=#FF8C00 />Registreer<a href="after_register" class="after_register"></a></button>
+              </div> REGISTREER BUTTON EINDIGT HIER! -->

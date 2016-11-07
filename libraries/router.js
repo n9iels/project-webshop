@@ -27,6 +27,12 @@ var Router = function ()
             case "logout":
                 new LogoutController(new LogoutViewHelper(), new LogoutModel()).main();
                 break;
+            case "register":
+                new RegisterController(new RegisterViewHelper(), new RegisterModel()).main();
+                break;
+            case "resetpassword":
+                new ResetPasswordController(new ResetPasswordViewHelper(), new ResetPasswordModel()).main();
+                break;
             default:
                 new ErrorController(new ErrorViewHelper()).main();
                 break;
