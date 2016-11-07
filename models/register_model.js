@@ -2,6 +2,7 @@ var RegisterModel = function()
 {
     function register(formData, callback)
     {
+        console.log(formData);
         $.ajax({
             url: "http://84.84.245.29:243/user/register", //http://localhost:8080/user/register
             type: "post",
@@ -20,12 +21,10 @@ var RegisterModel = function()
             success: function (data) {
                 // let controller resume with stuff
                 callback(data);
-                console.log(data); //test
             },
             error: function (xhr, status, error) {
                 // show 'email al gebonden aan een account?'
                 $("#regi_api_error_message").show();
-
                 //$("#component").html("error function");
             }
         });

@@ -1,42 +1,47 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>[gametitle, gamesubtitle]</title>
+        <title>A-Z Games</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <base href="/project-webshop/" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="resources/css/layout.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-
-        
         <link rel="SHORTCUT ICON" href="images/icon.png" type="image/x-icon" />
-        <link rel="ICON" href="resources/images/icon.png" type="image/ico" />
+        <link rel="ICON" href="images/icon.png" type="image/ico" />
 
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="resources/js/app.js"></script>
     </head>
     <body>
         <div class="menu">    <!-- Menu begint hier! -->
             <div class="container">
                 <div class="col-3 col-mobile-6">
-                        <div class="menu__logo">
-                                <a href="/"><span class="fa fa-gamepad"></span> <span class="logo__text hidden-mobile">A-Z Games</span></a>
-                        </div>
+                    <div class="menu__logo">
+                        <a href=""><span class="fa fa-gamepad"></span> <span class="logo__text hidden-mobile">A-Z Games</span></a>
+                    </div>
                 </div>
                 <div class="col-7 hidden-mobile">
-                        <form class="searchtools">
-                                <div class="searchbar">
-                                        <input type="text" name="searched" placeholder="Zoek naar een game...">
-                                </div>
-                                <div class="searchbutton">
-                                        <button type="submit">
-                                                <span class="fa fa-search"></span>
-                                        </button>
-                                </div>
-                        </form>
+                    <form class="searchtools form--inline">
+                        <div class="searchbar form-group">
+                            <input type="text" name="search" placeholder="Zoek naar een game...">
+                        </div>
+                        <div class="searchbutton">
+                            <button type="submit">
+                                <span class="fa fa-search"></span>
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                <div class="col-1 col-mobile-3">
-                        <a href="#" class="menu__link">Inloggen</a>
+                <div class="col-1 col-mobile-3" id="inloggen_text" style="display: block;">
+                    <a href="login" class="menu__link">Inloggen</a>
                 </div>
+                <div class="col-1 col-mobile-3" id="uitloggen_text" style="display: none;">
+                    <a href="logout" class="menu__link">Uitloggen</a>
+                </div>
+
                 <div class="col-1 col-mobile-3">
                         <a href="#" class="cart_button">
                                 <span class="fa fa-shopping-cart"></span> <span class="count">5</span>
@@ -45,70 +50,55 @@
             </div>
         </div>      <!-- Menu eindigt hier! -->
 
-        <div class= "content">
-            <div class= "container">
-                <div class= "row">          <!-- grid starts here -->
-                    <div class= "col-12"> 
-                        <div class= "col-6">
-                            Hi! This is the first col-6!<br>Here should be a picture
-                            <div class= "product_image2">
-                                <img id="pimage" src="images/bf1.jpg"
-                                onclick= 'document.getElementById("pimage").src = window.bfTOwdIMAGEchange(document.getElementById("pimage").src);'
-                                >
+        <div class="content"> <!-- Content begint hier! -->
+            <div class="container" id="component">
+                       <div class="row">
+                                <div class="col-4" id="product__list__item">
+                                        <div class="product">
+                                                <div class="product__image">
+                                                        <img src="resources/images/darksouls3.jpg"/>
+                                                </div>
+                                                
+                                        </div>
+                                </div>
 
-                                
-                                
-                                <!--"document.getElementById('pimage').src = 'images/bf1.jpg';
-                                        document.getElementById('pimage').src = 'images/watchdogs2.jpg';"> <!-- VRAAG: hoe zorg je ervoor dat product info naast image, op mobiele versie, onder de image staat? -->
-                            </div>
+                                <div class="col-4">
+                                        <div class="product">
+                                                <div class="product__title">
+                                                        Pussy Slayer 3: Bloody Apocalypse
+                                                </div>
+                                                <div class="product__price">
+                                                       € 20.00
+                                                </div>
+
+                                                <a class="btn" onclick="alert('Your mother')"><span class="fa fa-plus"></span>  In winkelwagen</a>
+                                                <ul type="square">
+                                                        <li>. EAN:</li>
+                                                        <li>. PLATFORM:</li>
+                                                        <li>. RELEASE DATUM:</li>
+                                                        <li>. PEGI LEEFTIJD:</li>
+                                                        <li>. UITGEVER:</li>
+                                                        <li>. TITEL:</li>
+                                                        <li>. SUBTITEL:</li>
+                                                        <li>. GENRE:</li>
+                                                        <li>. FRANCHISE:</li>
+                                                </ul>
+                                      </div>
+                                </div>
                         </div>
-                        <div class= "col-6">
-                            Hi! This is the 2nd col-6!<br>
-                            <br>
-                            [platform]<br>
-                            [in stock or not?]<br>
-                            [price]<br>
-                            <br>
-                            [Add to cart button]<br>
-                            [Add to favourites button] <br> <!-- (of American English?: favorites) -->
+
+                
+                        <div class="row">
+                          <div class="col-6">
+                                In this 3rd installment of the 15th well selling franchise in the world
+                          </div>
                         </div>
-                    </div>
-                </div>            
-            </div>
-            <div class= "container">
-                Product description<br>
-                [description]<br>
-                <br>
-                Product info<br>
-                Publisher	: [publisher]<br>
-                Platform	: [platform]<br>
-                Genre		: [genre]<br>
-                Spoken language	: [spoken language]<br>
-                Format		: [format]<br> <!-- (= dvd/key/small dvd/videotape/etc.) -->
-                Release date	: [release date]<br>
-                EAN		: [ean_number]<br>
-                <br>
-                Target group<br>
-                PEGI-age	: [pegi_age]
-            </div>
-
-            <p id= 'testparagraph'>|</p>
-
-        </div>
-        <!--<script type="text/javascript">
-            document.getElementById('pimage').src = 'images/bf1.jpg'
-        </script>-->
-        <script>
-            function bfTOwdIMAGEchange(img_src) {
-                if(img_src.endsWith("images/bf1.jpg")){
-                    document.getElementById('testparagraph').innerHTML += '|';
-                    return "images/eu4.jpg";
-                } else {
-                    document.getElementById('testparagraph').innerHTML += 'cooliewoelie!';
-                    return "images/bf1.jpg";
-                }
-            }
-        </script>
-
-    </body>
+             </div>
+         </div>
+   </body>
 </html>
+
+<!--
+
+-->
+
