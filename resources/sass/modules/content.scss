@@ -7,27 +7,35 @@ body {
 }
 
 .product {
-    border-radius: 8px;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 4px;
-    overflow: hidden;
-    
     &__image{
         vertical-align: middle;
-        height: 125px;
         overflow: hidden;
     }
     &__info{
-        text-align:center;
+        text-align: center;
         margin-bottom: 10px;
     }
     &__title{
-        font-size: 50;
+        font-size: 25px;
+        font-weight: bold;
     }
     &__price{
+        margin-top: 15px;
+        font-size: 30px;
         font-weight: bold;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    &__subtitle{ //Is Genre | Age | Platform tekst
+        margin-bottom: 10px;
+        margin-top: 10px;
+        font-size: 20px;
+    }
+    &__buttons{
+        text-align: center;
     }
 }
 
 .row{
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }

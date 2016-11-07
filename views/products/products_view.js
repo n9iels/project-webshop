@@ -18,26 +18,14 @@ var ProductsViewHelper = function()
                 
                 // Add product info
                 $(product).find(".product__title").html(value.title);
-                $(product).find(".product__price").html(value.price);
+                $(product).find(".product__subtitle").append(value.genre +(" | ")+ value.pegi_age +(" | ")+ value.platform);
+                $(product).find(".product__description").html(value.description);
+                $(product).find(".product__price").append(("€ ")+value.price);
+                $(product).find("#buttons__info").attr("href", "product/" + value.ean_number)
                 $(product).find(".product__image img").attr("src", value.image);
-                
-                // Determin what we have to do with the rows
-                if (key % 4 == 0 && key == 0)
-                {
-                    $("#product__list").append("<div class='row'>" + product.html());
-                }
-                else if (key % 4 == 0)
-                {
-                    $("#product__list").append("</div><div class='row'>" + product.html());
-                }
-                else
-                {
-                    $("#product__list div.row").last().append(product.html());
-                }
-            });
 
-            // Close the last row
-            $("</div>").appendTo("#product__list");
+                $("#product__list").append(product);
+            });
 
             // Remove the first list item, because this item is always empty
             $("#product__list__item").first().remove();
