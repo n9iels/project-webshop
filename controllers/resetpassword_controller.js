@@ -69,7 +69,7 @@ var ResetPasswordController = function(viewHelper, model)
         }
 
         // let model send user info to API
-        Model.register(formData, function (data) {
+        Model.resetpassword(formData, function (data) {
             ViewHelper.setView('views/resetpassword/after_reset.html');
         });
     }
