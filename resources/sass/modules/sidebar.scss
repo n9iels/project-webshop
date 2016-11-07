@@ -1,5 +1,5 @@
 body.sidebar--open {
-    overflow: none;
+    overflow-y: scroll;
     position: fixed;
     width: 100%;
     top: 0;
@@ -43,6 +43,7 @@ body.sidebar--open {
     }
 
     &--left {
+        transform: translate3d(-300px, 0, 0);
         left: 0;
     }
 
