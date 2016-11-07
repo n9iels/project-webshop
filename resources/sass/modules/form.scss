@@ -82,6 +82,11 @@ form {
             }
         }
     }
+    fieldset {
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+    }
 }
 .btn {
     display: inline-block;
