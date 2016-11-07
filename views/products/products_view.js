@@ -18,7 +18,7 @@ var ProductsViewHelper = function()
                 
                 // Add product info
                 $(product).find(".product__title").html(value.title);
-                $(product).find(".product__subtitle").append(value.genre +(" | ")+ value.pegi_age +(" | ")+ value.platform); // if ps4 dit dat
+                $(product).find(".product__subtitle").append(value.genre +(" | ")+ value.pegi_age +(" | ")+ PlatformLogo(value.platform));
                 $(product).find(".product__description").html(CutString(value.description));
                 $(product).find(".product__price").append(("€ ")+value.price);
                 $(product).find("#buttons__info").attr("href", "product/" + value.ean_number)
@@ -48,11 +48,21 @@ var ProductsViewHelper = function()
     };
 
     //Platform Logo's
-    function PlatformLogo(platform){
-        if (value.platform.toUpperCase() == "PS4"){
-            var myImage = new Image(24, 24);
-            myImage.src = 'https://maxcdn.icons8.com/Android_L/PNG/24/Logos/play_station_copyrighted-24.png';
-            return Image(myImage);
+    function PlatformLogo(platformnaam){
+        if (platformnaam.toUpperCase() === "PS4"){
+            return "<img src='https://maxcdn.icons8.com/Android_L/PNG/48/Logos/play_station_copyrighted-48.png' />";
+        }
+
+        else if (platformnaam.toUppercase() === "PC"){
+            return "<img src='https://maxcdn.icons8.com/Color/PNG/48/Operating_Systems/windows_logo_copyrighted-48.png' />";
+        }
+
+        else if (platformnaam.toUppercase() === "XBOX"){
+            return "<img src='https://maxcdn.icons8.com/Color/PNG/48/Logos/xbox-48.png' />";
+        }
+
+        else{
+            return platformnaam;
         }
     }
 
