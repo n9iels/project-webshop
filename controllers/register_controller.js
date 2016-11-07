@@ -71,28 +71,10 @@ var RegisterController = function(viewHelper, model)
             return false;
         }
 
-        console.log("function not aborted"); //test
-
-        console.log(formData);
         // let model send user info to API
         Model.register(formData, function (data) {
-            
-
-            // Weergeef een andere pagina als registratie proces correct uitgevoerd
             ViewHelper.setView('views/register/after_register.html');
-
-            // gelijk inloggen als nieuwe user zich geregistreerd heeft?
-            //$("#inloggen_text").hide();
-            //$("#uitloggen_text").show();
-
         });
-        
-/*
-        $("#inloggen_text").hide();
-        $("#uitloggen_text").show();
-        ViewHelper.setView('views/register/after_register.html');
-*/
-        //Model.getPage(function (data) { ViewHelper.setView(data); });
     }
 
     // Main function, also the start startpoint for a page
@@ -105,8 +87,6 @@ var RegisterController = function(viewHelper, model)
         ViewHelper.setActionListener(actionPerformed);
 
         // email and password are send to API; API checks if email already exists (and whether password is correct?) 
-
-
     }
 
     // Return the methods that can be used by other programs (the controller in this case)
