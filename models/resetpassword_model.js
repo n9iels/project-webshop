@@ -1,6 +1,6 @@
 var ResetPasswordModel = function()
 {
-    function resetpassword(new_password, email, security_question, security_question_answer, callback)
+    function resetpassword(new_password, repeat_password, email, security_question, security_question_answer, callback)
     {
         $.ajax({
             url: "http://84.84.245.29:243/resetpassword", //? http://84.84.245.29:243 = API-locatie?
@@ -8,6 +8,7 @@ var ResetPasswordModel = function()
             dataType: 'json',
             data: JSON.stringify({
                 new_password : new_password,
+                repeat_password : repeat_password,
                 email : email,
                 security_question : security_question,
                 security_question_answer : security_question_answer
