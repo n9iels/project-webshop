@@ -4,8 +4,10 @@ var ProductsViewHelper = function()
     function setView(viewData)
     {
         $("#component").html('<div class="col-12"><div class="col-3" id="filters"></div><div class="col-9" id="products"></div></div>');
+        // load filters
         $("#filters").load('views/products/filters.html');
 
+        // load products
         loadProducts(viewData);
     }
 

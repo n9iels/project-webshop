@@ -1,9 +1,9 @@
 var RegisterViewHelper = function()
 {
     // Change the view of the page
-    function setView(viewToLoad)
+    function setView(viewToShow)
     {
-        $("#component").load(viewToLoad); //example of viewToLoad: 'views/register/register.html'
+        $("#component").load(viewToShow);
     }
 
     // Execute the event when 'something' happens (when a button is clicked for example)
@@ -13,7 +13,7 @@ var RegisterViewHelper = function()
         // user presses 'register'
 
         // if user presses 'register', perform action
-        $("#component").on("click", "#registerbutton", action);
+        $("#component").on("submit", "#registerform", action);
     }
 
     // Return the methods that can be used by other programs (the controller in this case)
