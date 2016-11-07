@@ -34,8 +34,12 @@ body {
     &__buttons{
         text-align: center;
     }
+
 }
 
 .row{
     margin-bottom: 10px;
+}
+#product__list__item{
+    border-bottom:1px solid #ccc;
 }
