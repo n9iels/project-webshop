@@ -3,7 +3,7 @@ var ErrorViewHelper = function()
     // Change the view of the page
     function setView()
     {
-        $("#component").load('views/error/error.html');
+        $("#component").load('/views/error/error.html');
     }
 
     // ActionListener that executes actions on specific events
