@@ -1,9 +1,9 @@
-var RegisterController = function(viewHelper, model)
+var ResetPasswordController = function(viewHelper, model)
 {
     var Model      = model;
     var ViewHelper = viewHelper;
     
-    // Function that is executed on a action listener
+     // Function that is executed on a action listener
     function actionPerformed()
     {
         console.log("in actionPerformed"); //test
@@ -12,7 +12,7 @@ var RegisterController = function(viewHelper, model)
         event.preventDefault();
 
         // reset error messages
-        $("#regi_api_error_message").hide();
+        $("#reset_password_api_error_message").hide();
         $("#ww2_error_message").hide();
 
         // put form fields in javascript Object
@@ -22,13 +22,10 @@ var RegisterController = function(viewHelper, model)
             formData[field.name] = field.value;
         });
 
-        // fix date of birth (API expects certain format)
-        formData["birth_date"] = formData.jaar + "-" + formData.maand + "-" + formData.dag;
-
         // check whether any mandatory field is left empty by user and
         // if so, abort function
         var mandatoryFieldMisses = false;
-        var mandatoryFields = ["voornaam", "achternaam", "postcode", "huisnummer", "e_mailadres", "wachtwoord", "wachtwoord2", "security_answer"]; //dropdowns (like gender) are always filled in, so don't put in this list
+        var mandatoryFields = ["wachtwoord", "wachtwoord2", "e_mailadres","security_answer"]; //dropdowns (like security_question_answer) are always filled in, so don't put in this list
 
         // (reset all fields to 'valid' because user may have filled in fields since
         // the previous time this function was called)
@@ -52,7 +49,7 @@ var RegisterController = function(viewHelper, model)
             // scroll to top of page so that users see message "something is not filled in"
             window.scrollTo(0, 0);
             // show message "something is not filled in"
-            $("#register_error_message").show();
+            $("#reset_error_message").show();
         };
 
         var passwordsNotIdentical = false;
@@ -70,23 +67,21 @@ var RegisterController = function(viewHelper, model)
         {
             return false;
         }
-        console.log("continued")
+
         // let model send user info to API
-        Model.register(formData, function (data) {
-            ViewHelper.setView('/views/register/after_register.html');
+        Model.resetpassword(formData, function (data) {
+            ViewHelper.setView('views/resetpassword/after_reset.html');
         });
     }
 
     // Main function, also the start startpoint for a page
     function main()
-    {
-        // set view to register form
-        ViewHelper.setView('/views/register/register.html');
+    {      
+        // set view to reset password form
+        ViewHelper.setView('views/resetpassword/resetpassword.html');
 
-        // user fills in register info; clicks 'register': view notices this and reacts
         ViewHelper.setActionListener(actionPerformed);
-
-        // email and password are send to API; API checks if email already exists (and whether password is correct?) 
+        // new action wanner er op filter wordt gedrukt
     }
 
     // Return the methods that can be used by other programs (the controller in this case)
@@ -94,3 +89,7 @@ var RegisterController = function(viewHelper, model)
         main: main
     }
 };
+
+
+
+

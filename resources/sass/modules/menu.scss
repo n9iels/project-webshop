@@ -56,6 +56,7 @@
     }
     
     .searchtools {
+        display: none;
         padding: 6px;
         
         .form-group {
@@ -103,7 +104,15 @@
 
 @media (min-width: 768px)
 {
-    .menu__logo span.logo__text {
-         display: inline;
+    .menu {
+        &__logo span.logo__text {
+            display: inline;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .menu .searchtools {
+        display: block;
     }
 }

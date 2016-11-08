@@ -17,6 +17,7 @@ var RegisterModel = function()
                 phone_number : formData.mobiel_nummer,
                 secret_question : formData.security_question,
                 secret_question_answer : formData.security_answer
+                
             }),
             success: function (data) {
                 // let controller resume with stuff

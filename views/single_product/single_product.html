@@ -1,48 +1,45 @@
 <div class="row">
     <div class="singleproduct">
-        <div class="col-2">
-        </div>
-        <div class="col-4" id="singleproduct__list__item">
-            <div class="singleproduct__image">
-                <img src=""/>
+        <div class="row">
+            <div class="col-12">
+                <h1 class="singleproduct__title"></h1>
+                <div class="singleproduct__subtitle">
+                    <span class="singleproduct__genre"></span> | PEGI <span class="singleproduct__pegi"></span> | <span class="singleproduct__platform"></span>
+                </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-5">
+                <div class="singleproduct__image">
+                    <img src=""/>
+                </div>
+            </div>
 
-        <div class="col-4">
-            <div class="singleproduct__title">
-                title
+            <div class="col-7 singleproduct__info">
+                <div class="row">
+                    <div class="singleproduct__price"></div>
+                    <a class="btn btn--success btn--lg" onclick=""><span class="fa fa-plus"></span>  In winkelwagen</a>
+                </div>
+                <div class="row">
+                    <dl class="alignedlist">
+                        <dt><span class="bold">EAN</span></dt><dd class="singleproduct__ean"></dd>
+                        <dt><span class="bold">Uitgave</span></dt><dd class="singleproduct__releasedate"></dd>
+                        <dt><span class="bold">Uitgever</span></dt><dd class="singleproduct__publisher"></dd>
+                    </dl>
+                </div>
             </div>
-            <div class="singleproduct__price">
-                price
-            </div>
-                <a class="btn" onclick=""><span class="fa fa-plus"></span>  In winkelwagen</a>
-                <a href="#"><span class="fa fa-heart"></span></a><!-- IS <3 WISHLIST BUTTON -->
-
-                <ul type="square">
-                    <li class="liproduct__ean">Ean:</li>
-                    <li class="liproduct__platform">Platform:</li>
-                    <li class="liproduct__releasedate">Datum van release:</li>
-                    <li class="liproduct__pegi">PEGI leeftijd:</li>
-                    <li class="liproduct__publisher">Uitgever:</li>
-                    <li class="liproduct__title">Titel:</li>
-                    <li class="liproduct__subtitle">Subtitel:</li>
-                    <li class="liproduct__genre">Genre:</li>
-                    <li class="liproduct__franchise">Franchise:</li>
-                </ul>
-            </div>
-        <div class="col-2">
         </div>
     </div>
 </div>
 
 
 <div class="row">
-    <div class="col-6 singleproduct__descr">
-        In this 3rd installment of the 15th well selling franchise in the world
+    <div class="col-12">
+        <div class="panel">
+            <div class="panel__title">
+                <h2>Productomschrijving</h2>
+            </div>
+            <div class="panel__content singleproduct__descr"></div>
+        </div>
     </div>
 </div>
-
-
-
-
-
