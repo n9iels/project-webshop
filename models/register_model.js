@@ -1,30 +1,23 @@
 var RegisterModel = function()
 {
-    function register(gender, first_name, prefix, surname, date_of_birth, street, number, postal_code, city, mobile_number, phone_number, email, password, repeat_password, security_question, security_question_answer, callback)
+    function register(formData, callback)
     {
         console.log(formData);
         $.ajax({
-            url: "http://84.84.245.29:243/user/register", //? http://84.84.245.29:243 = API-locatie?
-            // url: "http://84.84.245.29:243/user/login", //? http://84.84.245.29:243 = API-locatie?
+            url: "http://84.84.245.29:243/user/register", //http://localhost:8080/user/register
             type: "post",
             dataType: 'json',
             data: JSON.stringify({
-                gender : gender,
-                first_name : first_name,
-                prefix : prefix,
-                surname : surname,
-                date_of_birth : date_of_birth,
-                street : street,
-                number : number,
-                postal_code : postal_code,
-                city : city,
-                mobile_number : mobile_number,
-                phone_number : phone_number,
-                email : email,
-                password : password,
-                repeat_password : repeat_password,
-                security_question : security_question,
-                security_question_answer : security_question_answer
+                e_mail : formData.e_mailadres,
+                password : formData.wachtwoord,
+                first_name : formData.voornaam,
+                surname : formData.achternaam,
+                gender : formData.gender,
+                date_of_birth : formData.birth_date,
+                phone_number : formData.mobiel_nummer,
+                secret_question : formData.security_question,
+                secret_question_answer : formData.security_answer
+                
             }),
             success: function (data) {
                 // let controller resume with stuff
@@ -43,4 +36,3 @@ var RegisterModel = function()
         register: register
     }
 };
-
