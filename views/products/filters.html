@@ -4,7 +4,11 @@
             Prijs
         </div>
         <div class="pricefilter"> <!-- PRIJS CHECKLIST BEGINT HIER -->
-            
+            <form class="pricefilterforms" id="pricefilterforms" method="post">
+                <input id="priceminbox" type="number" name="price-min" placeholder="Van" min="0" max="200">
+                <input id="pricemaxbox1" type="number" name="price-max" placeholder="Tot" min="0" max="200" style="display: block">
+                <input id="pricemaxbox2" type="number" name="price-max" value="200" placeholder="Tot" min="0" max="200" style="display: none">
+            </form>
         </div><!-- PRIJS CHECKLIST EINDIGT HIER -->
     </div> <!-- PRIJS EINDIGT HIER!-->
     

@@ -57,16 +57,12 @@ var ProductsViewHelper = function()
         {
             case "PS4":
                 return "<img src='https://maxcdn.icons8.com/Android_L/PNG/48/Logos/play_station_copyrighted-48.png' />";
-                break;
             case "PC":
                 return "<img src='https://maxcdn.icons8.com/Color/PNG/48/Operating_Systems/windows_logo_copyrighted-48.png' />";
-                break;
             case "XBOX":
                 return "<img src='https://maxcdn.icons8.com/Color/PNG/48/Logos/xbox-48.png' />";
-                break;
             case "NINTENDO":
                 return "<img src='https://maxcdn.icons8.com/Color/PNG/48/Gaming/nintendo-48.png' />";
-                break;
             default:
                 return platformnaam;
         }
@@ -82,6 +78,42 @@ var ProductsViewHelper = function()
     {
          // Hier het formulier versturen als we op een checkbox drukken
         $("#component").on("change", "input[type=checkbox]", function(event) {
+            $("#product_filter").submit();
+        });
+
+        ////// Reageer op veranderingen in prijs inputs
+        // Update de productenlijst als een waarde in de slider veranderd(alle manieren)
+        $("#component").on("change", "input[type=number]", function(event) {
+            
+            console.log($("#pricemaxbox1").value);
+
+
+            if ($("#pricemaxbox1").value == null)
+            {
+                console.log("empty")
+                //$("#pricemaxbox1").value = "200";
+                $("#pricemaxbox1").hide();
+                $("#pricemaxbox2").show();
+                console.log($("#pricemaxbox1").value);
+            }
+
+            $("#product_filter").submit();
+        });
+        // Update de productenlijst als een waarde in de slider veranderd(alleen handmatig invoeren)
+        $("#component").on("keyup", "input[type=number]", function(event) {
+            
+            console.log($("#pricemaxbox1").value);
+
+
+            if ($("#pricemaxbox1").value == null)
+            {
+                console.log("empty")
+                //$("#pricemaxbox1").value = "200";
+                $("#pricemaxbox1").hide();
+                $("#pricemaxbox2").show();
+                console.log($("#pricemaxbox1").value);
+            }
+
             $("#product_filter").submit();
         });
 
