@@ -3,7 +3,7 @@ var PageViewHelper = function()
     // Change the view of the page
     function setView(viewData)
     {
-        $("#component").load('views/page/page.html', function () {
+        $("#component").load('/views/page/page.html', function () {
             if (viewData[0].user_type == "customer")
             {
                 $("#user-block").append("<h1>Je lees dit alleen als je een customer bent");

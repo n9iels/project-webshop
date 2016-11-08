@@ -3,7 +3,7 @@ var LoginViewHelper = function()
     // Change the view of the page
     function setView()
     {
-        $("#component").load('views/login/login.html');
+        $("#component").load('/views/login/login.html');
     }
 
     // Execute the event when 'something' happens (when a button is clicked for example)

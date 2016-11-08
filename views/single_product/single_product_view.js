@@ -20,7 +20,7 @@ var ProductViewHelper = function()
 */
     function loadProduct(product)
     {
-        $("#component").load('views/single_product/single_product.html', function () {
+        $("#component").load('/views/single_product/single_product.html', function () {
 
                 $(".singleproduct__image img").attr("src", product.image);
                 $(".singleproduct__title").html(product.title);
