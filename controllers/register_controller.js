@@ -73,7 +73,7 @@ var RegisterController = function(viewHelper, model)
         console.log("continued")
         // let model send user info to API
         Model.register(formData, function (data) {
-            ViewHelper.setView('views/register/after_register.html');
+            ViewHelper.setView('/views/register/after_register.html');
         });
     }
 
@@ -81,7 +81,7 @@ var RegisterController = function(viewHelper, model)
     function main()
     {
         // set view to register form
-        ViewHelper.setView('views/register/register.html');
+        ViewHelper.setView('/views/register/register.html');
 
         // user fills in register info; clicks 'register': view notices this and reacts
         ViewHelper.setActionListener(actionPerformed);

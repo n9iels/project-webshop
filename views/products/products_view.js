@@ -5,7 +5,7 @@ var ProductsViewHelper = function()
     {
         $("#component").html('<div class="col-12"><div class="col-3" id="filters"></div><div class="col-9" id="products"></div></div>');
         // load filters
-        $("#filters").load('views/products/filters.html');
+        $("#filters").load('/views/products/filters.html');
 
         // load products
         loadProducts(viewData);
@@ -20,7 +20,7 @@ var ProductsViewHelper = function()
                 
                 // Add product info
                 $(product).find(".product__title").html(value.title);
-                $(product).find(".product__subtitle").append(value.genre +(" | ")+ value.pegi_age +(" | ")+ PlatformLogo(value.platform));
+                $(product).find(".product__subtitle").append(value.genre +(" | PEGI ") + value.pegi_age +(" | ")+ PlatformLogo(value.platform));
                 $(product).find(".product__description").html(CutString(value.description));
                 $(product).find(".product__price").append(("€ ")+value.price);
                 $(product).find("#buttons__info").attr("href", "product/" + value.ean_number)

@@ -1,6 +1,10 @@
 .menu {
     background-color: #0288D1;
     overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     
     .navigation {
         width: 90%;
@@ -53,6 +57,7 @@
     }
     
     .searchtools {
+        display: none;
         padding: 6px;
         
         .form-group {
@@ -100,7 +105,15 @@
 
 @media (min-width: 768px)
 {
-    .menu__logo span.logo__text {
-         display: inline;
+    .menu {
+        &__logo span.logo__text {
+            display: inline;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .menu .searchtools {
+        display: block;
     }
 }
