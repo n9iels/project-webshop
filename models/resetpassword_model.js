@@ -4,15 +4,15 @@ var ResetPasswordModel = function()
     {
         console.log(formData);
         $.ajax({
-            url: "http://84.84.245.29:243/resetpassword", //? http://84.84.245.29:243 = API-locatie?
-            type: "get",
+            url: "http://localhost:8080/user/resetpassword", //? http://84.84.245.29:243 = API-locatie?
+            type: "post",
             dataType: 'json',
             data: JSON.stringify({
-                new_password : formData["wachtwoord"],
-                repeat_password : formData["wachtwoord2"],
-                email : formData["e-mailadres"],
-                security_question : formData["security_question"],
-                security_question_answer : formData["security_question_answer"]
+                email : formData.e_mailadres,
+                secret_question_answer : formData.security_question_answer,
+                secret_question : formData.security_question,
+                new_password : formData.wachtwoord,
+                repeat_password : formData.wachtwoord2
             }),
             success: function (data) {
                 callback(data);
@@ -33,18 +33,19 @@ var ResetPasswordModel = function()
 /*
 var ResetPasswordModel = function()
 {
-    function resetpassword(new_password, repeat_password, email, security_question, security_question_answer, callback)
+    function resetpassword(formData, callback)
     {
+        console.log(formData);
         $.ajax({
             url: "http://84.84.245.29:243/resetpassword", //? http://84.84.245.29:243 = API-locatie?
             type: "get",
             dataType: 'json',
             data: JSON.stringify({
-                new_password : new_password,
-                repeat_password : repeat_password,
-                email : email,
-                security_question : security_question,
-                security_question_answer : security_question_answer
+                new_password : formData["wachtwoord"],
+                repeat_password : formData["wachtwoord2"],
+                email : formData["e-mailadres"],
+                security_question : formData["security_question"],
+                security_question_answer : formData["security_question_answer"]
             }),
             success: function (data) {
                 callback(data);

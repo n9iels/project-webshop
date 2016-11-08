@@ -25,6 +25,8 @@ var RegisterController = function(viewHelper, model)
         // fix date of birth (API expects certain format)
         formData["birth_date"] = formData.jaar + "-" + formData.maand + "-" + formData.dag;
 
+        console.log(formData);
+
         // check whether any mandatory field is left empty by user and
         // if so, abort function
         var mandatoryFieldMisses = false;
