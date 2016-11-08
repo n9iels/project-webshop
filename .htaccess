@@ -1,7 +1,15 @@
-<IfModule mod_rewrite.c>
 RewriteEngine On
 
+# Map https://n9iels.github.io/project-webhop to /jekyll.
+RewriteRule ^$ /project-webshop/ [L]
+
+# Map http://www.example.com/x to /jekyll/x unless there is a x in the web root.
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.html [L]
-</IfModule>
+RewriteCond %{REQUEST_URI} !^/jekyll/
+RewriteRule ^(.*)$ /project-webshop/$1
+
+# Add trailing slash to directories within jekyll
+# This does not expose the internal URL.
+RewriteCond %{SCRIPT_FILENAME} -d
+RewriteRule ^jekyll/(.*[^/])$ https://n9iels.github.io/project-webshop/$1/ [R=301]
