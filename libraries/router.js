@@ -43,6 +43,7 @@ var Router = function ()
             }
 
             writeHistory({}, "A-Z Games", url)
+            window.scrollTo(0, 0);
         }
     }
 

@@ -28,3 +28,20 @@ ol.numberlist {
     margin: 0 30px;
     line-height: 1.5em;
 }
+dl.alignedlist {
+    line-height: 1.5;
+    
+    dt {
+        display: inline-block;
+        width: 30%;
+    }
+    dd {
+        display: inline-block;
+        width: 70%;
+
+        &::before {
+            content: ":";
+            margin-right: 10px;
+        }
+    }
+}
