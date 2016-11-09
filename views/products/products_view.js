@@ -57,16 +57,12 @@ var ProductsViewHelper = function()
         {
             case "PS4":
                 return "<img src='https://maxcdn.icons8.com/Android_L/PNG/48/Logos/play_station_copyrighted-48.png' />";
-                break;
             case "PC":
                 return "<img src='https://maxcdn.icons8.com/Color/PNG/48/Operating_Systems/windows_logo_copyrighted-48.png' />";
-                break;
             case "XBOX":
                 return "<img src='https://maxcdn.icons8.com/Color/PNG/48/Logos/xbox-48.png' />";
-                break;
             case "NINTENDO":
                 return "<img src='https://maxcdn.icons8.com/Color/PNG/48/Gaming/nintendo-48.png' />";
-                break;
             default:
                 return platformnaam;
         }
@@ -85,9 +81,19 @@ var ProductsViewHelper = function()
             $("#product_filter").submit();
         });
 
+        // Update de productenlijst als een waarde in de slider veranderd(alle manieren)
+        $("#component").on("change keyup", "input[name=price-max], input[name=price-min]", function(event) {
+            if($("#pricemin").val() == null) {
+                $("#pricemin").val(0);
+            }
+            else
+            {
+                $("#product_filter").submit();
+            }
+        });
+
         $("#component").on("submit", "#product_filter", action);
     }
-
     // Return the methods that can be used by other programs (the controller in this case)
     return {
         setView: setView,
