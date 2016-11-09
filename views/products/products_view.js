@@ -13,6 +13,8 @@ var ProductsViewHelper = function()
 
     function loadProducts(viewData)
     {
+        console.log("in loadProducts");
+
         $("#products").load('views/products/products.html', function () { // waar id = 'component' doe .load......
             $.each(viewData, function(key, value) {
                 // Clone product
@@ -82,38 +84,15 @@ var ProductsViewHelper = function()
         });
 
         ////// Reageer op veranderingen in prijs inputs
-        // Update de productenlijst als een waarde in de slider veranderd(alle manieren)
+        // Update bij pijltje klikken
         $("#component").on("change", "input[type=number]", function(event) {
-            
-            console.log($("#pricemaxbox1").value);
-
-
-            if ($("#pricemaxbox1").value == null)
-            {
-                console.log("empty")
-                //$("#pricemaxbox1").value = "200";
-                $("#pricemaxbox1").hide();
-                $("#pricemaxbox2").show();
-                console.log($("#pricemaxbox1").value);
-            }
+            console.log('$("#priceminbox: ', $("#priceminbox").value);
+            console.log('$("#pricemaxbox1: ', $("#pricemaxbox1").value);
 
             $("#product_filter").submit();
         });
-        // Update de productenlijst als een waarde in de slider veranderd(alleen handmatig invoeren)
+        // Update bij cijfer toetsen
         $("#component").on("keyup", "input[type=number]", function(event) {
-            
-            console.log($("#pricemaxbox1").value);
-
-
-            if ($("#pricemaxbox1").value == null)
-            {
-                console.log("empty")
-                //$("#pricemaxbox1").value = "200";
-                $("#pricemaxbox1").hide();
-                $("#pricemaxbox2").show();
-                console.log($("#pricemaxbox1").value);
-            }
-
             $("#product_filter").submit();
         });
 

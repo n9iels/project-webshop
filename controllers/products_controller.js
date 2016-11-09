@@ -11,17 +11,28 @@ var ProductsController = function(viewHelper, model)
 
     function filterProducts(event)
     {
+        console.log("in filterProducts");
         // Prevent sending the form (page reload)
         event.preventDefault();
 
         var filters = $(this).serialize();
-        Model.getPage(filters, function (data) { ViewHelper.loadProducts(data); });
+        /*
+        var filters = {};
+        $.each($(this).serializeArray(), function (i, field) {
+            filters[field.name] = field.value;
+        });
+        console.log("filters: ", filters);*/
+
+        Model.getPage(filters, function (data)
+        { 
+            ViewHelper.loadProducts(data); 
+        });
     }
 
     // Main function, also the start startpoint for a page
     function main()
     {                        
-        ViewHelper.setActionListener(getPage);
+        ViewHelper.setActionListener(getPage); // why not getPage();
         ViewHelper.setFilterListener(filterProducts);
         // new action wanner er op filter wordt gedrukt
     }

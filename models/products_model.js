@@ -3,7 +3,7 @@ var ProductsModel = function()
     function getPage(filter, callback)
     {
         $.ajax({
-            url: "http://84.84.245.29:243/products?" + filter, //? http://84.84.245.29:243 = API-locatie?
+            url: "http://84.84.245.29:243/products?" + filter,
             type: "get",
             dataType: 'json',
             success: function (data) {
