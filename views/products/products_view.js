@@ -3,6 +3,8 @@ var ProductsViewHelper = function()
     // Change the view of the page
     function setView(viewData)
     {
+        document.title = "Producten - AZ Games";
+
         $("#component").html('<div class="col-12"><div class="col-3" id="filters"></div><div class="col-9" id="products"></div></div>');
         // load filters
         $("#filters").load('/views/products/filters.html');

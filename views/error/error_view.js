@@ -3,6 +3,8 @@ var ErrorViewHelper = function()
     // Change the view of the page
     function setView()
     {
+        document.title = "Oeps - AZ Games";
+
         $("#component").load('/views/error/error.html');
     }
 

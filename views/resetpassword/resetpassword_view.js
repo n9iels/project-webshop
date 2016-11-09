@@ -3,6 +3,8 @@ var ResetPasswordViewHelper = function()
     // Change the view of the page
     function setView(viewToShow)
     {
+        document.title = "Inloggen - AZ Games";
+
         $("#component").load(viewToShow);
     }
 

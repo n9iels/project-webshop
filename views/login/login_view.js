@@ -3,6 +3,8 @@ var LoginViewHelper = function()
     // Change the view of the page
     function setView()
     {
+        document.title ="Inloggen - AZ Games";
+
         $("#component").load('/views/login/login.html');
     }
 

@@ -3,6 +3,8 @@ var PageViewHelper = function()
     // Change the view of the page
     function setView(viewData)
     {
+        document.title = "Welkom - AZ Games";
+
         $("#component").load('/views/page/page.html', function () {
             if (viewData[0].user_type == "customer")
             {

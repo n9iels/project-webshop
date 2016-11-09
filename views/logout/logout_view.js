@@ -3,6 +3,8 @@ var LogoutViewHelper = function()
     // Change the view of the page
     function setView()
     {
+        document.title = "Uitloggen - AZ Games";
+
         $("#component").load('/views/logout/logout.html');
     }
 
