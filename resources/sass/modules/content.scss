@@ -103,26 +103,25 @@ body {
 {
     .product__list {
         margin-top: 0;
-    
-        .product {
-            &__price {
-                font-size: 30px;
+    }
+    .product {
+        &__price {
+            font-size: 30px;
+        }
+    }
+    .singleproduct {
+        &__image {
+            text-align: left;
+
+            img {
+                max-height: 400px;
             }
         }
-        .singleproduct {
-            &__image {
-                text-align: left;
-
-                img {
-                    max-height: 400px;
-                }
-            }
-            &__subtitle {
-                margin-bottom: 0px;
-            }
-            &__info {
-                margin-top: 0;
-            }
+        &__subtitle {
+            margin-bottom: 0px;
+        }
+        &__info {
+            margin-top: 0;
         }
     }
 }
