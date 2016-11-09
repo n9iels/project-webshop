@@ -4,7 +4,7 @@ var RegisterModel = function()
     {
         //console.log(formData);
         $.ajax({
-            url: "http://localhost:8080/user/register", //http://localhost:8080/user/register //http://84.84.245.29:243/user/register
+            url: "http://84.84.245.29:243/user/register",
             type: "post",
             dataType: 'json',
             data: JSON.stringify({

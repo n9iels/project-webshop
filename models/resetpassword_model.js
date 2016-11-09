@@ -4,7 +4,7 @@ var ResetPasswordModel = function()
     {
         console.log(formData);
         $.ajax({
-            url: "http://localhost:8080/user/resetpassword",
+            url: "http://84.84.245.29:243/user/resetpassword",
             type: "post",
             dataType: 'json',
             data: JSON.stringify({
