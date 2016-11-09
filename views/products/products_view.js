@@ -14,6 +14,19 @@ var ProductsViewHelper = function()
     function loadProducts(viewData)
     {
         $("#products").load('views/products/products.html', function () { // waar id = 'component' doe .load......
+            // put 'amount of products found' on page
+            console.log(viewData);
+            console.log(viewData.lenght);
+
+            var productAmount = $('<div>').append($('#product__list__amount').clone());
+            $(productAmount).find("#amount__text").append(viewData.length);
+            $("#product__amount").append(productAmount);
+
+            $("#product__list__amount").first().remove();
+
+            //$("#product__list__item").first().remove();
+
+            // put products on page
             $.each(viewData, function(key, value) {
                 // Clone product
                 var product = $('<div>').append($('#product__list__item').clone());
@@ -44,7 +57,7 @@ var ProductsViewHelper = function()
                 ShortString += WordsArray[i] + " ";
             }
             return ShortString+"...";
-        }else{
+        } else {
             return text;
         }
     };
