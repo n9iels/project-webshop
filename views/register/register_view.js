@@ -3,6 +3,8 @@ var RegisterViewHelper = function()
     // Change the view of the page
     function setView(viewToShow)
     {
+        document.title = "Registreren - AZ Games";
+        
         $("#component").load(viewToShow);
     }
 

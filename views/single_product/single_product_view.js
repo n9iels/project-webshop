@@ -3,6 +3,8 @@ var ProductViewHelper = function()
     // Change the view of the page
     function setView(product)
     {
+        document.title = product.title + " - AZ Games";
+
          $("#component").load('/views/single_product/single_product.html', function () {
                 $(".singleproduct__image img").attr("src", product.image);
                 $(".singleproduct__title").html(product.title);
