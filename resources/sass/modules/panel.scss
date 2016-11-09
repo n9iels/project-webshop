@@ -1,0 +1,19 @@
+.panel {
+    background-color: #fff;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+
+    &__title {
+        background: #efefef;
+        padding: 15px;
+        border-bottom: 1px solid #ccc;
+
+        h2 {
+            margin: 0;
+        }
+    }
+
+    &__content {
+        padding: 15px;
+    }
+}

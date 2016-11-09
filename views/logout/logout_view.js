@@ -3,7 +3,7 @@ var LogoutViewHelper = function()
     // Change the view of the page
     function setView()
     {
-        $("#component").load('views/logout/logout.html');
+        $("#component").load('/views/logout/logout.html');
     }
 
     // Execute the event when 'something' happens (when a button is clicked for example)

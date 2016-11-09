@@ -3,7 +3,7 @@ body {
 }
 
 .content{
-    margin-top:25px;
+    margin-top:75px;
 }
 
 .product {
@@ -13,7 +13,6 @@ body {
         
         img{
             max-height: 180px;
-        
         }
     }
     &__info{
@@ -26,7 +25,6 @@ body {
     &__price{
         margin-top: 15px;
         font-size: 20px;
-        font-weight: bold;
         margin-bottom: 10px;
         text-align: center;
     }
@@ -39,9 +37,9 @@ body {
             height:20px;
         }
     }
-    &__buttons{
+    &__description {
+        line-height: 1.4;
     }
-
 }
 
 .row{
@@ -52,21 +50,71 @@ body {
     padding-bottom:10px;
 }
 
-@media (min-width: 768px) {
+.singleproduct {
+    &__title {
+        margin-bottom: 15px;
+    }
+
+    &__subtitle {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    &__info {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin: 25px 0 15px;
+
+        .row {
+            padding: 10px 15px 0;
+        }
+
+        dl {
+            border-top: 1px solid #ccc;
+            margin: -15px;
+            padding: 15px;
+        }
+    }
+
+    &__image {
+        text-align: center;
+
+        img {
+            max-height: 290px;
+        }
+    }
+
+    &__price {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    &__descr {
+        line-height: 1.5;
+    }
+}
+
+@media (min-width: 992px)
+{
     .product {
         &__price {
             font-size: 30px;
         }
     }
-}
+    .singleproduct {
+        &__image {
+            text-align: left;
 
-.singleproduct{
-        &__image{
-        vertical-align: middle;
-        text-align:center;
-        
-        img{
-            max-height: 180px;
+            img {
+                max-height: 400px;
+            }
+        }
+        &__subtitle {
+            margin-bottom: 0px;
+        }
+        &__info {
+            margin-top: 0;
         }
     }
 }

@@ -9,16 +9,9 @@ var ProductModel = function(ean)
             success: function (data) {
                 // let controller resume with stuff
                 callback(data[0]);
-                console.log(data); //test
             },
             error: function (xhr, status, error) {
-                console.log("something wrong with API, BITCH");
-
-
-
-                //$("#regi_api_error_message").show();
-
-                //$("#component").html("error function");
+                $("#component").load("/error.html");
             }
         });
     }

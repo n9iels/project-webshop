@@ -1,5 +1,5 @@
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', serif;
 }
 
 p {
@@ -7,13 +7,41 @@ p {
     line-height: 1.5em;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 h1 {
     font-size: 35px;
     margin-bottom: 20px;
+    font-family: 'Lato', serif;
+}
+
+h2 {
+    font-size: 25px;
+    margin-bottom: 10px;
+    font-family: 'Lato', serif;
 }
 
 ol.numberlist {
     list-style: decimal;
     margin: 0 30px;
     line-height: 1.5em;
+}
+dl.alignedlist {
+    line-height: 1.5;
+    
+    dt {
+        display: inline-block;
+        width: 30%;
+    }
+    dd {
+        display: inline-block;
+        width: 70%;
+
+        &::before {
+            content: ":";
+            margin-right: 10px;
+        }
+    }
 }
