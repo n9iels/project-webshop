@@ -8,6 +8,7 @@ var LoginController = function(viewHelper, model)
     {
         // Prevent sending the form
         event.preventDefault();
+        event.stopImmediatePropagation();
 
         // Loop trough the form data and get all fields
         var formData = {};
