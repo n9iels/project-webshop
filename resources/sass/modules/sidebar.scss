@@ -11,7 +11,7 @@ body.sidebar--open {
     top: 0;
     z-index: 1;
     height: 100%;
-    width: 290px;
+    width: 280px;
     background-color: #fff;
     box-shadow: 1px 2px 7px 0px rgba(0, 0, 0, 0.4);
     transform: translate3d(300px, 0, 0);
@@ -42,6 +42,7 @@ body.sidebar--open {
         height: 100%;
         padding: 56px 0 92px 0;
         overflow-y: scroll;
+        overflow-scrolling: touch;
     }
 
     &__close {
@@ -67,5 +68,17 @@ body.sidebar--open {
 
     &--open {
         transform: translate3d(0, 0, 0);
+    }
+}
+
+@media (min-width: 768px)
+{
+    .sidebar {
+        width: 330px;
+        transform: translate3d(350px, 0, 0);
+
+        &--open {
+            transform: translate3d(0, 0, 0);
+        }
     }
 }
