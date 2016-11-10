@@ -79,7 +79,7 @@ var ProductsViewHelper = function()
     function setFilterListener(action)
     {
          // Hier het formulier versturen als we op een checkbox drukken
-        $("#component").on("change", "input[type=checkbox]", function(event) {
+        $("#component").off().on("change", "input[type=checkbox]", function(event) {
             $("#product_filter").submit();
         });
 
