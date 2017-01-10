@@ -96,7 +96,7 @@ var LoginModel = function()
     function login(email, password, callback)
     {
         $.ajax({
-            url: "http:///84.84.245.29:243/user/login",
+            url: "https://api.az-games.nl/user/login",
             type: "post",
             dataType: 'json',
             data: JSON.stringify({
@@ -130,7 +130,7 @@ var LogoutModel = function()
     function logout(callback)
     {
         $.ajax({
-            url: "http://84.84.245.29:243/user/logout", //? http://84.84.245.29:243 = API-locatie?
+            url: "https://api.az-games.nl/user/logout", //? http://84.84.245.29:243 = API-locatie?
             type: "post",
             dataType: 'json',
             data: JSON.stringify({
@@ -176,7 +176,7 @@ var PageModel = function()
     function getPage(callback)
     {
         $.ajax({
-            url: "http://84.84.245.29:243/user",
+            url: "https://api.az-games.nl/user",
             type: "get",
             dataType: 'json',
             headers: {
@@ -216,7 +216,7 @@ var ProductsModel = function()
     function getPage(filter, callback)
     {
         $.ajax({
-            url: "http://84.84.245.29:243/products?" + filter, //? http://84.84.245.29:243 = API-locatie?
+            url: "https://api.az-games.nl/products?" + filter, //? http://84.84.245.29:243 = API-locatie?
             type: "get",
             dataType: 'json',
             success: function (data) {
@@ -239,7 +239,7 @@ var RegisterModel = function()
     {
         //console.log(formData);
         $.ajax({
-            url: "http://84.84.245.29:243/user/register",
+            url: "https://api.az-games.nl/user/register",
             type: "post",
             dataType: 'json',
             data: JSON.stringify({
@@ -283,7 +283,7 @@ var ResetPasswordModel = function()
     {
         console.log(formData);
         $.ajax({
-            url: "http://84.84.245.29:243/user/resetpassword",
+            url: "https://api.az-games.nl/user/resetpassword",
             type: "post",
             dataType: 'json',
             data: JSON.stringify({
@@ -313,7 +313,7 @@ var ProductModel = function(ean)
     function GetProductInfo(callback)
     {
         $.ajax({
-            url: "http://84.84.245.29:243/products/" + ean,
+            url: "https://api.az-games.nl/products/" + ean,
             type: "get",
             dataType: 'json',
             success: function (data) {

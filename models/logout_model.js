@@ -3,7 +3,7 @@ var LogoutModel = function()
     function logout(callback)
     {
         $.ajax({
-            url: "http://84.84.245.29:243/user/logout", //? http://84.84.245.29:243 = API-locatie?
+            url: "https://api.az-games.nl/user/logout", //? http://84.84.245.29:243 = API-locatie?
             type: "post",
             dataType: 'json',
             data: JSON.stringify({
