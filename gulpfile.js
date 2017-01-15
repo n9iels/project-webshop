@@ -40,3 +40,8 @@ gulp.task('default', function(){
     gulp.start(['sass']);
     gulp.watch(sassDir + '/**/*.scss', ['sass']);
 });
+
+gulp.task('jenkins', function(){
+    gulp.start(['sass']);
+    gulp.start(['scripts']);
+});

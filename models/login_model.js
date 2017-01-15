@@ -3,7 +3,7 @@ var LoginModel = function()
     function login(email, password, callback)
     {
         $.ajax({
-            url: "http:///84.84.245.29:243/user/login",
+            url: "https://api.az-games.nl/user/login",
             type: "post",
             dataType: 'json',
             data: JSON.stringify({

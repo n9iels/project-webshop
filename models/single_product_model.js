@@ -3,7 +3,7 @@ var ProductModel = function(ean)
     function GetProductInfo(callback)
     {
         $.ajax({
-            url: "http://84.84.245.29:243/products/" + ean,
+            url: "https://api.az-games.nl/products/" + ean,
             type: "get",
             dataType: 'json',
             success: function (data) {

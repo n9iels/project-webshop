@@ -58,13 +58,13 @@ var ProductsViewHelper = function()
         switch (platformnaam)
         {
             case "PS4":
-                return "<img src='https://maxcdn.icons8.com/Android_L/PNG/48/Logos/play_station_copyrighted-48.png' />";
+                return "<img src='/resources/images/icons/ps.png' />";
             case "PC":
-                return "<img src='https://maxcdn.icons8.com/Color/PNG/48/Operating_Systems/windows_logo_copyrighted-48.png' />";
+                return "<img src='/resources/images/icons/windows.png' />";
             case "XBOX":
-                return "<img src='https://maxcdn.icons8.com/Color/PNG/48/Logos/xbox-48.png' />";
+                return "<img src='/resources/images/icons/xbox.png' />";
             case "NINTENDO":
-                return "<img src='https://maxcdn.icons8.com/Color/PNG/48/Gaming/nintendo-48.png' />";
+                return "<img src='/resources/images/icons/nintendo.png' />";
             default:
                 return platformnaam;
         }

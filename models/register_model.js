@@ -4,7 +4,7 @@ var RegisterModel = function()
     {
         //console.log(formData);
         $.ajax({
-            url: "http://84.84.245.29:243/user/register",
+            url: "https://api.az-games.nl/user/register",
             type: "post",
             dataType: 'json',
             data: JSON.stringify({

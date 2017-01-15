@@ -4,7 +4,7 @@ var ResetPasswordModel = function()
     {
         console.log(formData);
         $.ajax({
-            url: "http://84.84.245.29:243/user/resetpassword",
+            url: "https://api.az-games.nl/user/resetpassword",
             type: "post",
             dataType: 'json',
             data: JSON.stringify({

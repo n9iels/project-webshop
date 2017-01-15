@@ -3,7 +3,7 @@ var PageModel = function()
     function getPage(callback)
     {
         $.ajax({
-            url: "http://84.84.245.29:243/user",
+            url: "https://api.az-games.nl/user",
             type: "get",
             dataType: 'json',
             headers: {
