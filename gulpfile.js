@@ -10,6 +10,7 @@ var cssnano           = require('gulp-cssnano');
 
 /* src folders */
 var sassDir           = __dirname + '/resources/sass';
+var jsDir             = __dirname + '/resources/js'
 var targetCss         = __dirname + '/resources/css';
 
 /* Compile SASS to CSS */
@@ -38,6 +39,7 @@ gulp.task('scripts', function() {
 gulp.task('default', function(){
     gulp.start(['scripts']);
     gulp.start(['sass']);
+    gulp.watch(jsDir + '/**/*.js', ['scripts']);
     gulp.watch(sassDir + '/**/*.scss', ['sass']);
 });
 

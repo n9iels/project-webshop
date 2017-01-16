@@ -21,6 +21,9 @@
                 // Route the current url when the page is load
                 router.route(window.location.pathname);
 
+                // Instanciate the cart
+                new CartController(new CartViewHelper(), new CartModel()).main();
+
                 // Route internal urls
                 $("body").on("click", "a", function (event)
                 {
@@ -58,7 +61,7 @@
 
                 <div class="col-1 col-mobile-3">
                     <a href="#" class="cart_button sidebar-toggle" data-sidebar="cart-sidebar">
-                            <span class="fa fa-shopping-cart"></span> <span class="count">5</span>
+                            <span class="fa fa-shopping-cart"></span> <span class="count">0</span>
                     </a>
                 </div>
             </div>
@@ -74,64 +77,16 @@
                 Winkelwagen <span class="sidebar__close"></span>
             </div>
             <div class="sidebar__content cart">
+            </div>
+            <div class="sidebar__content__tmp">
                 <div class="cart__item">
                     <div class="cart__item__image">
-                        <img src="resources/images/bf1.jpg">
+                        <img src="">
                     </div>
                     <div class="cart__item__info">
                         <div class="cart__item__title">
-                            Battlefield 1
                         </div>
                         <div class="cart__item__price">
-                            €59.99
-                        </div>
-                    </div>
-                    <div class="cart__item__remove">
-                        <span class="fa fa-remove"></span>
-                    </div>
-                </div>
-                <div class="cart__item">
-                    <div class="cart__item__image">
-                        <img src="resources/images/bf1.jpg">
-                    </div>
-                    <div class="cart__item__info">
-                        <div class="cart__item__title">
-                            Battlefield 1
-                        </div>
-                        <div class="cart__item__price">
-                            €59.99
-                        </div>
-                    </div>
-                    <div class="cart__item__remove">
-                        <span class="fa fa-remove"></span>
-                    </div>
-                </div>
-                <div class="cart__item">
-                    <div class="cart__item__image">
-                        <img src="resources/images/bf1.jpg">
-                    </div>
-                    <div class="cart__item__info">
-                        <div class="cart__item__title">
-                            Battlefield 1
-                        </div>
-                        <div class="cart__item__price">
-                            €59.99
-                        </div>
-                    </div>
-                    <div class="cart__item__remove">
-                        <span class="fa fa-remove"></span>
-                    </div>
-                </div>
-                <div class="cart__item">
-                    <div class="cart__item__image">
-                        <img src="resources/images/bf1.jpg">
-                    </div>
-                    <div class="cart__item__info">
-                        <div class="cart__item__title">
-                            Battlefield 1
-                        </div>
-                        <div class="cart__item__price">
-                            €59.99
                         </div>
                     </div>
                     <div class="cart__item__remove">
