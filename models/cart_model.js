@@ -56,7 +56,7 @@ var CartModel = function()
     {
         cart = JSON.parse(CookieHelper.getCookie("cart"));
 
-        for(i = 1; i < cart.length; i++)
+        for(i = 0; i < cart.length; i++)
         {
             if (cart[i].ean_number == id)
             {
