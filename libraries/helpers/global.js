@@ -1,0 +1,1 @@
+var CookieHelper = new CookieHelper();

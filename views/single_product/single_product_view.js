@@ -16,6 +16,7 @@ var ProductViewHelper = function()
                 $(".singleproduct__pegi").append(product.pegi_age);
                 $(".singleproduct__genre").append(product.genre);
                 $(".singleproduct__descr").html(product.description)
+                $(".addtocart").attr("data-id", product.ean_number);
 
                 var d = new Date(product.release_date);
 

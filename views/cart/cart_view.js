@@ -3,7 +3,12 @@ var CartViewHelper = function()
     // Change the view of the page
     function setView(viewData)
     {
-        console.log(viewData);
+        if (viewData != "")
+        {
+            viewData.forEach(function (item, index) {
+                addItem(item);
+            });
+        }
     }
 
     /**
@@ -15,12 +20,16 @@ var CartViewHelper = function()
     {
         var cartItem = $('<div>').html($('.sidebar__content__tmp').html());
 
-        cartItem.find(".cart__item__title").html(item[0].title);
-        cartItem.find(".cart__item__price").html(item[0].price);
-        cartItem.find(".cart__item__image img").attr("src", item[0].image);
-        cartItem.find(".cart__item").attr("data-id", item[0].ean_number)
+        cartItem.find(".cart__item__title").html(item.title);
+        cartItem.find(".cart__item__price").html(item.price);
+        cartItem.find(".cart__item__image img").attr("src", item.image);
+        cartItem.find(".cart__item").attr("data-id", item.ean_number)
 
         $(".cart").append(cartItem);
+
+        // Change amount of items
+        var amount = $(".cart_button .count").html();
+        $(".cart_button .count").html(parseInt(amount) + 1);
     }
 
     /**
@@ -47,17 +56,24 @@ var CartViewHelper = function()
     }
 
     /**
-     * Listener for remove a product from your cart
+     * Listener for remove a product from the DOM cart
+     * 
+     * @param {function} removeProduct Callback function to remove the prodcut from the memory
      */
     function setRemoveListener(removeProduct) {
-        $("body").on("click", ".cart__item__remove", function (event) {
-            var cartitem = $(this).parent();
+        $("body").on("click", ".cart__item__remove", function (event){
+            var cartitem   = $(this).parent();
             var product_id = $(this).parent().data("id");
 
+            // Remove product from DOM cart
             $(cartitem).addClass("cart__item--removed");
             $(cartitem).on("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function() {
                 $(this).remove();
             });
+
+            // Decrese count
+            var amount = $(".cart_button .count").html();
+            $(".cart_button .count").html(parseInt(amount) - 1);
 
             removeProduct(product_id)
         });

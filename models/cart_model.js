@@ -5,7 +5,12 @@ var CartModel = function()
      */
     function getCart(callback)
     {
-        console.log("get all cart items from cookies");
+        var cart = CookieHelper.getCookie("cart");
+
+        if (cart != undefined)
+        {
+            callback(JSON.parse(cart));
+        }
     }
 
     /**
@@ -18,11 +23,23 @@ var CartModel = function()
             type: "get",
             contentType: "json",
             success: function (data) {
-                callback(data);
+                cart = {ean_number:data[0].ean_number, title:data[0].title, price:data[0].price, image:data[0].image};
+                callback(cart);
 
-                // Change amount of items
-                var amount = $(".cart_button .count").html();
-                $(".cart_button .count").html(parseInt(amount) + 1);
+                // Save cart in cookies
+                var currentCart = CookieHelper.getCookie("cart");
+
+                if (currentCart == undefined)
+                {
+                    CookieHelper.createCookie("cart", JSON.stringify([cart]));
+                }
+                else
+                {
+                    currentCart = JSON.parse(currentCart);
+                    currentCart.push(cart);
+
+                    CookieHelper.createCookie("cart", JSON.stringify(currentCart))
+                }
             },
             error: function (xhr, status, error) {
                 $("#component").load("/views/error/error.html");
@@ -31,15 +48,24 @@ var CartModel = function()
     }
 
     /**
-     * Action to perform when remove a product from the cart
+     * Remove a item from the cart
+     * 
+     * @param {int} id Product id
      */
-    function removeProduct(id, callback)
+    function removeProduct(id)
     {
-        console.log(id + ": removed");
+        cart = JSON.parse(CookieHelper.getCookie("cart"));
 
-        // Change amount of items
-        var amount = $(".cart_button .count").html();
-        $(".cart_button .count").html(parseInt(amount) - 1);
+        for(i = 1; i < cart.length; i++)
+        {
+            if (cart[i].ean_number == id)
+            {
+                cart.splice(i, 1);
+                break;
+            }
+        }
+        
+        CookieHelper.createCookie("cart", JSON.stringify(cart));
     }
 
     // Return the methods that can be used by other programs (the controller in this case)
