@@ -18,7 +18,7 @@ var CartController = function(viewHelper, model)
      */
     function addProduct(id)
     {
-        Model.addProduct(id, function (data) { ViewHelper.addItem(data); ViewHelper.updateTotalPrice(10); });
+        Model.addProduct(id, function (data) { ViewHelper.addItem(data); });
     }
 
     /**
@@ -26,7 +26,7 @@ var CartController = function(viewHelper, model)
      */
     function removeProduct(id)
     {
-        Model.removeProduct(id, function (data) { console.log("done") });
+        Model.removeProduct(id, function (data) { });
     }
 
     // Main function, also the start startpoint for a page

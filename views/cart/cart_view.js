@@ -16,9 +16,10 @@ var CartViewHelper = function()
      * 
      * @param {int} totalPrice  Total price of the cart
      */
-    function updateTotalPrice(totalPrice)
+    function updateTotalPrice(newPrice)
     {
-        $(".cart__total .price").html("€" + totalPrice);
+        newPrice = parseFloat(newPrice) + parseFloat($(".cart__total .price").html().substr(1));
+        $(".cart__total .price").html("€" + parseFloat(newPrice).toFixed(2));
     }
 
     /**
@@ -40,6 +41,9 @@ var CartViewHelper = function()
         // Change amount of items
         var amount = $(".cart_button .count").html();
         $(".cart_button .count").html(parseInt(amount) + 1);
+
+        // Update the total price
+        updateTotalPrice(item.price);
     }
 
     /**
@@ -86,6 +90,7 @@ var CartViewHelper = function()
             $(".cart_button .count").html(parseInt(amount) - 1);
 
             removeProduct(product_id)
+            updateTotalPrice(-$(cartitem).find(".cart__item__price").html().substr(1))
         });
     }
     
