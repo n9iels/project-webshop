@@ -47,20 +47,26 @@
     <body>
         <div class="menu">    <!-- Menu begint hier! -->
             <div class="container">
-                <div class="col-3 col-mobile-6">
+                <div class="col-3 col-mobile-2">
                     <div class="menu__logo">
                         <a href="/index.html"><span class="fa fa-gamepad"></span> <span class="logo__text hidden-mobile">A-Z Games</span></a>
                     </div>
                 </div>
-                <div class="col-6 hidden-mobile searchtools">
+                <div class="col-4 hidden-mobile searchtools">
                 </div>
-                <div class="col-2 col-mobile-3 nav-right"  style="display: block;">
-                    <a href="login" id="inloggen_text" class="menu__link">Inloggen</a>
-                    <a href="logout" id="uitloggen_text" style="display: none;" class="menu__link">Uitloggen</a>
+                <div class="col-4 col-mobile-8 nav-right">
+                   <ul>
+                        <li id="inloggen_text">
+                            <a href="login">Inloggen</a>
+                        </li>
+                        <li id="uitloggen_text" style="display: none;">
+                            <a href="logout">Uitloggen</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-1 col-mobile-3">
+                <div class="col-1 col-mobile-2 nav-right">
                     <a href="#" class="cart_button sidebar-toggle" data-sidebar="cart-sidebar">
-                            <span class="fa fa-shopping-cart"></span> <span class="count">0</span>
+                        <span class="fa fa-shopping-cart"></span> <span class="count">0</span>
                     </a>
                 </div>
             </div>

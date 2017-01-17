@@ -18,7 +18,7 @@ var CartController = function(viewHelper, model)
      */
     function addProduct(id)
     {
-        Model.addProduct(id, function (data) { ViewHelper.addItem(data)});
+        Model.addProduct(id, function (data) { ViewHelper.addItem(data); ViewHelper.updateTotalPrice(10); });
     }
 
     /**

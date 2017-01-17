@@ -12,6 +12,16 @@ var CartViewHelper = function()
     }
 
     /**
+     * Update the total price  of the cart
+     * 
+     * @param {int} totalPrice  Total price of the cart
+     */
+    function updateTotalPrice(totalPrice)
+    {
+        $(".cart__total .price").html("€" + totalPrice);
+    }
+
+    /**
      * Make new cart item visiable in the DOM
      * 
      * @param  {array}  item  Product
@@ -21,7 +31,7 @@ var CartViewHelper = function()
         var cartItem = $('<div>').html($('.sidebar__content__tmp').html());
 
         cartItem.find(".cart__item__title").html(item.title);
-        cartItem.find(".cart__item__price").html(item.price);
+        cartItem.find(".cart__item__price").html("€" + item.price);
         cartItem.find(".cart__item__image img").attr("src", item.image);
         cartItem.find(".cart__item").attr("data-id", item.ean_number)
 
@@ -83,6 +93,7 @@ var CartViewHelper = function()
     return {
         setView: setView,
         addItem: addItem,
+        updateTotalPrice: updateTotalPrice,
         setActionListener: setActionListener,
         setAddProductListener: setAddProductListener,
         setRemoveListener: setRemoveListener
