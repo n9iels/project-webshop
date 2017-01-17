@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>A-Z Games</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="/resources/css/layout.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link rel="icon" href="/resources/images/icon.png" type="image/ico" />
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="/resources/js/app.js"></script>
+        <script>
+            $(document).ready(function()
+            {
+                // Create route instance
+                var router = new Router();
+
+                // Route the current url when the page is load
+                router.route(window.location.pathname);
+
+                // Instanciate the cart
+                new CartController(new CartViewHelper(), new CartModel()).main();
+
+                // Route internal urls
+                $("body").on("click", "a", function (event)
+                {
+                    // If the link contains a data attribute we do not route this link
+                    if ($.isEmptyObject($(this).data()))
+                    {
+                        event.preventDefault();
+
+                        var url = $(this).attr("href");
+                        router.route(url);
+                    }
+                });
+
+                $(window).on('popstate', function() {
+                    router.route(window.location.pathname, false);
+                });
+            });
+        </script>
+        
+    </head>
+    <body>
+        <div class="spinner"></div>
+    </body>
+</html>

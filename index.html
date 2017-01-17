@@ -32,6 +32,9 @@
                     {
                         event.preventDefault();
 
+                        // Load screen
+                        showLoadScreen();
+
                         var url = $(this).attr("href");
                         router.route(url);
                     }
