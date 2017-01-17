@@ -34,8 +34,28 @@ var AdminModel = function()
         }
     }
 
+    function getUserInfo(callback)
+    {
+        console.log("in getUserInfo");
+        // $.ajax({
+        //     url: "http://localhost:8081/users", //"https://api.az-games.nl/users",
+        //     type: "GET",
+        //     dataType: 'json',
+        //     headers: {
+        //         "Authorization": "Bearer " + getCookie("access_token")
+        //     },
+        //     success: function (data) {
+        //         callback(data);
+        //     },
+        //     error: function (xhr, status, error) {
+        //         $("#component").load("/error.html");
+        //     }
+        // });
+    }
+
     // Return the methods that can be used by other programs (the controller in this case)
     return {
-        getUserIds: getUserIds
+        getUserIds: getUserIds,
+        getUserInfo: getUserInfo
     }
 };

@@ -4,9 +4,19 @@ var AdminController = function(viewHelper, model)
     var ViewHelper = viewHelper;
     
     // Function that is executed on a action listener
-    function actionPerformed(event)
+    function showUserIds(data)
     {
-        
+        viewHelper.showUserIds(data);
+    }
+
+    function getUserInfo(user_email)
+    {
+        model.getUserInfo(user_email, showUserInfo);
+    }
+
+    function showUserInfo(data)
+    {
+
     }
 
     // Main function, also the start startpoint for a page
@@ -14,19 +24,11 @@ var AdminController = function(viewHelper, model)
     {
         // model gets user_id's from database
         // view shows user_id's on page
+        model.getUserIds(showUserIds);
 
-        // if admin clicks a user_id, then another model (UserModel) gets user info from database
+        // if admin clicks on user, then another model (UserModel) gets user info from database
         // view shows user info on page
-
-
-        // model gets user_id's from database
-        // view shows user_id's on page
-        model.getUserIds(viewHelper.showUserIds);
-
-
-
-        // set view to admin page. model gets user info from database
-        //ViewHelper.setActionListener(actionPerformed);
+        ViewHelper.setActionListener(getUserInfo);
     }
 
     // Return the methods that can be used by other programs (the controller in this case)
