@@ -6,7 +6,7 @@ var AdminController = function(viewHelper, model)
     // Function that is executed on a action listener
     function actionPerformed(event)
     {
-
+        
     }
 
     // Main function, also the start startpoint for a page
@@ -26,7 +26,7 @@ var AdminController = function(viewHelper, model)
 
 
         // set view to admin page. model gets user info from database
-        ViewHelper.setActionListener(actionPerformed);
+        //ViewHelper.setActionListener(actionPerformed);
     }
 
     // Return the methods that can be used by other programs (the controller in this case)
