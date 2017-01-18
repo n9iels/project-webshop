@@ -3,6 +3,7 @@ var RegisterViewHelper = function()
     // Change the view of the page
     function setView(viewToShow)
     {
+        console.log("VIEW: Inside setView function");
         document.title = "Registreren - AZ Games";
         
         $("#component").load(viewToShow);
@@ -15,6 +16,7 @@ var RegisterViewHelper = function()
         // user presses 'register'
 
         // if user presses 'register', perform action
+        console.log("VIEW: Inside setActionListener function");
         $("#component").on("submit", "#registerform", action);
     }
 

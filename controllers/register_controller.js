@@ -6,7 +6,7 @@ var RegisterController = function(viewHelper, model)
     // Function that is executed on a action listener
     function actionPerformed()
     {
-        console.log("in actionPerformed"); //test
+        console.log("CONTROLLER: in actionPerformed"); //test
 
         // Prevent sending the form
         event.preventDefault();

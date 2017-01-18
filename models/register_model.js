@@ -3,8 +3,9 @@ var RegisterModel = function()
     function register(formData, callback)
     {
         //console.log(formData);
+        console.log("MODEL: Inside register function");
         $.ajax({
-            url: "https://api.az-games.nl/user/register",
+            url: "http://localhost:8081/user/register",
             type: "post",
             dataType: 'json',
             data: JSON.stringify({
@@ -22,15 +23,17 @@ var RegisterModel = function()
                 postal_code : formData.postcode,
                 number : formData.huisnummer,
                 street_name : formData.straatnaam,
-                city : formData.plaats                
+                city : formData.plaats,              
             }),
             success: function (data) {
                 //console.log(data);
+                console.log("MODEL: Inside success function");
                 // let controller resume with stuff
                 callback(data);
             },
             error: function (xhr, status, error) {
-                // show 'email al gebonden aan een account?'
+                // show 'email al gebonden aan een account?
+                console.log("MODEL: Inside error function");
                 $("#regi_api_error_message").show();
                 //$("#component").html("error function");
             }
