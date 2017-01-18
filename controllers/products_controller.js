@@ -20,7 +20,7 @@ var ProductsController = function(viewHelper, model)
 
     // Main function, also the start startpoint for a page
     function main()
-    {                        
+    {
         ViewHelper.setActionListener(getPage);
         ViewHelper.setFilterListener(filterProducts);
         // new action wanner er op filter wordt gedrukt

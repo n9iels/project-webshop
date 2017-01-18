@@ -12,8 +12,8 @@ var LoginModel = function()
             }),
             success: function (data) {
                 // put token in cookie
-                document.cookie='access_token=' + data.access_token;
-                document.cookie='user_id=' + data.user_id;
+                CookieHelper.createCookie("access_token", data.access_token);
+                CookieHelper.createCookie("user_id", data.user_id);
 
                 // let controller resume with stuff
                 callback(data);

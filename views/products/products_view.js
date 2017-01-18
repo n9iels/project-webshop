@@ -15,7 +15,7 @@ var ProductsViewHelper = function()
 
     function loadProducts(viewData)
     {
-        $("#products").load('views/products/products.html', function () { // waar id = 'component' doe .load......
+        $("#products").load('/views/products/products.html', function () { // waar id = 'component' doe .load......
             $.each(viewData, function(key, value) {
                 // Clone product
                 var product = $('<div>').append($('#product__list__item').clone());
@@ -50,25 +50,6 @@ var ProductsViewHelper = function()
             return text;
         }
     };
-
-    //Platform Logo's
-    function PlatformLogo(platformnaam)
-    {
-        platformnaam = platformnaam.toUpperCase();
-        switch (platformnaam)
-        {
-            case "PS4":
-                return "<img src='/resources/images/icons/ps.png' />";
-            case "PC":
-                return "<img src='/resources/images/icons/windows.png' />";
-            case "XBOX":
-                return "<img src='/resources/images/icons/xbox.png' />";
-            case "NINTENDO":
-                return "<img src='/resources/images/icons/nintendo.png' />";
-            default:
-                return platformnaam;
-        }
-    }
 
     // Execute the event when 'something' happens (when a button is clicked for example)
     function setActionListener(action)

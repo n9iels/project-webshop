@@ -1,9 +1,9 @@
-var PageModel = function()
+var WishlistModel = function()
 {
-    function getPage(callback)
+    function getWishlist(callback)
     {
         $.ajax({
-            url: "https://api.az-games.nl/user",
+            url: "http://localhost:8081/wishlist/" + CookieHelper.getCookie("user_id"),
             type: "get",
             dataType: 'json',
             headers: {
@@ -13,13 +13,13 @@ var PageModel = function()
                 callback(data);
             },
             error: function (xhr, status, error) {
-                $("#component").load("/error.html");
+                $("#component").load("/views/error/error.html");
             }
         });
     }
 
     // Return the methods that can be used by other programs (the controller in this case)
     return {
-        getPage: getPage
+        getWishlist: getWishlist
     }
 };

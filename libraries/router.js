@@ -36,6 +36,9 @@ var Router = function ()
             case "resetpassword":
                 new ResetPasswordController(new ResetPasswordViewHelper(), new ResetPasswordModel()).main();
                 break;
+            case "wishlist":
+                new WishlistController(new WishlistViewHelper(), new WishlistModel()).main();
+                break;
             default:
                 new ErrorController(new ErrorViewHelper()).main();
                 break;
