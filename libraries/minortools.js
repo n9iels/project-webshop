@@ -4,18 +4,23 @@ function PlatformLogo(platformnaam)
     platformnaam = platformnaam.toUpperCase();
     switch (platformnaam)
     {
+        //platforms
         case "PS4":
             return "<img src='/resources/images/icons/ps.png' />";
         case "PC":
             return "<img src='/resources/images/icons/windows.png' />";
         case "XBOX":
             return "<img src='/resources/images/icons/xbox.png' />";
-        case "NINTENDO":
-            return "<img src='/resources/images/icons/nintendo.png' />";
         case "NES":
             return "<img src='/resources/images/icons/nes.png' />";
+        case "NINTENDO SWITCH":
+            return "<img src='/resources/images/icons/switch.png' />";
         default:
             return platformnaam;
+
+        //publishers
+        case "NINTENDO":
+            return "<img src='/resources/images/publishers/nintendo.jpg' />";
     }
 }
 
@@ -30,6 +35,12 @@ function BeschikbaarheidKleur(stockvalue){
         }
 }
 
+// Van Wishlist pagina
 $(document).on("click", "span.like", function (event) {
     $(this).toggleClass("like--active");
+});
+
+// Van Single Product pagina
+$(document).on("click", "span.single_like", function (event) {
+    $(this).toggleClass("single_like--active");
 });

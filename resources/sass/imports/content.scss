@@ -97,6 +97,29 @@ body {
     &__descr {
         line-height: 1.5;
     }
+
+
+
+.single_like {
+    color: #ff0000;
+    font:normal normal normal 14px/1 FontAwesome;
+    font-size: 17px;
+}
+.single_like::before {
+    content:"\f08a";
+}
+.single_like--active {
+    color: #ff0000;
+    animation-name: like;
+    animation-duration: 0.5s;
+}
+.single_like--active::before {
+    content:"\f004";
+}
+@keyframes single_like {
+    0% {font-size: 17px; }
+    50% {font-size: 19px;}
+    100% {font-size: 17px;}
 }
 
 @media (min-width: 992px)
@@ -124,4 +147,6 @@ body {
             margin-top: 0;
         }
     }
+}
+
 }
