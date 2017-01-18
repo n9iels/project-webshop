@@ -16,10 +16,6 @@ var AdminController = function(viewHelper, model)
         // view shows  on page
         model.getUserIds(viewHelper.showUserIds);
 
-        // if admin clicks a user_id, then another model (UserModel) gets all user info from database
-        // view shows all user info on page
-        viewHelper.
-
 
 
         // set view to admin page. model gets user info from database

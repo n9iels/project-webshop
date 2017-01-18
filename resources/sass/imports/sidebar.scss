@@ -1,0 +1,84 @@
+body.sidebar--open {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    height: 100%;
+    width: 280px;
+    background-color: #fff;
+    box-shadow: 1px 2px 7px 0px rgba(0, 0, 0, 0.4);
+    transform: translate3d(300px, 0, 0);
+    transition: transform 0.3s;
+    overflow: hidden;
+
+    &__title {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        font-size: 23px;
+        padding: 16px;
+        border-bottom: 1px solid #ccc;
+        background-color: #fff;
+    }
+
+    &__footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-top: 1px solid #ccc;
+        background: #fff;
+    }
+    
+    &__content {
+        height: 100%;
+        padding: 56px 0 92px 0;
+        overflow-y: scroll;
+        overflow-scrolling: touch;
+    }
+
+    &__close {
+        font: normal normal normal 23px/1 FontAwesome;
+        float: right;
+        padding: 16px;
+        margin: -16px;
+        cursor: pointer;
+
+        &::before {
+            content: "\f00d";
+        }
+    }
+
+    &--right {
+        right: 0;
+    }
+
+    &--left {
+        transform: translate3d(-300px, 0, 0);
+        left: 0;
+    }
+
+    &--open {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@media (min-width: 768px)
+{
+    .sidebar {
+        width: 330px;
+        transform: translate3d(350px, 0, 0);
+
+        &--open {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+}
