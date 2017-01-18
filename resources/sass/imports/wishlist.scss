@@ -1,11 +1,9 @@
-div{
-    text-align: center;
-
 .wish__list{
     border-radius:4px;
     border: 1px solid #ccc;
     font-size: 17px;
     padding: 5px;
+    text-align: center;
 }
 
 #wish__list__item{
@@ -24,7 +22,16 @@ div{
     img{
         max-height: 40px;
         max-width: 40px;
+        margin-top: 10px;
     }
+}
+
+.wish__list__price{
+    margin-top:10px;
+}
+
+.wish__list__title{
+    margin-top:10px;
 }
 
 
@@ -37,26 +44,27 @@ div{
         }
 }
 
+.wish__list__likebutton{
+    margin-top: 15px;
 
-.like {
-    font:normal normal normal 14px/1 FontAwesome;
-    font-size: 17px;
-}
-.like::before {
-    content:"\f08a";
-}
-.like--active {
-    color: #ff0000;
-    animation-name: like;
-    animation-duration: 0.5s;
-}
-.like--active::before {
-    content:"\f004";
-}
-@keyframes like {
-    0% {font-size: 17px; }
-    50% {font-size: 19px;}
-    100% {font-size: 17px;}
-}
-
+    .like {
+        color: #ff0000;
+        font:normal normal normal 14px/1 FontAwesome;
+        font-size: 17px;
+    }
+    .like::before {
+        content:"\f004";
+    }
+    .like--active {
+        animation-name: like;
+        animation-duration: 0.5s;
+    }
+    .like--active::before {
+        content:"\f08a";
+    }
+    @keyframes like {
+        0% {font-size: 17px; }
+        50% {font-size: 19px;}
+        100% {font-size: 17px;}
+    }
 }

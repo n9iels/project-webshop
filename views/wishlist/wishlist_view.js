@@ -18,7 +18,7 @@ var WishlistViewHelper = function()
 
                 // USER FIRST NAME
                 //$(wish__list__headtitle).find("wish__list__headtitle").append(user_id);
-                //console.log(first_name);
+                //console.log(viewData.first_name);
 
                 $.each(viewData, function(key, value) {
                     // Clone product
