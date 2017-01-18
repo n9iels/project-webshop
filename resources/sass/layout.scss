@@ -1,15 +1,26 @@
+// Main files
 @import "node_modules/reset-css/_reset";
 @import "general";
 @import "modules/grid";
-@import "modules/form";
+@import "modules/animations";
+
+// Top to bottom
 @import "modules/menu";
-@import "modules/images";
 @import "modules/content";
 @import "modules/filter";
 @import "modules/header";
+
+// Specific page styles
 @import "modules/login";
+@import "modules/form";
+
+// Addtional styles
+@import "modules/sidebar";
+@import "modules/cart";
 @import "modules/panel";
 @import "modules/message";
 @import "modules/form";
+@import "modules/panel";
+@import "modules/spinner";
 @import "modules/wishlist";
 @import "font";
