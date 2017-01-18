@@ -12,6 +12,8 @@ function PlatformLogo(platformnaam)
             return "<img src='/resources/images/icons/xbox.png' />";
         case "NINTENDO":
             return "<img src='/resources/images/icons/nintendo.png' />";
+        case "NES":
+            return "<img src='/resources/images/icons/nes.png' />";
         default:
             return platformnaam;
     }
