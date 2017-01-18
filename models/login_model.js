@@ -3,17 +3,16 @@ var LoginModel = function()
     function login(email, password, callback)
     {
         $.ajax({
-            url: "https://api.az-games.nl/user/login",
-            type: "post",
+            url: "http://localhost:8081/user/login",
+            type: "GET",
             dataType: 'json',
-            data: JSON.stringify({
-                email : email,
-                password : password
-            }),
+            headers: {
+                "Authorization": "Basic " + btoa(email + ":" + password)
+            },
             success: function (data) {
                 // put token in cookie
-                document.cookie='access_token=' + data.access_token;
-                document.cookie='user_id=' + data.user_id;
+                CookieHelper.createCookie("access_token", data.access_token);
+                CookieHelper.createCookie("user_id", data.user_id);
 
                 // let controller resume with stuff
                 callback(data);
