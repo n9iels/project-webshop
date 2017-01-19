@@ -17,7 +17,7 @@ var LoginController = function(viewHelper, model)
         });
 
         // let model send email and password to API
-        Model.login(formData.email, formData.password, function (data) {
+        Model.login(formData.email, formData.password, function onSuccess(data) {
             // show uitloggen button
             $("#inloggen_text").hide();
             $("#uitloggen_text").show();

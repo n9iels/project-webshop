@@ -36,6 +36,12 @@ var Router = function ()
             case "resetpassword":
                 new ResetPasswordController(new ResetPasswordViewHelper(), new ResetPasswordModel()).main();
                 break;
+            case "admin":
+                new AdminController(new AdminViewHelper(), new AdminModel()).main();
+                break;
+            case "admin_user":
+                new AdminUserController(new AdminUserViewHelper(), new AdminUserModel(particles[1])).main();
+                break;
             default:
                 new ErrorController(new ErrorViewHelper()).main();
                 break;
