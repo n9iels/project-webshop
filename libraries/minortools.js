@@ -5,14 +5,18 @@ function PlatformLogo(platformnaam)
     switch (platformnaam)
     {
         //platforms
+        case "PS1":
+            return "<img src='/resources/images/icons/ps1.png' />";
         case "PS4":
-            return "<img src='/resources/images/icons/ps.png' />";
+            return "<img src='/resources/images/icons/ps4.png' />";
         case "PC":
             return "<img src='/resources/images/icons/windows.png' />";
         case "XBOX":
             return "<img src='/resources/images/icons/xbox.png' />";
         case "NES":
             return "<img src='/resources/images/icons/nes.png' />";
+        case "N64":
+            return "<img src='/resources/images/icons/n64.png' />";
         case "NINTENDO SWITCH":
             return "<img src='/resources/images/icons/switch.png' />";
         default:
