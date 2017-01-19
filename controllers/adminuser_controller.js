@@ -1,4 +1,4 @@
-var AdminController = function(viewHelper, model)
+var AdminUserController = function(viewHelper, model)
 {
     var Model      = model;
     var ViewHelper = viewHelper;
@@ -11,13 +11,13 @@ var AdminController = function(viewHelper, model)
 
     function getPage()
     {
-        Model.getPage(setView); //"", function (data) { ViewHelper.setView(data); });
+        Model.getPage(setView);
     }
+    
     function setView(data) 
     {
         ViewHelper.setView(data)
     }
-
 
     // Return the methods that can be used by other programs (the controller in this case)
     return {
