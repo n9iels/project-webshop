@@ -15,7 +15,6 @@ var WishlistViewHelper = function()
             {
                 var current = 0
 
-
                 // USER FIRST NAME
                 //$(wish__list__headtitle).find("wish__list__headtitle").append(user_id);
                 //console.log(viewData.first_name);
@@ -44,6 +43,7 @@ var WishlistViewHelper = function()
     function setActionListener(action)
     {
         $(document).ready(action); // if 'document ready' perform "action"
+        
     }
 
     return {
