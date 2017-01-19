@@ -39,7 +39,7 @@ gulp.task('scripts', function() {
 gulp.task('default', function(){
     gulp.start(['scripts']);
     gulp.start(['sass']);
-    gulp.watch(jsDir + '/**/*.js', ['scripts']);
+    gulp.watch([jsDir + '/**/*.js', './libraries/**/*.js', './models/*.js', './views/**/*.js', './controllers/*.js'], ['scripts']);
     gulp.watch(sassDir + '/**/*.scss', ['sass']);
 });
 
@@ -54,7 +54,7 @@ gulp.task('sync', function() {
     });
 
     gulp.watch(sassDir + '/**/*.scss', ['sass']).on('change', browserSync.reload);;
-    gulp.watch([jsDir + '/**/*.js', './models/*.js', './views/**/*.js', './controllers/*.js'], ['scripts']).on('change', browserSync.reload);
+    gulp.watch([jsDir + '/**/*.js', './libraries/**/*.js', './models/*.js', './views/**/*.js', './controllers/*.js'], ['scripts']).on('change', browserSync.reload);
     gulp.watch('./**/*.html').on('change', browserSync.reload)
 });
 

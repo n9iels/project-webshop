@@ -24,6 +24,9 @@
                 // Instanciate the cart
                 new CartController(new CartViewHelper(), new CartModel()).main();
 
+                // Execute load events
+                onLoadPage();
+
                 // Route internal urls
                 $("body").on("click", "a", function (event)
                 {
@@ -59,7 +62,7 @@
                 </div>
                 <div class="col-4 col-mobile-8 nav-right">
                    <ul>
-                        <li id="admin_text">
+                        <li class="visible-admin">
                             <a href="admin">Admin</a>
                         </li>
                         <li id="inloggen_text">
