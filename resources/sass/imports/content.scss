@@ -81,6 +81,21 @@ body {
         }
     }
 
+    &__platform{
+        img{
+            vertical-align:bottom;
+            height: 20px;
+        }
+    }
+
+    &__publisher{
+        img{
+            vertical-align:bottom;
+            height: 50px;
+            max-width:200px;
+        }
+    }
+
     &__image {
         text-align: center;
 

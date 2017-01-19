@@ -20,7 +20,11 @@ function PlatformLogo(platformnaam)
 
         //publishers
         case "NINTENDO":
-            return "<img src='/resources/images/publishers/nintendo.jpg' />";
+            return "<img src='/resources/images/publishers/nintendo.png' />";
+        case "UBISOFT":
+            return "<img src='/resources/images/publishers/ubisoft.png' />";
+        case "ELECTRONIC ARTS":
+            return "<img src='/resources/images/publishers/ea.png' />";
     }
 }
 
