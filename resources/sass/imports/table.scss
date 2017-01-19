@@ -1,0 +1,16 @@
+table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: separate;
+
+    th {
+        text-align: left;
+        font-weight: 600;
+        border-bottom: 2px solid #ccc;
+        padding: 10px;
+    }
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+}

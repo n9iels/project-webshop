@@ -27,7 +27,7 @@ var AdminViewHelper = function ()
             });
 
             // Remove the first list item, because this item is always empty
-            $(".single_user").first().remove();
+            $("#single_user").first().remove();
         });
     }
 
