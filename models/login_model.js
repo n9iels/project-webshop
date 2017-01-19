@@ -4,12 +4,11 @@ var LoginModel = function()
     {
         $.ajax({
             url: "https://api.az-games.nl/user/login",
-            type: "post",
+            type: "GET",
             dataType: 'json',
-            data: JSON.stringify({
-                email : email,
-                password : password
-            }),
+            headers: {
+                "Authorization": "Basic " + btoa(email + ":" + password)
+            },
             success: function (data) {
                 // put token in cookie
                 CookieHelper.createCookie("access_token", data.access_token);

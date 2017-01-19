@@ -15,9 +15,6 @@ var AdminController = function(viewHelper, model)
         // model gets some user info from database
         // view shows  on page
         model.getUserIds(viewHelper.showUserIds);
-
-
-
         // set view to admin page. model gets user info from database
         //ViewHelper.setActionListener(actionPerformed);
     }
