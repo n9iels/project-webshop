@@ -1,12 +1,80 @@
-<div id="info gebruiker">
-    Info van een gebruiker
+<div id="title">
+    Edit gebruiker: 
 </div>
-<div id="wwwijzigen">
-    wachtwoord wijzigen
-</div>
-<div id="blokkeren">
-    gebruiker blokkeren
-</div>
-<div id="verwijderen">
-    gebruiker verwijderen
+
+<div id="user_form_div">
+    <form name="user" id="userform" class="userform">
+        <div class="form-group">
+            <label for="first_name">
+                Voornaam
+            </label>
+            <input type="text" name="first_name" id="first_name" />
+        </div>
+        <div class="form-group">
+            <label for="insertion">
+                Tussenvoegsel
+            </label>
+            <input type="text" name="insertion" id="insertion" />
+        </div>
+        <div class="form-group">
+            <label for="surname">
+                Achternaam
+            </label>
+            <input type="text" name="surname" id="surname" />
+        </div>
+        <div class="form-group">
+            <label for="user_type">
+                Gebruikerstype
+            </label>
+            <select name="user_type" id="user_type">
+                <option value="customer">Normaal</option>
+                <option value="admin">Admin</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="email">
+                Email
+            </label>
+            <input type="email" name="email" id="email" />
+        </div>
+        <div class="form-group">
+            <label for="password">
+                Wachtwoord
+            </label>
+            <input type="password" name="password" id="password" />
+        </div>
+        <div class="form-group">
+            <label for="gender">
+                Gender
+            </label>
+            <select name="gender" id="gender">
+                <option value="female">Vrouw</option>
+                <option value="male">Man</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="date_of_birth">
+                Geboortedatum
+            </label>
+            <input type="text" name="date_of_birth" id="date_of_birth" />
+        </div>
+        <div class="form-group">
+            <label for="phone_number">
+                Telefoonnummer
+            </label>
+            <input type="text" name="phone_number" id="phone_number" />
+        </div>
+        <div class="form-group">
+            <label for="is_active">
+                Geblokkeerd
+            </label>
+            <select name="is_active" id="is_active">
+                <option value="0">Ja</option>
+                <option value="1">Nee</option>
+            </select>
+        </div>
+
+        <input type="submit" value="Aanpassen" id="usersubmitbutton" class="btn">
+        <a href="/admin" class="btn" id="delete_btn">Verwijder gebruiker</a>
+    </form>
 </div>

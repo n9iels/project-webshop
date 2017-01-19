@@ -17,6 +17,28 @@ var AdminUserController = function(viewHelper, model)
     function setView(data) 
     {
         ViewHelper.setView(data);
+        viewHelper.setSaveListener(saveUserInfo);
+        viewHelper.setDeleteListener(deleteUser);
+    }
+    function saveUserInfo()
+    {
+        event.preventDefault();
+
+        var formData = $(this).serializeObject();
+
+        Model.saveUserInfo(formData, function(formData)
+        {
+            alert("Gebruiker succesvol geüpdate.");
+        });
+    }
+
+    function deleteUser()
+    {
+        Model.deleteUser( function()
+        {
+            console.log('verwijderd?');
+            alert("Gebruiker succesvol gedelete.");
+        } );
     }
 
     // Return the methods that can be used by other programs (the controller in this case)
