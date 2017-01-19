@@ -10,6 +10,7 @@ var cssnano           = require('gulp-cssnano');
 
 /* src folders */
 var sassDir           = __dirname + '/resources/sass';
+var jsDir             = __dirname + '/resources/js'
 var targetCss         = __dirname + '/resources/css';
 
 /* Compile SASS to CSS */
@@ -27,18 +28,34 @@ gulp.task('sass', function () {
 
 /* Combine all scripts */
 gulp.task('scripts', function() {
-    gulp.src(['./libraries/*.js', './models/*.js', './controllers/*.js', './views/**/*.js', './js/pageSwitcher.js'])
+    gulp.src(['./libraries/**/*.js', './models/*.js', './controllers/*.js', './views/**/*.js', './js/pageSwitcher.js'])
         .pipe(sourcemaps.init())
         .pipe(concat('app.js'))
-        //.pipe(uglify())
+        .pipe(uglify())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./resources/js'));
 });
 
 gulp.task('default', function(){
-    gulp.start(['sass']);
     gulp.start(['scripts']);
+    gulp.start(['sass']);
+    gulp.watch(jsDir + '/**/*.js', ['scripts']);
     gulp.watch(sassDir + '/**/*.scss', ['sass']);
+});
+
+gulp.task('sync', function() {
+    var browserSync = require('browser-sync').create();
+
+    gulp.start(['scripts']);
+    gulp.start(['sass']);
+
+    browserSync.init({
+        proxy: "az-games.dev"
+    });
+
+    gulp.watch(sassDir + '/**/*.scss', ['sass']).on('change', browserSync.reload);;
+    gulp.watch([jsDir + '/**/*.js', './models/*.js', './views/**/*.js', './controllers/*.js'], ['scripts']).on('change', browserSync.reload);
+    gulp.watch('./**/*.html').on('change', browserSync.reload)
 });
 
 gulp.task('jenkins', function(){

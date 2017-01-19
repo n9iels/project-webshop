@@ -15,7 +15,7 @@ var ProductsViewHelper = function()
 
     function loadProducts(viewData)
     {
-        $("#products").load('views/products/products.html', function () { // waar id = 'component' doe .load......
+        $("#products").load('/views/products/products.html', function () { // waar id = 'component' doe .load......
             $.each(viewData, function(key, value) {
                 // Clone product
                 var product = $('<div>').append($('#product__list__item').clone());
@@ -25,8 +25,9 @@ var ProductsViewHelper = function()
                 $(product).find(".product__subtitle").append(value.genre +(" | PEGI ") + value.pegi_age +(" | ")+ PlatformLogo(value.platform));
                 $(product).find(".product__description").html(CutString(value.description));
                 $(product).find(".product__price").append(("€ ")+value.price);
-                $(product).find("#buttons__info").attr("href", "product/" + value.ean_number)
+                $(product).find("#buttons__info").attr("href", "product/" + value.ean_number);
                 $(product).find(".product__image img").attr("src", value.image);
+                $(product).find(".addtocart").attr("data-id", value.ean_number);
 
                 $("#product__list").append(product);
             });
