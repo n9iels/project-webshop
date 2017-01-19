@@ -16,7 +16,7 @@ var AdminUserController = function(viewHelper, model)
     
     function setView(data) 
     {
-        ViewHelper.setView(data)
+        ViewHelper.setView(data);
     }
 
     // Return the methods that can be used by other programs (the controller in this case)
