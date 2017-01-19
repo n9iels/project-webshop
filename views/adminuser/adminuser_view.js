@@ -37,7 +37,7 @@ var AdminUserViewHelper = function ()
 
     function setDeleteListener(action)
     {
-        $("#component").on("click", '#delete_btn', action);
+        $("#component").off().on("click", '#delete_btn', action);
     }
 
     return {
