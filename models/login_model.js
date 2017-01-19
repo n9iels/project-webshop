@@ -14,6 +14,9 @@ var LoginModel = function()
                 CookieHelper.createCookie("access_token", data.access_token);
                 CookieHelper.createCookie("user_id", data.user_id);
 
+                // 'reload' page
+                onLoadPage();
+
                 // let controller resume with stuff
                 callback(data);
             },
