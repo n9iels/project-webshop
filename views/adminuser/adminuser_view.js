@@ -7,7 +7,12 @@ var AdminUserViewHelper = function ()
 
     function setView(data)
     {
-        $("#component").load('/views/admin/adminuser.html') //, function () {} )
+        //preventDefault();
+        $("#component").load('/views/admin/adminuser.html', function ()
+        {
+            this.preventDefault();
+            return;
+        } )
     }
 
     return {
