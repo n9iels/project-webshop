@@ -11,6 +11,8 @@ var ProductViewHelper = function()
                 $(".singleproduct__price").html("€ " + product.price);
 
                 $(".singleproduct__ean").append(product.ean_number);
+                $(".singleproduct__platform").append(PlatformLogo(product.platform)); // functie voor logo
+                $(".singleproduct__publisher").append(PlatformLogo(product.publisher)); // functie voor logo
                 $(".singleproduct__pegi").append(product.pegi_age);
                 $(".singleproduct__genre").append(product.genre);
                 $(".singleproduct__descr").html(product.description)
