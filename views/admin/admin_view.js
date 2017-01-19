@@ -10,40 +10,24 @@ var AdminViewHelper = function ()
     {
         document.title ="Admin - AZ Games";
 
-        $("#component").load('/views/admin/admin.html', function () {
-            var table = $("<table id='users_table'></table>");
+        $("#component").load('/views/admin/admin.html', function () { // waar id = 'component' doe .load......
+            $.each(data, function(key, value) {
+                // Clone product
+                var user = $('#single_user').clone();
+                
+                // Add product info
+                $(user).find(".user__firstname").html(value.first_name);
+                $(user).find(".user__firstname").attr('href', '/admin_user/' + value.user_id);
+                $(user).find(".user__insertion").html(value.insertion);
+                $(user).find(".user__lastname").html(value.surname);
+                $(user).find(".user__email").html(value.email);
+                $(user).find(".user__phonenumber").html(value.phone_number);
 
-            $.each(data, function(numberr, user) 
-            {
-                var row = $('<tr></tr>');
-
-                var email = ''
-                $.each(user, function(key, value)
-                {
-                    if (key == 'email') {
-                        email = value;
-                    }
-                })
-
-                $.each(user, function(key, value)
-                {
-                    var td = $("<td class='td_user'></td>");
-                    if (value != undefined)
-                    {
-                        var a = $("<a></a>");
-                        a.attr('href', '/admin_user/' + email); //in routes
-                        a.html(String(value));
-                        $(td).append(a);
-                        row.append(td);
-                    } else {
-                        row.append( td );
-                        $(row).attr('href', '/admin_user/' + email); // in routes
-                    }
-                })
-
-                table.append(row);
+                $("#users_body").append(user);
             });
-            $('#users').append(table);
+
+            // Remove the first list item, because this item is always empty
+            $(".single_user").first().remove();
         });
     }
 
