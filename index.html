@@ -15,14 +15,14 @@
         <script>
             $(document).ready(function()
             {
-                // Create route instance
-                var router = new Router();
-
                 // Route the current url when the page is load
-                router.route(window.location.pathname);
+                Router.route(window.location.pathname);
 
                 // Instanciate the cart
                 new CartController(new CartViewHelper(), new CartModel()).main();
+
+                // Execute load events
+                onLoadPage();
 
                 // Route internal urls
                 $("body").on("click", "a", function (event)
@@ -36,12 +36,12 @@
                         showLoadScreen();
 
                         var url = $(this).attr("href");
-                        router.route(url);
+                        Router.route(url);
                     }
                 });
 
                 $(window).on('popstate', function() {
-                    router.route(window.location.pathname, false);
+                    Router.route(window.location.pathname, false);
                 });
             });
         </script>
@@ -59,6 +59,9 @@
                 </div>
                 <div class="col-4 col-mobile-7 nav-right">
                    <ul>
+                        <li class="visible-admin">
+                            <a href="/admin">Admin</a>
+                        </li>
                         <li id="inloggen_text">
                             <a href="login">Inloggen</a>
                         </li>

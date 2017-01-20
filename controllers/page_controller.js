@@ -11,7 +11,7 @@ var PageController = function(viewHelper, model)
         });
     }
 
-    // Main function, also the start startpoint for a page
+    // Main function, also the startpoint for a page
     function main()
     {                        
         View.setActionListener(actionPerformed);

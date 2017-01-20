@@ -8,11 +8,11 @@ var PageViewHelper = function()
         $("#component").load('/views/page/page.html', function () {
             if (viewData[0].user_type == "customer")
             {
-                $("#user-block").append("<h1>Je lees dit alleen als je een customer bent");
+                $("#user-block").append("<h1>Je lees dit alleen als je een customer</h1>");
             }
             if (viewData[0].user_type == "admin")
             {
-                $("#user-block").append("<h1>Je lees dit alleen als je een administrator bent");
+                $("#user-block").append("<h1>Je lees dit alleen als je een administrator</h1>");
             }
         });
     }

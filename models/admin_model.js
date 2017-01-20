@@ -1,10 +1,10 @@
-var PageModel = function()
+var AdminModel = function()
 {
     function getPage(callback)
     {
         $.ajax({
-            url: "https://api.az-games.nl/user",
-            type: "get",
+            url: "https://api.az-games.nl/admin/users", //"https://api.az-games.nl/
+            type: "GET",
             dataType: 'json',
             headers: {
                 "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
@@ -22,4 +22,5 @@ var PageModel = function()
     return {
         getPage: getPage
     }
+
 };
