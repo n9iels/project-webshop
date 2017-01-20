@@ -22,12 +22,11 @@ var WishlistController = function(viewHelper, model)
         ViewHelper.setDeleteListener(deleteFromWishlist);
     }
 
-    function deleteFromWishlist(ean)
+    function deleteFromWishlist(ean, div_to_hide)
     {
         Model.deleteFromWishlist(ean, function()
         {
-            alert("Item succesvol verwijderd");
-            Router.route("/wishlist");
+            div_to_hide.fadeTo(200, 0).slideUp(200);
         });
     }
 

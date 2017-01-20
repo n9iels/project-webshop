@@ -54,7 +54,7 @@ var WishlistModel = function()
                 "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
             },
             success: function (data) {
-                callback(data);
+                callback(data); //moet data per se meegeven aan callback?
             },
             error: function (xhr, status, error) {
                 $("#component").load("/views/error/error.html");
