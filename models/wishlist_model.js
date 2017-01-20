@@ -1,6 +1,6 @@
 var WishlistModel = function()
 {
-    function getWishlist(callback) // Corrigeer url!!!
+    function getWishlist(callback)
     {
         //console.log("WL MODEL: Inside getWishList");
         $.ajax({
@@ -42,14 +42,14 @@ var WishlistModel = function()
         });
     }
 
-    function deleteFromWishlist()
+    function deleteFromWishlist(ean, callback)
     {
         $.ajax({
-            url: "http://localhost:8081/wishlist" + data.user_id, //"https://api.az-games.nl/
-            type: "PATCH",
+            url: "http://localhost:8081/wishlist/" + CookieHelper.getCookie("user_id") + "/" + String(ean), //"https://api.az-games.nl/
+            type: "DELETE",
             dataType: 'json',
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify(data),
+            // contentType: "application/json; charset=utf-8",
+            // data: JSON.stringify(data),
             headers: {
                 "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
             },

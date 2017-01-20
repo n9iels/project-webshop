@@ -35,7 +35,6 @@ var WishlistViewHelper = function()
                     $(wish__list__item).find(".wish__list__platform").append(PlatformLogo(value.platform));
                     $(wish__list__item).find(".wish__list__availability").append(BeschikbaarheidKleur(value.stock));
                     $(wish__list__item).find(".wish__list__likebutton").append();
-                    $(wish_list_item)
 
                     $("#wish__list").append(wish__list__item);
             });
@@ -52,7 +51,11 @@ var WishlistViewHelper = function()
 
     function setDeleteListener(action)
     {
-        $(".wish__list__deletebutton").off().on("click", function() { action(); } );
+        $("#component").off().on("click", "#delete_btn", function(e)
+        {
+            e.preventDefault();
+            action($(this).data("id")); //moet id miss ean zijn?
+        } );
     }
 
     return {
