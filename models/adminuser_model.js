@@ -3,7 +3,7 @@ var AdminUserModel = function(id)
     function getPage(callback)
     {
         $.ajax({
-            url: "http://localhost:8081/admin/users/" + id, //"https://api.az-games.nl/
+            url: "https://api.az-games.nl/admin/users/" + id, //"https://api.az-games.nl/
             type: "GET",
             dataType: 'json',
             headers: {
@@ -21,7 +21,7 @@ var AdminUserModel = function(id)
     function saveUserInfo(data, callback)
     {
         $.ajax({
-            url: "http://localhost:8081/admin/users/" + data.user_id, //"https://api.az-games.nl/
+            url: "https://api.az-games.nl/admin/users/" + data.user_id, //"https://api.az-games.nl/
             type: "PATCH",
             dataType: 'json',
             contentType: "application/json; charset=utf-8",
@@ -41,7 +41,7 @@ var AdminUserModel = function(id)
     function deleteUser(user_id, callback)
     {
         $.ajax({
-            url: "http://localhost:8081/admin/users/" + user_id, //"https://api.az-games.nl/
+            url: "https://api.az-games.nl/admin/users/" + user_id, //"https://api.az-games.nl/
             type: "DELETE",
             dataType: 'json',
             //contentType: "application/json; charset=utf-8",
