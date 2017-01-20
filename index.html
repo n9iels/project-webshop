@@ -15,11 +15,8 @@
         <script>
             $(document).ready(function()
             {
-                // Create route instance
-                var router = new Router();
-
                 // Route the current url when the page is load
-                router.route(window.location.pathname);
+                Router.route(window.location.pathname);
 
                 // Instanciate the cart
                 new CartController(new CartViewHelper(), new CartModel()).main();
@@ -45,7 +42,7 @@
                 });
 
                 $(window).on('popstate', function() {
-                    router.route(window.location.pathname, false);
+                    Router.route(window.location.pathname, false);
                 });
             });
         </script>
