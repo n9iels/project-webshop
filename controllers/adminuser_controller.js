@@ -34,13 +34,13 @@ var AdminUserController = function(viewHelper, model)
         });
     }
 
-    function deleteUser()
+    function deleteUser(user_id)
     {
-        Model.deleteUser( function()
+        Model.deleteUser(user_id, function()
         {
-            console.log('verwijderd?');
             alert("Gebruiker succesvol gedelete.");
-        } );
+            Router.route("/admin");
+        });
     }
 
     // Return the methods that can be used by other programs (the controller in this case)
