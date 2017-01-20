@@ -11,18 +11,21 @@ function showLoadScreen()
 
 function onLoadPage()
 {
-    if (UserHelper.isCustomer())
-    {
-        $("#inloggen_text").hide();
-        $("#uitloggen_text").show();
-    }
-
     if (UserHelper.isAdmin())
     {
         $(".visible-admin").css("display", "inline-block");
+        $(".visible-customer").css("display", "inline-block");
+        $("#inloggen_text").hide();
+    }
+    else if (UserHelper.isCustomer())
+    {
+        $(".visible-customer").css("display", "inline-block");
+        $("#inloggen_text").hide();
     }
     else
     {
         $(".visible-admin").hide();
+        $(".visible-customer").hide();
+        $("#inloggen_text").css("display", "inline-block");
     }
 }
