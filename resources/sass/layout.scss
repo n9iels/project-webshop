@@ -12,7 +12,9 @@
 
 // Specific page styles
 @import "imports/login";
+@import "imports/register";
 @import "imports/form";
+@import "imports/wishlist";
 @import "imports/admin";
 
 // Addtional styles
@@ -23,5 +25,7 @@
 @import "imports/form";
 @import "imports/panel";
 @import "imports/spinner";
+@import "imports/like";
 @import "imports/table";
 @import "font";
+

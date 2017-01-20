@@ -52,25 +52,6 @@ var ProductsViewHelper = function()
         }
     };
 
-    //Platform Logo's
-    function PlatformLogo(platformnaam)
-    {
-        platformnaam = platformnaam.toUpperCase();
-        switch (platformnaam)
-        {
-            case "PS4":
-                return "<img src='/resources/images/icons/ps.png' />";
-            case "PC":
-                return "<img src='/resources/images/icons/windows.png' />";
-            case "XBOX":
-                return "<img src='/resources/images/icons/xbox.png' />";
-            case "NINTENDO":
-                return "<img src='/resources/images/icons/nintendo.png' />";
-            default:
-                return platformnaam;
-        }
-    }
-
     // Execute the event when 'something' happens (when a button is clicked for example)
     function setActionListener(action)
     {

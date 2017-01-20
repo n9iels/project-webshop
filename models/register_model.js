@@ -22,7 +22,7 @@ var RegisterModel = function()
                 postal_code : formData.postcode,
                 number : formData.huisnummer,
                 street_name : formData.straatnaam,
-                city : formData.plaats                
+                city : formData.plaats
             }),
             success: function (data) {
                 //console.log(data);

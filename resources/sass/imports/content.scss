@@ -87,6 +87,21 @@ body {
         }
     }
 
+    &__platform{
+        img{
+            vertical-align:bottom;
+            height: 20px;
+        }
+    }
+
+    &__publisher{
+        img{
+            vertical-align:bottom;
+            height: 50px;
+            max-width:200px;
+        }
+    }
+
     &__image {
         text-align: center;
 
@@ -103,7 +118,6 @@ body {
     &__descr {
         line-height: 1.5;
     }
-}
 
 @media (min-width: 992px)
 {
@@ -130,4 +144,6 @@ body {
             margin-top: 0;
         }
     }
+}
+
 }

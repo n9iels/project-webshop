@@ -41,6 +41,7 @@ gulp.task('default', function(){
     gulp.start(['sass']);
     gulp.watch([jsDir + '/**/*.js', './libraries/**/*.js', './models/*.js', './views/**/*.js', './controllers/*.js'], ['scripts']);
     gulp.watch(sassDir + '/**/*.scss', ['sass']);
+    gulp.watch([jsDir + '/**/*.js', './models/*.js', './views/**/*.js', './controllers/*.js'], ['scripts']);
 });
 
 gulp.task('sync', function() {

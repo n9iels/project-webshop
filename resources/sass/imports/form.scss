@@ -43,8 +43,7 @@ form {
             }
 
             &.invalid {
-                outline-style: ridge;
-                outline-color: #ff0000;
+                border-color: #ff0000;
             }
         }
 
@@ -97,9 +96,10 @@ form {
         }
     }
     fieldset {
-        border-bottom: 1px solid #ccc;
-        margin-bottom: 20px;
-        padding-bottom: 15px;
+        margin: 15px 0;
+    }
+    hr {
+        margin: 15px 0;
     }
 }
 .btn {
