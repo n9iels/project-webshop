@@ -15,8 +15,6 @@ var AdminController = function(viewHelper, model)
     }
     function setView(data) 
     {
-        model.getUserIds(viewHelper.showUserIds);
-        ViewHelper.setView(data)
         ViewHelper.setView(data);
     }
 

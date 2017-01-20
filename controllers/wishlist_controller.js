@@ -7,13 +7,19 @@ var WishlistController = function(viewHelper, model)
     function getWishlist()
     {
         //console.log("WL CONTROLLER: Inside getWishList");
-        Model.getWishlist(function (data) { ViewHelper.setView(data); }); // Corrigeer shitzooi hier (heel toevallig ja :p)
+        Model.getWishlist( setView(data) ); // Corrigeer shitzooi hier (heel toevallig ja :p)
+    }
+
+    function setView(data)
+    {
+        ViewHelper.setView(data);
     }
 
     function main()
     {
         //console.log("WL CONTROLLER: Inside main");
         ViewHelper.setActionListener(getWishlist);
+        ViewHelper.setDeleteListener(Model.deleteFromWishlist);
     }
     return {
         main: main

@@ -27,6 +27,7 @@ var WishlistViewHelper = function()
 
                     // Add product info
                     current = current +1
+                    $(wish__list__item).find("#delete_btn").attr("data-id", value.ean_number);
                     $(wish__list__item).find(".wish__list__id").append(current);
                     $(wish__list__item).find(".wish__list__image img").attr("src", value.image);
                     $(wish__list__item).find(".wish__list__title").html(value.title);
@@ -34,6 +35,7 @@ var WishlistViewHelper = function()
                     $(wish__list__item).find(".wish__list__platform").append(PlatformLogo(value.platform));
                     $(wish__list__item).find(".wish__list__availability").append(BeschikbaarheidKleur(value.stock));
                     $(wish__list__item).find(".wish__list__likebutton").append();
+                    $(wish_list_item)
 
                     $("#wish__list").append(wish__list__item);
             });
@@ -48,9 +50,15 @@ var WishlistViewHelper = function()
         $(document).ready(action); // if 'document ready' perform "action"       
     }
 
+    function setDeleteListener(action)
+    {
+        $(".wish__list__deletebutton").off().on("click", function() { action(); } );
+    }
+
     return {
         setView: setView,
         loadWishlist: loadWishlist,
-        setActionListener: setActionListener
+        setActionListener: setActionListener,
+        setDeleteListener: setDeleteListener
     }
 }
