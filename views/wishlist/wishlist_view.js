@@ -3,6 +3,7 @@ var WishlistViewHelper = function()
     //change view of page
     function setView(viewData)
     {
+        //console.log("WL VIEW: Inside setView");
         document.title = "Wishlist - AZ Games";
         $("#component").html('<div class="col-12"><div class="col-12" id="wishlist"></div></div>');
 
@@ -11,6 +12,7 @@ var WishlistViewHelper = function()
 
     function loadWishlist(viewData)
     {
+        //console.log("WL VIEW: Inside loadWishList");
         $("#wishlist").load('/views/wishlist/wishlist.html', function ()
             {
                 var current = 0
@@ -42,8 +44,8 @@ var WishlistViewHelper = function()
     }
     function setActionListener(action)
     {
-        $(document).ready(action); // if 'document ready' perform "action"
-        
+        //console.log("WL VIEW: Inside setActionListener");
+        $(document).ready(action); // if 'document ready' perform "action"       
     }
 
     return {

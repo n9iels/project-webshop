@@ -1,7 +1,8 @@
 var WishlistModel = function()
 {
-    function getWishlist(callback)
+    function getWishlist(callback) // Corrigeer url!!!
     {
+        //console.log("WL MODEL: Inside getWishList");
         $.ajax({
             url: "http://localhost:8081/wishlist/" + CookieHelper.getCookie("user_id"),
             type: "get",
@@ -20,13 +21,14 @@ var WishlistModel = function()
 
     function addToWishlist(viewData, callback)
     {
+        //console.log("WL MODEL: Inside addToWishList");
         $.ajax({
-            url: "http://localhost:8081/wishlist/" + CookieHelper.getCookie("user_id") + "/" + viewData.ean_number,
+            url: "http://localhost:8081/wishlist/" + CookieHelper.getCookie("user_id") /*+ "/" + viewData.ean_number*/,
             type: "post",
             dataType: 'json',
             data: JSON.stringify({
                 wishlist_id : viewData.wishlist_id,
-                ean_number : viewData.ean_number
+                //ean_number : viewData.ean_number
             }),
             headers: {
                 "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
