@@ -15,7 +15,8 @@
         li {
             display: inline-block;
 
-            &.visible-admin {
+            &.visible-admin,
+            &.visible-customer {
                 display: none;
             }
 
