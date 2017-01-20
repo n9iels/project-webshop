@@ -12,7 +12,6 @@ var AdminUserViewHelper = function ()
         {
             $.each(data, function(key, value)
             {
-                $("#title").append(value.first_name + " " + value.insertion + " " + value.surname);
                 $("#first_name").val(value.first_name);
                 $("#insertion").val(value.insertion);
                 $("#surname").val(value.surname);
@@ -32,7 +31,7 @@ var AdminUserViewHelper = function ()
 
     function setSaveListener(action)
     {
-        $("#component").on("submit", "#userform", action);
+        $(document).on('submit', '#userform', action);
     }
 
     function setDeleteListener(action)

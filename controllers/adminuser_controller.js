@@ -7,6 +7,8 @@ var AdminUserController = function(viewHelper, model)
     function main()
     {
         ViewHelper.setActionListener(getPage);
+        viewHelper.setSaveListener(saveUserInfo);
+        viewHelper.setDeleteListener(deleteUser);
     }
 
     function getPage()
@@ -17,12 +19,12 @@ var AdminUserController = function(viewHelper, model)
     function setView(data) 
     {
         ViewHelper.setView(data);
-        viewHelper.setSaveListener(saveUserInfo);
-        viewHelper.setDeleteListener(deleteUser);
     }
-    function saveUserInfo()
+
+    function saveUserInfo(event)
     {
         event.preventDefault();
+        event.stopImmediatePropagation();
 
         var formData = $(this).serializeObject();
 
