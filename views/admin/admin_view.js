@@ -33,7 +33,7 @@ var AdminViewHelper = function ()
 
     return {
         setActionListener: setActionListener,
-        setView: setView
+        setView: setView,
     }
 }
 

@@ -3,7 +3,7 @@ var AdminModel = function()
     function getPage(callback)
     {
         $.ajax({
-            url: "http://localhost:8081/admin", //"https://api.az-games.nl/
+            url: "http://localhost:8081/admin/users", //"https://api.az-games.nl/
             type: "GET",
             dataType: 'json',
             headers: {

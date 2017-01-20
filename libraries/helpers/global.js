@@ -1,3 +1,4 @@
+var Router       = new Router();
 var CookieHelper = new CookieHelper();
 var UserHelper   = new UserHelper();
 
