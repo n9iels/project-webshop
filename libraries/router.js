@@ -46,13 +46,16 @@ var Router = function ()
 
         if (history != false)
         {
-            if (url == "")
+            if (url != "" && typeof url === 'string')
             {
-                url = "index.html";
-            }
+                writeHistory({}, "A-Z Games", url);
 
-            writeHistory({}, "A-Z Games", url)
-            window.scrollTo(0, 0);
+                 // Load screen
+                showLoadScreen();
+                
+                // Scroll to top of page
+                window.scrollTo(0, 0);
+            }
         }
     }
 

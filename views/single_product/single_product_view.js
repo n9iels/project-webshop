@@ -17,7 +17,7 @@ var ProductViewHelper = function()
                 $(".singleproduct__genre").append(product.genre);
                 $(".singleproduct__descr").html(product.description)
                 $(".addtocart").attr("data-id", product.ean_number);
-                $(".addToWishlistButton").attr("onclick", "WishlistHelper.addItem(" + product.ean_number + "); return false;");
+                $(".addToWishlistButton").attr("onclick", "WishlistHelper.addItem(" + product.ean_number + ");");
 
                 var d = new Date(product.release_date);
 

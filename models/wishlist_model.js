@@ -3,7 +3,7 @@ var WishlistModel = function()
     function getWishlist(callback)
     {
         $.ajax({
-            url: "http://localhost:8081/wishlist/" + CookieHelper.getCookie("user_id"),
+            url: "http://localhost:8081/wishlist",
             type: "get",
             dataType: 'json',
             headers: {
