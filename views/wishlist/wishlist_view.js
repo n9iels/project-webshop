@@ -45,7 +45,6 @@ var WishlistViewHelper = function()
     }
     function setActionListener(action)
     {
-        //console.log("WL VIEW: Inside setActionListener");
         $(document).ready(action); // if 'document ready' perform "action"       
     }
 
@@ -54,7 +53,9 @@ var WishlistViewHelper = function()
         $("#component").off().on("click", "#delete_btn", function(e)
         {
             e.preventDefault();
-            action($(this).data("id")); //moet id miss ean zijn?
+            var ean = $(this).data("id");
+            var div_to_hide = $(this).closest(".row");
+            action(ean, div_to_hide);
         } );
     }
 
