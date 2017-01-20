@@ -24,6 +24,9 @@
                 // Instanciate the cart
                 new CartController(new CartViewHelper(), new CartModel()).main();
 
+                // Execute load events
+                onLoadPage();
+
                 // Route internal urls
                 $("body").on("click", "a", function (event)
                 {
@@ -58,20 +61,22 @@
                 </div>
                 <div class="col-4 hidden-mobile searchtools">
                 </div>
-                <div class="col-4 col-mobile-8 nav-right">
+                <div class="col-4 col-mobile-7 nav-right">
                    <ul>
                        <li id="verlanglijst_text">
                             <a href="/wishlist">Verlanglijstje</a> <!-- Link misschien nog goed krijgen -->
+                        <li class="visible-admin">
+                            <a href="/admin">Admin</a>
                         </li>
                         <li id="inloggen_text">
-                            <a href="login">Inloggen</a>
+                            <a href="/login">Inloggen</a>
                         </li>
                         <li id="uitloggen_text" style="display: none;">
-                            <a href="logout">Uitloggen</a>
+                            <a href="/logout">Uitloggen</a>
                         </li>
                     </ul>
                 </div>
-                <div class="col-1 col-mobile-2 nav-right">
+                <div class="col-1 col-mobile-3 nav-right">
                     <a href="#" class="cart_button sidebar-toggle" data-sidebar="cart-sidebar">
                         <span class="fa fa-shopping-cart"></span> <span class="count">0</span>
                     </a>
@@ -110,7 +115,7 @@
                 <div class="cart__total">
                     <span class="label">Totaal</span><span class="price">€00.00</span>
                 </div>
-                <div class="cart__checkout">
+                <div class="cart__checkout" style="display: none;">
                     Verder naar bestellen <span class="fa fa-arrow-right"></span>
                 </div>
             </div>

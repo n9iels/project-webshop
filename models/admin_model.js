@@ -1,14 +1,16 @@
-var ProductModel = function(ean)
+var AdminModel = function()
 {
-    function GetProductInfo(callback)
+    function getPage(callback)
     {
         $.ajax({
-            url: "https://api.az-games.nl/products/" + ean,
-            type: "get",
+            url: "http://localhost:8081/admin", //"https://api.az-games.nl/
+            type: "GET",
             dataType: 'json',
+            headers: {
+                "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
+            },
             success: function (data) {
-                // let controller resume with stuff
-                callback(data[0]);
+                callback(data);
             },
             error: function (xhr, status, error) {
                 $("#component").load("/views/error/error.html");
@@ -18,6 +20,7 @@ var ProductModel = function(ean)
 
     // Return the methods that can be used by other programs (the controller in this case)
     return {
-        GetProductInfo: GetProductInfo
+        getPage: getPage
     }
+
 };

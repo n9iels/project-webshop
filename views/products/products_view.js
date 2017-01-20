@@ -25,7 +25,7 @@ var ProductsViewHelper = function()
                 $(product).find(".product__subtitle").append(value.genre +(" | PEGI ") + value.pegi_age +(" | ")+ PlatformLogo(value.platform));
                 $(product).find(".product__description").html(CutString(value.description));
                 $(product).find(".product__price").append(("€ ")+value.price);
-                $(product).find("#buttons__info").attr("href", "product/" + value.ean_number);
+                $(product).find("#buttons__info, .product__image a, .product__title").attr("href", "product/" + value.ean_number);
                 $(product).find(".product__image img").attr("src", value.image);
                 $(product).find(".addtocart").attr("data-id", value.ean_number);
 

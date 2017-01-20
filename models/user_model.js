@@ -1,9 +1,9 @@
-var ProductModel = function(ean)
+var UserModel = function(userid)
 {
-    function GetProductInfo(callback)
+    function GetUserInfo(callback)
     {
         $.ajax({
-            url: "https://api.az-games.nl/products/" + ean,
+            url: "https://api.az-games.nl/users/" + userid,
             type: "get",
             dataType: 'json',
             success: function (data) {
@@ -11,13 +11,13 @@ var ProductModel = function(ean)
                 callback(data[0]);
             },
             error: function (xhr, status, error) {
-                $("#component").load("/views/error/error.html");
+                $("#component").load("/error.html");
             }
         });
     }
 
     // Return the methods that can be used by other programs (the controller in this case)
     return {
-        GetProductInfo: GetProductInfo
+        GetUserInfo: GetUserInfo
     }
 };

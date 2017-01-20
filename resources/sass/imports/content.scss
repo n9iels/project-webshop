@@ -24,6 +24,8 @@ body {
         &__title{
             font-size: 25px;
             font-weight: bold;
+            color: #000;
+            text-decoration: none;
         }
         &__price{
             margin-top: 15px;
@@ -35,6 +37,7 @@ body {
             margin-bottom: 10px;
             margin-top: 10px;
             font-size: 20px;
+            
             img {
                 vertical-align:bottom;
                 height:20px;
@@ -42,6 +45,9 @@ body {
         }
         &__description {
             line-height: 1.4;
+        }
+        .buttons .btn {
+            margin: 5px 0;
         }
     }
 }
