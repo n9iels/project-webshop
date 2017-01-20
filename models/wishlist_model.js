@@ -42,9 +42,30 @@ var WishlistModel = function()
         });
     }
 
+    function deleteFromWishlist()
+    {
+        $.ajax({
+            url: "http://localhost:8081/wishlist" + data.user_id, //"https://api.az-games.nl/
+            type: "PATCH",
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(data),
+            headers: {
+                "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
+            },
+            success: function (data) {
+                callback(data);
+            },
+            error: function (xhr, status, error) {
+                $("#component").load("/views/error/error.html");
+            }
+        });
+    }
+
     // Return the methods that can be used by other programs (the controller in this case)
     return {
         getWishlist: getWishlist,
-        addToWishlist: addToWishlist
+        addToWishlist: addToWishlist,
+        deleteFromWishlist: deleteFromWishlist
     }
 };
