@@ -7,7 +7,7 @@ var PageModel = function()
             type: "get",
             dataType: 'json',
             headers: {
-                "Authorization": "Bearer " + getCookie("access_token")
+                "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
             },
             success: function (data) {
                 callback(data);
@@ -16,21 +16,6 @@ var PageModel = function()
                 $("#component").load("/views/error/error.html");
             }
         });
-    }
-
-    function getCookie(name)
-    {
-        var cookies = document.cookie.split(';');
-
-        for (var i = 0; i < cookies.length; i++)
-        {
-            var cookie = cookies[i].split("=");
-
-            if (cookie[0] == name)
-            {
-                return cookie[1];
-            }
-        }
     }
 
     // Return the methods that can be used by other programs (the controller in this case)
