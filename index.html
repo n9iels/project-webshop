@@ -32,11 +32,12 @@
                     {
                         event.preventDefault();
 
-                        // Load screen
-                        showLoadScreen();
-
                         var url = $(this).attr("href");
-                        router.route(url);
+
+                        if (url != undefined)
+                        {
+                            router.route(String(url));
+                        }                        
                     }
                 });
 

@@ -25,7 +25,6 @@ function WishlistHelper()
                 alert("Product succesvol toegevoegd aan Wishlist.");
             },
             error: function(xhr, status, error) {
-                //$("#component").load("/views/error/error.html");
                 alert("Product is al in Wishlist.");
             }
         });

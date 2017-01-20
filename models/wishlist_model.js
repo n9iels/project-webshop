@@ -4,7 +4,7 @@ var WishlistModel = function()
     {
         //console.log("WL MODEL: Inside getWishList");
         $.ajax({
-            url: "http://localhost:8081/wishlist/" + CookieHelper.getCookie("user_id"),
+            url: "http://localhost:8081/wishlist",
             type: "get",
             dataType: 'json',
             headers: {
