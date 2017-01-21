@@ -66,6 +66,7 @@ var CartViewHelper = function()
 
             var product_id = $(this).data("id");
             addToCart(product_id);
+            $(this).closest("#to_shop_cart").find("#shop_cart").fadeTo(0, 100).delay(1000).fadeTo(600, 0);//NEW
         })
     }
 
