@@ -13,7 +13,7 @@ function WishlistHelper()
     this.addItem = function(ean_number)
     {
         $.ajax({
-            url: "http://localhost:8081/wishlist/" + CookieHelper.getCookie("user_id") + "/" + ean_number,
+            url: "https://api.az-games.nl/wishlist/" + CookieHelper.getCookie("user_id") + "/" + ean_number,
             type: "post",
             dataType: 'json',
             data: JSON.stringify({}),

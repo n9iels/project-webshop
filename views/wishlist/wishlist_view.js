@@ -15,9 +15,6 @@ var WishlistViewHelper = function()
         //console.log("WL VIEW: Inside loadWishList");
         $("#wishlist").load('/views/wishlist/wishlist.html', function ()
             {
-                // put first name in html
-                $("#wish__list__headtitle").find("#wish_headtitle").append(viewData[0].first_name);
-
                 // add all wishlist items to html
                 var current = 0
                 $.each(viewData, function(key, value) {
