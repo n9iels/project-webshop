@@ -10,7 +10,7 @@ var AdminUserModel = function(id)
                 "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
             },
             success: function (data) {
-                callback(data);
+                callback(data[0]);
             },
             error: function (xhr, status, error) {
                 $("#component").load("/views/error/error.html");
@@ -20,8 +20,16 @@ var AdminUserModel = function(id)
 
     function saveUserInfo(data, callback)
     {
+        // Modify data before sending (also convert to UTC)
+        data.date_of_birth = new Date(Date.UTC(data.jaar, data.maand, data.dag));
+
+        // Remove year, month and day
+        delete data.jaar;
+        delete data.maand;
+        delete data.dag;
+
         $.ajax({
-            url: "https://api.az-games.nl/admin/users/" + data.user_id, //"https://api.az-games.nl/
+            url: "http://localhost:8081/admin/users/" + data.user_id, //"https://api.az-games.nl/
             type: "PATCH",
             dataType: 'json',
             contentType: "application/json; charset=utf-8",
@@ -44,8 +52,6 @@ var AdminUserModel = function(id)
             url: "https://api.az-games.nl/admin/users/" + user_id, //"https://api.az-games.nl/
             type: "DELETE",
             dataType: 'json',
-            //contentType: "application/json; charset=utf-8",
-            //data: JSON.stringify(data),
             headers: {
                 "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
             },

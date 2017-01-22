@@ -2,9 +2,8 @@ var WishlistModel = function()
 {
     function getWishlist(callback)
     {
-        //console.log("WL MODEL: Inside getWishList");
         $.ajax({
-            url: "http://localhost:8081/wishlist",
+            url: "http://localhost:8081/wishlist", //api.az-games.nl/wishlist
             type: "get",
             dataType: 'json',
             headers: {
@@ -21,7 +20,6 @@ var WishlistModel = function()
 
     function addToWishlist(viewData, callback)
     {
-        //console.log("WL MODEL: Inside addToWishList");
         $.ajax({
             url: "http://localhost:8081/wishlist/" + CookieHelper.getCookie("user_id") /*+ "/" + viewData.ean_number*/,
             type: "post",
