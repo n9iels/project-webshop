@@ -8,7 +8,7 @@ var ProductViewHelper = function()
          $("#component").load('/views/single_product/single_product.html', function () {
                 $(".singleproduct__image img").attr("src", product.image);
                 $(".singleproduct__title").html(product.title);
-                $(".singleproduct__price").html("€ " + product.price);
+                $(".singleproduct__price").html("€ " + product.price.toFixed(2));
 
                 $(".singleproduct__ean").append(product.ean_number);
                 $(".singleproduct__platform").append(PlatformLogo(product.platform)); // functie voor logo
