@@ -11,7 +11,7 @@ var RegisterModel = function()
         delete formData.dag;
 
         $.ajax({
-            url: "http://localhost:8081/user/register",
+            url: "https://api.az-games.nl/user/register",
             type: "post",
             dataType: 'json',
             data: JSON.stringify({
