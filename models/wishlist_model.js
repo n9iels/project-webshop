@@ -3,7 +3,7 @@ var WishlistModel = function()
     function getWishlist(callback)
     {
         $.ajax({
-            url: "http://localhost:8081/wishlist", //api.az-games.nl/wishlist
+            url: "https://api.az-games.nl/wishlist",
             type: "get",
             dataType: 'json',
             headers: {
@@ -21,7 +21,7 @@ var WishlistModel = function()
     function addToWishlist(viewData, callback)
     {
         $.ajax({
-            url: "http://localhost:8081/wishlist/" + CookieHelper.getCookie("user_id") /*+ "/" + viewData.ean_number*/,
+            url: "https://api.az-games.nl/wishlist/" + CookieHelper.getCookie("user_id") /*+ "/" + viewData.ean_number*/,
             type: "post",
             dataType: 'json',
             data: JSON.stringify({
@@ -43,7 +43,7 @@ var WishlistModel = function()
     function deleteFromWishlist(ean, callback)
     {
         $.ajax({
-            url: "http://localhost:8081/wishlist/" + CookieHelper.getCookie("user_id") + "/" + String(ean), //"https://api.az-games.nl/
+            url: "https://api.az-games.nl/wishlist/" + CookieHelper.getCookie("user_id") + "/" + String(ean), //"https://api.az-games.nl/
             type: "DELETE",
             dataType: 'json',
             // contentType: "application/json; charset=utf-8",
@@ -52,7 +52,7 @@ var WishlistModel = function()
                 "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
             },
             success: function (data) {
-                callback(data);
+                callback(data); //moet data per se meegeven aan callback?
             },
             error: function (xhr, status, error) {
                 $("#component").load("/views/error/error.html");

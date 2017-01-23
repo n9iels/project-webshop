@@ -29,7 +29,7 @@ var AdminUserModel = function(id)
         delete data.dag;
 
         $.ajax({
-            url: "http://localhost:8081/admin/users/" + data.user_id, //"https://api.az-games.nl/
+            url: "https://api.az-games.nl/admin/users/" + data.user_id, //"https://api.az-games.nl/
             type: "PATCH",
             dataType: 'json',
             contentType: "application/json; charset=utf-8",

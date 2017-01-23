@@ -1,7 +1,6 @@
 var Router       = new Router();
 var CookieHelper = new CookieHelper();
-var UserHelper   = new UserHelper();
-
+var UserHelper     = new UserHelper();
 var WishlistHelper = new WishlistHelper();
 
 function showLoadScreen()

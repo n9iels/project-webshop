@@ -2,9 +2,9 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
-<div class="wish__list__headtitle" id="wish__list__headtitle">
-    <div class="row" id="wish_headtitle">
-        Wishlist van 
+<div class="row">
+    <div class="wishlist_error_message message message--info" id="wishlist_error_message" style="display:none">
+        Je wenslijst is leeg op het moment.
     </div>
 </div>
 
@@ -17,7 +17,6 @@
             <div class="col-1">Prijs</div>
             <div class="col-1">Platform</div>
             <div class="col-1">Voorraad</div>
-            <div class="col-1">Status</div>
             <div class="col-2"></div> <!--verwijder buttons-->
             <div class="col-3"></div> <!--add to cart buttons-->
         </div>
@@ -47,30 +46,15 @@
                 <div class="col-1">
                     <div class="wish__list__availability"></div>
                 </div>
-                <div class="col-1">
-                    <div class="wish__list__likebutton">
-                        <a href="wishlist" class="addToWishlistButton">
-                            <span class="like"></span>
-                        </a>
+                <div class="col-5">
+                    <div id="to_shop_cart">
+                        <a href="" class="btn btn--success addtocart" id="cart_btn"><span class="fa fa-plus"></span>Winkelwagen</a>
+                        <span class="fa fa-shopping-cart" id="shop_cart" style="opacity:0;position:absolute;"> + 1</span>
                     </div>
-                </div>
-                <div class="col-2">
-                    <div class="wish__list__deletebutton">
+                    <div id="wish__list__deletebutton">
                         <a href="" class="btn btn--danger" id="delete_btn">Verwijder</a>
                     </div>
                 </div>
-                <div class="col-3">
-                    <div id="to_shop_cart">
-                        <div class="cart_button col-9">
-                            <a href="" class="btn btn--success addtocart" id="cart_btn"><span class="fa fa-plus"></span>Winkelwagen</a>
-                        </div>
-                        <div class="col-3">
-                            <span class="fa fa-shopping-cart"  id="shop_cart" style="opacity:0"> + 1</span>
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
         </div>
     </div>
