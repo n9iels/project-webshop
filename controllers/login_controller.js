@@ -22,8 +22,7 @@ var LoginController = function(viewHelper, model)
             $("#inloggen_text").hide();
             $("#uitloggen_text").show();
 
-            // Weergeef een andere pagina gebasseerd op 'admin' of 'registered user'
-            new PageController(new PageViewHelper(), new PageModel()).main();
+            Router.route("products");
         });
     }
 
