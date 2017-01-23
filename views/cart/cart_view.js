@@ -32,7 +32,7 @@ var CartViewHelper = function()
         var cartItem = $('<div>').html($('.sidebar__content__tmp').html());
 
         cartItem.find(".cart__item__title").html(item.title);
-        cartItem.find(".cart__item__price").html("€" + item.price);
+        cartItem.find(".cart__item__price").html("€" + item.price.toFixed(2));
         cartItem.find(".cart__item__image img").attr("src", item.image);
         cartItem.find(".cart__item").attr("data-id", item.ean_number)
 

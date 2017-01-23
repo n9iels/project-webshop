@@ -6,8 +6,6 @@ var RegisterController = function(viewHelper, model)
     // Function that is executed on a action listener
     function actionPerformed()
     {
-        console.log("in actionPerformed"); //test
-
         // Prevent sending the form
         event.preventDefault();
 
@@ -24,8 +22,6 @@ var RegisterController = function(viewHelper, model)
 
         // fix date of birth (API expects certain format)
         formData["birth_date"] = formData.jaar + "-" + formData.maand + "-" + formData.dag;
-
-        console.log(formData);
 
         // check whether any mandatory field is left empty by user and
         // if so, abort function
