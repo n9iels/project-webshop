@@ -16,26 +16,26 @@ var StatsViewHelper = function ()
 
                 if (count == 0) { //rows are the Top 10 Games
                     var labels = [10];
-                    //var data = [10];
+                    var data = [10];
 
                     var gameCount = 0;
 
                     $.each(graphData, function(key, value) {
-                        labels[gameCount] = value.title;
-                        //data[gameCount] = value.amount;
+                        labels[gameCount] = value.ean_number;
+                        data[gameCount] = value.super_amount;
 
                         gameCount++;
                     });
 
-                    var htmlel = $("#graph__toptenitems__cnvs");
-                    var TopTenChart = new Chart(htmlel, {
+                    var el = $("#graph__toptenitems__cnvs");
+                    var TopTenChart = new Chart(el, {
                         type: 'bar',
                         data: {
                             labels: labels,
                             datasets: [{
-                                label: 'Top 10 Verkochte Games van een maand',
-                                data: [12, 19, 3, 5, 2, 3],
-                                backgroundColor: [
+                                label: false ,
+                                data: data,
+                                backgroundColor: [ // need 10 colours
                                     'rgba(255, 99, 132, 0.2)',
                                     'rgba(54, 162, 235, 0.2)',
                                     'rgba(255, 206, 86, 0.2)',
@@ -55,6 +55,11 @@ var StatsViewHelper = function ()
                             }]
                         },
                         options: {
+                            title: {
+                                display:true,
+                                text: "HI! Am I the title?" // need in januari, in februari, etc.
+                            },
+                            responsive:false,
                             scales: {
                                 yAxes: [{
                                     ticks: {
