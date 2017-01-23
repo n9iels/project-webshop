@@ -9,11 +9,11 @@
         content:"\f004";
     }
     &--active {
-        animation-name: like;
-        animation-duration: 0.5s;
+        color: #ff0000;
+        font:normal normal normal 14px/1 FontAwesome;
         
         &::before {
-            content:"\f08a";
+            content:"\f004";
         }
     }
 }
