@@ -39,8 +39,24 @@ gulp.task('scripts', function() {
 gulp.task('default', function(){
     gulp.start(['scripts']);
     gulp.start(['sass']);
-    gulp.watch(jsDir + '/**/*.js', ['scripts']);
+    gulp.watch([jsDir + '/**/*.js', './libraries/**/*.js', './models/*.js', './views/**/*.js', './controllers/*.js'], ['scripts']);
     gulp.watch(sassDir + '/**/*.scss', ['sass']);
+    gulp.watch([jsDir + '/**/*.js', './models/*.js', './views/**/*.js', './controllers/*.js'], ['scripts']);
+});
+
+gulp.task('sync', function() {
+    var browserSync = require('browser-sync').create();
+
+    gulp.start(['scripts']);
+    gulp.start(['sass']);
+
+    browserSync.init({
+        proxy: "az-games.dev"
+    });
+
+    gulp.watch(sassDir + '/**/*.scss', ['sass']).on('change', browserSync.reload);;
+    gulp.watch([jsDir + '/**/*.js', './libraries/**/*.js', './models/*.js', './views/**/*.js', './controllers/*.js'], ['scripts']).on('change', browserSync.reload);
+    gulp.watch('./**/*.html').on('change', browserSync.reload)
 });
 
 gulp.task('sync', function() {

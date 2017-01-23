@@ -36,6 +36,15 @@ var Router = function ()
             case "resetpassword":
                 new ResetPasswordController(new ResetPasswordViewHelper(), new ResetPasswordModel()).main();
                 break;
+            case "wishlist":
+                new WishlistController(new WishlistViewHelper(), new WishlistModel()).main();
+                break;
+            case "admin":
+                new AdminController(new AdminViewHelper(), new AdminModel()).main();
+                break;
+            case "admin_user":
+                new AdminUserController(new AdminUserViewHelper(), new AdminUserModel(particles[1])).main();
+                break;
             default:
                 new ErrorController(new ErrorViewHelper()).main();
                 break;
@@ -43,13 +52,16 @@ var Router = function ()
 
         if (history != false)
         {
-            if (url == "")
+            if (url != "" && typeof url === 'string')
             {
-                url = "index.html";
-            }
+                writeHistory({}, "A-Z Games", url);
 
-            writeHistory({}, "A-Z Games", url)
-            window.scrollTo(0, 0);
+                 // Load screen
+                showLoadScreen();
+                
+                // Scroll to top of page
+                window.scrollTo(0, 0);
+            }
         }
     }
 

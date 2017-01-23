@@ -1,0 +1,141 @@
+<div id="user_form_div">
+    <h1 class="page-title">Gebruikers: Bewerken</h1>
+
+    <form name="userform" id="userform" class="userform" method="post">
+        <div class="buttons">
+            <input type="submit" value="Opslaan" id="usersubmitbutton" class="btn btn--success" />
+            <a href="" class="btn btn--danger" id="delete_btn"><span class="fa fa-remove"></span> Verwijder gebruiker</a>
+            <a href="/admin" class="btn btn--default">Annuleren</a>
+        </div>
+        
+        <div class="form-group">
+            <div class="form-label">
+                <label for="first_name">
+                    Voornaam
+                </label>
+            </div>
+            <div class="form-control">
+                <input type="text" name="first_name" id="first_name" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">
+                <label for="insertion">
+                    Tussenvoegsel
+                </label>
+            </div>
+            <div class="form-control">
+                <input type="text" name="insertion" id="insertion" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">
+                <label for="surname">
+                    Achternaam
+                </label>
+            </div>
+            <div class="form-control">
+                <input type="text" name="surname" id="surname" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">
+                <label for="user_type">
+                    Gebruikerstype
+                </label>
+            </div>
+            <div class="form-control">
+                <select name="user_type" id="user_type">
+                    <option value="customer">Normaal</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">
+                <label for="email">
+                    Email
+                </label>
+            </div>
+            <div class="form-control">
+                <input type="email" name="email" id="email" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">
+                <label for="password">
+                    Wachtwoord
+                </label>
+            </div>
+            <div class="form-control">
+                <input type="password" name="password" id="password" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">
+                <label for="gender">
+                    Gender
+                </label>
+            </div>
+            <div class="form-control">
+                <select name="gender" id="gender">
+                    <option value="female">Vrouw</option>
+                    <option value="male">Man</option>
+                </select>
+            </div>
+        </div>
+        <div class="birth_date">         
+            <div class="birth_date_fields">
+                <div class="form-group">
+                    <div class="form-label">
+                        <label for="dag">Geboortedatum</label>
+                    </div>
+                    <div class="form-control">
+                        <select name="dag" id="dag">
+                        </select>
+                        <select name="maand" id="maand">
+                            <option value="0">Januari</option> 
+                            <option value="1">Februari</option>
+                            <option value="2">Maart</option> 
+                            <option value="3">April</option>
+                            <option value="4">Mei</option> 
+                            <option value="5">Juni</option>
+                            <option value="6">Juli</option> 
+                            <option value="7">Augustus</option>
+                            <option value="8">September</option> 
+                            <option value="9">Oktober</option>
+                            <option value="10">November</option> 
+                            <option value="11">December</option>
+                        </select>
+                        <select name="jaar" id="jaar">
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">
+                <label for="phone_number">
+                    Telefoonnummer
+                </label>
+            </div>
+            <div class="form-control">
+                <input type="text" name="phone_number" id="phone_number" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">
+                <label for="is_active">
+                    Geblokkeerd
+                </label>
+            </div>
+            <div class="form-control">
+                <select name="is_active" id="is_active">
+                    <option value="0">Ja</option>
+                    <option value="1">Nee</option>
+                </select>
+            </div>
+        </div>
+        <input type="hidden" id="user_id" name="user_id" />
+    </form>
+</div>

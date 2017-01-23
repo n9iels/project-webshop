@@ -11,8 +11,12 @@ var LogoutModel = function()
             }),
             success: function (data) {
                 // let controller resume with stuff
-                document.cookie='access_token=';
-                document.cookie='user_id=';
+                CookieHelper.deleteCookie("access_token");
+                CookieHelper.deleteCookie("user_id");
+
+                // 'reload' page
+                onLoadPage();
+
                 callback(data);
             },
             error: function (xhr, status, error) {

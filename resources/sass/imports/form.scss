@@ -1,4 +1,7 @@
 form {
+    .buttons {
+        margin: 15px 0;
+    }
     .form_title{
         //font-size: 110px;
         font-weight: normal;
@@ -14,28 +17,38 @@ form {
         margin-bottom: 10px;
 
         label {
-            display: block;
+            display: inline-block;
             font-weight: bold;
-            margin-bottom: 6px;
+            line-height: 38px;
+            vertical-align: middle;
         }
         input[type=text],
-        input[type=password] {
+        input[type=password],
+        input[type=email],
+        select {
+            background-color: #fff;
+            display: inline-block;
             border: 1px solid #ccc;
             border-radius: 2px;
             width: 100%;
-            padding: 10px 10px 10px 7px;
+            padding: 0 7px;
             font-size: 17px;
             font-weight: 300;
             font-family: 'Open Sans', serif;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
+            line-height: 38px;
 
             &:focus {
                 outline: none;
             }
 
             &.invalid {
-                outline-style: ridge;
-                outline-color: #ff0000;
+                border-color: #ff0000;
             }
+        }
+
+        select {
+            padding: 6px 0;
         }
         input[type=checkbox] {
             display: inline-block;
@@ -83,9 +96,10 @@ form {
         }
     }
     fieldset {
-        border-bottom: 1px solid #ccc;
-        margin-bottom: 20px;
-        padding-bottom: 15px;
+        margin: 15px 0;
+    }
+    hr {
+        margin: 15px 0;
     }
 }
 .btn {
@@ -95,6 +109,7 @@ form {
     border: 1px solid #afafaf;
     border-radius: 4px;
     cursor: pointer;
+    font-family: 'Open Sans', serif;
     font-size: 14px;
     text-decoration: none;
     color: #000;
@@ -106,6 +121,12 @@ form {
     &--success {
         background-color: #1e7946;
         border-color: #135631;
+        color: #fff;
+    }
+
+    &--danger {
+        background-color: #d32f2f;
+        border-color: darken(#d32f2f, 10);
         color: #fff;
     }
     &--register {
@@ -128,5 +149,16 @@ form {
     label {
         //font-size: 100px;
         font-weight: normal; //doesn't work?
+    }
+}
+
+@media (min-width: 768px)
+{
+    .form-label {
+        float: left;
+    }
+    
+    .form-control {
+        margin-left: 180px;
     }
 }

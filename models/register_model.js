@@ -2,7 +2,14 @@ var RegisterModel = function()
 {
     function register(formData, callback)
     {
-        //console.log(formData);
+        // Modify data before sending (also convert to UTC)
+        formData.date_of_birth = new Date(Date.UTC(formData.jaar, formData.maand, formData.dag));
+
+        // Remove year, month and day
+        delete formData.jaar;
+        delete formData.maand;
+        delete formData.dag;
+
         $.ajax({
             url: "https://api.az-games.nl/user/register",
             type: "post",
@@ -18,21 +25,16 @@ var RegisterModel = function()
                 phone_number : formData.mobiel_nummer,
                 secret_question : formData.security_question,
                 secret_question_answer : formData.security_answer,
-
                 postal_code : formData.postcode,
                 number : formData.huisnummer,
                 street_name : formData.straatnaam,
-                city : formData.plaats                
+                city : formData.plaats
             }),
             success: function (data) {
-                //console.log(data);
-                // let controller resume with stuff
                 callback(data);
             },
             error: function (xhr, status, error) {
-                // show 'email al gebonden aan een account?'
                 $("#regi_api_error_message").show();
-                //$("#component").html("error function");
             }
         });
     }

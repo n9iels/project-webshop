@@ -2,29 +2,41 @@
     background-color: #0288D1;
     overflow: hidden;
     position: fixed;
+    width: 100%;
     top: 0;
     left: 0;
-    width: 100%;
     
-    .navigation {
-        width: 90%;
-        font-size: 0;
+    .nav-right {
+        text-align: right;
     }
-    &__link {
-        font-size: 15px;
-        color: #fff;
-        padding: 17px;
+    ul {
         display: inline-block;
-        text-decoration: none;
-        -webkit-transition: .15s;
-        transition: .15s;
 
-        &:hover {
-            background-color: #03A9F4;
-        }
+        li {
+            display: inline-block;
 
-        &--active {
-            background-color: #03A9F4;
+            &.visible-admin,
+            &.visible-customer {
+                display: none;
+            }
+
+            a {
+                font-size: 15px;
+                color: #fff;
+                padding: 17px;
+                display: inline-block;
+                text-decoration: none;
+                -webkit-transition: .15s;
+                transition: .15s;
+
+                &:hover {
+                    background-color: #03A9F4;
+                }
+
+                &--active {
+                    background-color: #03A9F4;
+                }
+            }
         }
     }
 

@@ -7,6 +7,10 @@ p {
     line-height: 1.5em;
 }
 
+b {
+    font-weight: bold;
+}
+
 .bold {
     font-weight: bold;
 }
@@ -15,6 +19,11 @@ h1 {
     font-size: 35px;
     margin-bottom: 20px;
     font-family: 'Lato', serif;
+
+    &.page-title {
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 15px;
+    }
 }
 
 h2 {

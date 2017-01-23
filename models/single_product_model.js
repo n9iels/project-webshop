@@ -11,7 +11,7 @@ var ProductModel = function(ean)
                 callback(data[0]);
             },
             error: function (xhr, status, error) {
-                $("#component").load("/error.html");
+                $("#component").load("/views/error/error.html");
             }
         });
     }

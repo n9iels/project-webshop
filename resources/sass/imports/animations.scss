@@ -1,0 +1,32 @@
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@mixin remove-right($slide) {
+    transform: translate3d($slide, 0, 0);
+    animation: slide-right .5s;
+    overflow: hidden;
+    max-height: 0;
+    padding: 0px;
+
+    @keyframes slide-right {
+        0% {
+            max-height: 999px;
+            transform: translate3d(0, 0, 0);
+            padding: 15px;
+        }
+        50% {
+            transform: translate3d($slide, 0, 0);
+            max-height: 999px;
+        }
+        100% {
+            max-height: 0;
+            padding: 0px;
+        }
+    }
+}
