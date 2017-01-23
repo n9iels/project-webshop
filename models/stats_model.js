@@ -10,7 +10,8 @@ var StatsModel = function()
                 "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
             },
             success: function (data) {
-                console.log("data from ajax: " + data);
+                console.log("data from ajax:");
+                console.log(data);
                 callback(data);
             },
             error: function (xhr, status, error) {
