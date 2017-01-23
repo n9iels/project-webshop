@@ -68,7 +68,7 @@ var RegisterController = function(viewHelper, model)
         {
             return false;
         }
-        console.log("continued")
+
         // let model send user info to API
         Model.register(formData, function (data) {
             ViewHelper.setView('/views/register/after_register.html');

@@ -18,7 +18,6 @@ $(document).on("mouseenter", ".hasTooltip", function(event)
 });
 
 $(document).on("mouseleave", ".hasTooltip", function(event) {
-    console.log("uit")
     $("body").find(".tooltip").remove();
 });
 
