@@ -23,6 +23,8 @@ function PlatformLogo(platformnaam)
             return "<img src='/resources/images/icons/n64.png' />";
         case "NINTENDO SWITCH":
             return "<img src='/resources/images/icons/switch.png' />";
+        case "NGC":
+            return "<img src='/resources/images/icons/ngc.png' />";
         default:
             return platformnaam;
 
@@ -37,6 +39,8 @@ function PlatformLogo(platformnaam)
             return "<img src='/resources/images/publishers/sony.png' />";
         case "ROCKSTAR":
             return "<img src='/resources/images/publishers/rockstar.png' />";
+        case "SEGA":
+            return "<img src='/resources/images/publishers/sega.png' />";
     }
 }
 
