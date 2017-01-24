@@ -14,6 +14,11 @@ var OrderController = function(viewHelper, model)
     // Main function, also the start startpoint for a page
     function main()
     {
+        if (UserHelper.isLogedIn() == false)
+        {
+            Router.route("/login");
+        }
+
         ViewHelper.setActionListener(actionPerformed);
     }
 

@@ -59,7 +59,9 @@ var Router = function ()
             {
                 writeHistory({}, "A-Z Games", url);
 
-                 // Load screen
+                // Load screen and close cart
+                $("#cart-sidebar").removeClass("sidebar--open");
+                $(".overlay").removeClass("overlay--visible");
                 showLoadScreen();
                 
                 // Scroll to top of page
