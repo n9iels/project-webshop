@@ -18,6 +18,7 @@ var WishlistController = function(viewHelper, model)
     {
         ViewHelper.setActionListener(getWishlist);
         ViewHelper.setDeleteListener(deleteFromWishlist);
+        ViewHelper.setPublicListener();
     }
 
     function deleteFromWishlist(ean, div_to_hide)

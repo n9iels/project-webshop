@@ -45,6 +45,9 @@ var Router = function ()
             case "admin_user":
                 new AdminUserController(new AdminUserViewHelper(), new AdminUserModel(particles[1])).main();
                 break;
+            case "public_wishlist":
+                new PublicWishlistController(new PublicWishlistViewHelper(), new PublicWishlistModel(particles[1])).main();
+                break;
             default:
                 new ErrorController(new ErrorViewHelper()).main();
                 break;
