@@ -20,6 +20,8 @@ var OrderViewHelper = function()
                     $("#product__list").append(product);
                     $("#product__list").append("<hr />");
                 });
+
+                $("#order_info .order__navigate").first().removeClass("disabled");
             }
             else
             {
