@@ -102,6 +102,6 @@ var CartViewHelper = function()
         updateTotalPrice: updateTotalPrice,
         setActionListener: setActionListener,
         setAddProductListener: setAddProductListener,
-        setRemoveListener: setRemoveListener
+        setRemoveListener: setRemoveListener,
     }
 };
