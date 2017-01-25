@@ -9,6 +9,7 @@ $(document).on("click", "a.order__navigate", function (e) {
         // Set the new order step as active
         $("ul.order-steps li").removeClass("active");
         $("ul.order-steps li." + step).addClass("active");
+        $("ul.order-steps li." + step + " a").removeClass("disabled");
 
         $(".order__step").removeClass("order__step--active");
         $("#" + step).addClass("order__step--active");

@@ -56,6 +56,7 @@ var OrderViewHelper = function()
     function finishOrder()
     {
         $("ul.order-steps li").removeClass("active");
+        $("ul.order-steps li a").addClass("disabled");
         $("ul.order-steps li.confirmation").addClass("active");
 
         $(".order__step").removeClass("order__step--active");
