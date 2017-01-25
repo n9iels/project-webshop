@@ -48,9 +48,13 @@ var Router = function ()
             case "checkout":
                 new CheckoutController(new CheckoutViewHelper(), new CheckoutModel()).main();
                 break;
+            case "orders":
+                new OrdersController(new OrdersViewHelper, new OrdersModel()).main();
+                break;
             default:
                 new ErrorController(new ErrorViewHelper()).main();
                 break;
+            default:
         }
 
         if (history != false)

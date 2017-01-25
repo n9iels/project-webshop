@@ -5,7 +5,8 @@ img {
     max-width: 100%;
 }
 
-a.disabled {
+a.disabled,
+input[disabled] {
    cursor: not-allowed;
 }
 .overlay {
