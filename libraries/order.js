@@ -39,10 +39,10 @@ $(document).on("change", "select#payment_method", function (e)
 
     if (val != "")
     {
-        $(this).parents(".order__step").find(".btn--next").removeClass("disabled");
+        $(this).parents(".order__step").find(".btn--next").attr("disabled", false);
     }
     else
     {
-        $(this).parents(".order__step").find(".btn--next").addClass("disabled");
+        $(this).parents(".order__step").find(".btn--next").attr("disabled", false);
     }
 });
