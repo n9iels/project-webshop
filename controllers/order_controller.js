@@ -11,6 +11,18 @@ var OrderController = function(viewHelper, model)
         });
     }
 
+    function order(event)
+    {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+
+        var formData = $(this).serializeObject();
+
+        Model.saveOrder(formData, function() {
+            console.log("order placed")
+        })
+    }
+
     // Main function, also the start startpoint for a page
     function main()
     {
@@ -20,6 +32,7 @@ var OrderController = function(viewHelper, model)
         }
 
         ViewHelper.setActionListener(actionPerformed);
+        ViewHelper.setOrderListener(order)
     }
 
     // Return the methods that can be used by other programs (the controller in this case)

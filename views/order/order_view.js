@@ -26,7 +26,8 @@ var OrderViewHelper = function()
             $(".total__price").html($(".cart__total .price").html());
 
             // Set delivery date (we always deliver in one day)
-            var today  = new Date();
+            var today = new Date();
+            today.setDate(today.getDate() + 1);
 
             $(".delivery_date").html(today.getDate() + " " + today.toLocaleString("nl-NL", {month: "long"}));
             $(".delivery__calendar__month").html(today.toLocaleString("nl-NL", {month: "short"}).toUpperCase());
@@ -47,9 +48,16 @@ var OrderViewHelper = function()
         $(document).ready(action);
     }
 
+    // Confirm the order when sbmitting the form
+    function setOrderListener(action)
+    {
+        $(document).on("submit", "#orderform", action);
+    }
+
     // Return the methods that can be used by other programs (the controller in this case)
     return {
         setView: setView,
-        setActionListener: setActionListener
+        setActionListener: setActionListener,
+        setOrderListener: setOrderListener
     }
 };
