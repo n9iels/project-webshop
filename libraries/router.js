@@ -62,6 +62,7 @@ var Router = function ()
                 // Load screen and close cart
                 $("#cart-sidebar").removeClass("sidebar--open");
                 $(".overlay").removeClass("overlay--visible");
+                $("body").removeClass("sidebar--open");
                 showLoadScreen();
                 
                 // Scroll to top of page

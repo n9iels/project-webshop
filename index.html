@@ -19,7 +19,8 @@
                 Router.route(window.location.pathname);
 
                 // Instanciate the cart
-                new CartController(new CartViewHelper(), new CartModel()).main();
+                cart = new CartController(new CartViewHelper(), new CartModel());
+                cart.main();
 
                 // Execute load events
                 onLoadPage();

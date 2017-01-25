@@ -4,7 +4,7 @@ var OrderModel = function()
     {
         var cart = CookieHelper.getCookie('cart');
 
-        if (cart !== undefined || cart !== "")
+        if (cart != undefined && cart != "")
         {
             callback(JSON.parse(cart));
         }
@@ -14,7 +14,7 @@ var OrderModel = function()
         }
     }
 
-    function saveOrder(orderData)
+    function saveOrder(orderData, callback)
     {
         // Append data form other sources
         orderData.status         = "paid";
@@ -24,7 +24,7 @@ var OrderModel = function()
         orderData.cart           = JSON.parse(CookieHelper.getCookie("cart"));
 
         $.ajax({
-            url: "http://localhost:8081/orders",
+            url: "https://api.az-games.nl/orders",
             type: "post",
             dataType: 'json',
             data: JSON.stringify(orderData),
@@ -33,6 +33,8 @@ var OrderModel = function()
             },
             success: function (data)
             {
+                CookieHelper.deleteCookie("cart");
+                callback();
             },
             error: function (xhr, status, error) {
                 console.log("someting went wrong");

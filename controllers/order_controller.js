@@ -19,7 +19,8 @@ var OrderController = function(viewHelper, model)
         var formData = $(this).serializeObject();
 
         Model.saveOrder(formData, function() {
-            console.log("order placed")
+            ViewHelper.finishOrder();
+            ViewHelper.clearCart();
         })
     }
 
@@ -30,9 +31,11 @@ var OrderController = function(viewHelper, model)
         {
             Router.route("/login");
         }
-
-        ViewHelper.setActionListener(actionPerformed);
-        ViewHelper.setOrderListener(order)
+        else
+        {
+            ViewHelper.setActionListener(actionPerformed);
+            ViewHelper.setOrderListener(order)
+        }
     }
 
     // Return the methods that can be used by other programs (the controller in this case)

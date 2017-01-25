@@ -6,17 +6,25 @@ var OrderViewHelper = function()
         document.title = "Bestellen - AZ Games";
 
         $("#component").load('/views/order/order.html', function() {
-            // Add cart content
-            $.each(cart, function(key, value) {
-                var product = $("#product").clone();
 
-                $(product).find(".product__title").html(value.title);
-                $(product).find(".product__image img").attr("src", value.image);
-                $(product).find(".product__price").append(("€ ") + value.price.toFixed(2));
+            if (cart != undefined && cart != "")
+            {
+                // Add cart content
+                $.each(cart, function(key, value) {
+                    var product = $("#product").clone();
 
-                $("#product__list").append(product);
-                $("#product__list").append("<hr />");
-            });
+                    $(product).find(".product__title").html(value.title);
+                    $(product).find(".product__image img").attr("src", value.image);
+                    $(product).find(".product__price").append(("€ ") + value.price.toFixed(2));
+
+                    $("#product__list").append(product);
+                    $("#product__list").append("<hr />");
+                });
+            }
+            else
+            {
+                $("#product__list").html("<div class='message message--info'>Je winkelwagen is nog leeg, stop er producten in om deze te kunnen bestellen.</div>")
+            }
 
             // Remove the first list item, because this item is always empty
             $("#product").first().remove();
@@ -42,6 +50,24 @@ var OrderViewHelper = function()
         });
     }
 
+    // Go to the last step of the order process
+    function finishOrder()
+    {
+        $("ul.order-steps li").removeClass("active");
+        $("ul.order-steps li.confirmation").addClass("active");
+
+        $(".order__step").removeClass("order__step--active");
+        $("#confirmation").addClass("order__step--active");
+    }
+
+    // Clear the visible cart
+    function clearCart()
+    {
+        $(".cart").empty();
+        $(".cart_button .count").html("0");
+        $(".cart__total .price").html("€00.00")
+    }
+
     // Execute the event when 'something' happens (when a button is clicked for example)
     function setActionListener(action)
     {
@@ -58,6 +84,8 @@ var OrderViewHelper = function()
     return {
         setView: setView,
         setActionListener: setActionListener,
-        setOrderListener: setOrderListener
+        setOrderListener: setOrderListener,
+        finishOrder: finishOrder,
+        clearCart: clearCart
     }
 };
