@@ -58,17 +58,30 @@
                     </div>
                 </div>
                 <div class="col-8 col-mobile-7 nav-right">
-                   <ul>
-                       <li class="visible-customer">
-                            <a href="/wishlist">Verlanglijstje</a>
+                   <ul class="nav">
+                       <li class="nav__item">
+                           <a href="/">Producten</a>
                         </li>
-                        <li class="visible-admin">
-                            <a href="/admin">Admin</a>
+                       <li class="nav__item nav__item--sub visible-customer">
+                           <a href="" class="nav__link">Mijn profiel</a>
+                           <ul class="nav__sub">
+                                <li class="nav__item">
+                                    <a href="/wishlist">Verlanglijstje</a>
+                                </li>
+                            </ul>
                         </li>
-                        <li id="inloggen_text">
+                        <li class="nav__item--sub visible-admin">
+                            <a href="">Admin</a>
+                            <ul class="nav__sub">
+                                <li>
+                                    <a href="/admin">Beheer gebruikers</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav__item" id="inloggen_text">
                             <a href="/login">Inloggen</a>
                         </li>
-                        <li id="uitloggen_text" class="visible-customer" style="display: none;">
+                        <li class="nav__item" id="uitloggen_text" class="nav__item visible-customer">
                             <a href="/logout">Uitloggen</a>
                         </li>
                     </ul>

@@ -1,33 +1,40 @@
 .menu {
     background-color: #0288D1;
-    overflow: hidden;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     
-    .nav-right {
-        text-align: right;
-    }
-    ul {
-        display: inline-block;
+    ul.nav { 
+        display: none;
 
-        li {
-            display: inline-block;
+        &> li {
+            position: relative;
 
             &.visible-admin,
             &.visible-customer {
                 display: none;
             }
 
+            &:hover {
+                ul.nav__sub {
+                    left: 0;
+                }
+            }
+
+            &.nav__item--sub > a::after {
+                font: normal normal normal 14px/1 FontAwesome;
+                content:"\f107";
+                margin-left: 10px;
+            }
+
             a {
+                width: 100%;
                 font-size: 15px;
                 color: #fff;
                 padding: 17px;
                 display: inline-block;
                 text-decoration: none;
-                -webkit-transition: .15s;
-                transition: .15s;
 
                 &:hover {
                     background-color: #03A9F4;
@@ -35,6 +42,18 @@
 
                 &--active {
                     background-color: #03A9F4;
+                }
+            }
+
+            ul.nav__sub {
+                background-color: #0288D1;
+                width: 220px;
+                text-align: left;
+                padding-top: 1px;
+                margin-left: 25px;
+
+                li a {
+                    width: 100%;
                 }
             }
         }
@@ -127,5 +146,19 @@
 @media (min-width: 992px) {
     .menu .searchtools {
         display: block;
+    }
+
+    .menu ul.nav {
+        display: block;
+
+        & > li {
+            float: left;
+
+            ul.nav__sub {
+                position: absolute;
+                left: -9999%;
+                margin-left: 0;
+            }
+        }
     }
 }
