@@ -14,56 +14,61 @@ var StatsViewHelper = function ()
             var count = 0;
             // $.each(data, function(graphData) {
 
-                if (count == 0) { //rows are the Top 10 Games
-                    var labels = [10];
-                    var data = [10];
+                if (count == 0) { //rows are the Top 10/11/12 etc. Games
+                    var labels = new Array();
+                    var data = [];
 
                     var gameCount = 0;
+                    var last_rank_num = 0; //assuming value.rank is never 0!
 
                     $.each(graphData, function(key, value) {
-                        labels[gameCount] = value.ean_number;
-                        data[gameCount] = value.super_amount;
-
                         gameCount++;
+
+                        if (gameCount < 11 || value.rank == last_rank_num) {
+                            labels.push(value.title);
+                            data.push(value.super_amount);
+                            
+                            if (gameCount == 10) {
+                                last_rank_num = value.rank;
+                            }
+                        }
                     });
+                    
+                    console.log(labels);
+                    console.log(data);
 
                     var el = $("#graph__toptenitems__cnvs");
                     var TopTenChart = new Chart(el, {
                         type: 'bar',
                         data: {
-                            labels: labels,
+                            labels: labels, //["Grand Theft Auto: Vice City", "God of War 3 - Essentials Edition", "The Legend of Zelda: Breath of the Wild", "Kirby's Adventure", "Super Mario Bros. 3", "Super Smash Bros Melee", "Guitar Hero III: Legends of Rock", "Paper Mario", "Trauma Center: New Blood", "Sonic Adventure 2", "Pokémon Yellow"], //["0","9","asdfasfd","7","6","234","5"],
                             datasets: [{
-                                label: false ,
                                 data: data,
-                                backgroundColor: [ // need 10 colours
-                                    'rgba(255, 99, 132, 0.2)',
-                                    'rgba(54, 162, 235, 0.2)',
-                                    'rgba(255, 206, 86, 0.2)',
-                                    'rgba(75, 192, 192, 0.2)',
-                                    'rgba(153, 102, 255, 0.2)',
-                                    'rgba(255, 159, 64, 0.2)'
-                                ],
-                                borderColor: [
-                                    'rgba(255,99,132,1)',
-                                    'rgba(54, 162, 235, 1)',
-                                    'rgba(255, 206, 86, 1)',
-                                    'rgba(75, 192, 192, 1)',
-                                    'rgba(153, 102, 255, 1)',
-                                    'rgba(255, 159, 64, 1)'
-                                ],
+                                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                                borderColor: 'rgba(255,99,132,1)',
                                 borderWidth: 1
                             }]
                         },
                         options: {
+                            legend: {
+                                display:false
+                            },
                             title: {
                                 display:true,
-                                text: "HI! Am I the title?" // need in januari, in februari, etc.
+                                text: "Top 10 Sold Games" // need in januari, in februari, etc.
                             },
                             responsive:false,
                             scales: {
                                 yAxes: [{
                                     ticks: {
                                         beginAtZero:true
+                                    }
+                                }],
+                                xAxes: [{
+                                    ticks: {
+                                        //min: 0,
+                                        //beginAtZero:true,
+                                        autoSkip: false
                                     }
                                 }]
                             }
