@@ -45,8 +45,8 @@ var Router = function ()
             case "admin_user":
                 new AdminUserController(new AdminUserViewHelper(), new AdminUserModel(particles[1])).main();
                 break;
-            case "order":
-                new OrderController(new OrderViewHelper(), new OrderModel()).main();
+            case "checkout":
+                new CheckoutController(new CheckoutViewHelper(), new CheckoutModel()).main();
                 break;
             default:
                 new ErrorController(new ErrorViewHelper()).main();

@@ -1,4 +1,4 @@
-var OrderController = function(viewHelper, model)
+var CheckoutController = function(viewHelper, model)
 {
     var Model      = model;
     var ViewHelper = viewHelper;

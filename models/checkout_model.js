@@ -1,4 +1,4 @@
-var OrderModel = function()
+var CheckoutModel = function()
 {
     function getOrderInformation(callback)
     {

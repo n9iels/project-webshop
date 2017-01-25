@@ -1,11 +1,11 @@
-var OrderViewHelper = function()
+var CheckoutViewHelper = function()
 {
     // Change the view of the page
     function setView(cart)
     {
         document.title = "Bestellen - AZ Games";
 
-        $("#component").load('/views/order/order.html', function() {
+        $("#component").load('/views/checkout/checkout.html', function() {
 
             if (cart != undefined && cart != "")
             {
@@ -20,6 +20,8 @@ var OrderViewHelper = function()
                     $("#product__list").append(product);
                     $("#product__list").append("<hr />");
                 });
+
+                $("#order_info .order__navigate").first().removeClass("disabled");
             }
             else
             {
@@ -54,6 +56,7 @@ var OrderViewHelper = function()
     function finishOrder()
     {
         $("ul.order-steps li").removeClass("active");
+        $("ul.order-steps li a").addClass("disabled");
         $("ul.order-steps li.confirmation").addClass("active");
 
         $(".order__step").removeClass("order__step--active");
