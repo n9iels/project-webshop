@@ -1,84 +1,66 @@
 var PublicWishlistViewHelper = function()
 {
+    function setActionListener(action) // heb de $ erbij gezet. internet had het daarover (zie onderstaande comment ook)
+    {
+        $(document).ready(action);
+    }
+
     //change view of page
     function setView(viewData)
     {
-
-        $.each(viewData, function(key, value)
+        if (viewData[0].is_public == 0)
         {
-            if (value.is_public = 0)
-            {
-                $("#component").load("/error/error.html");
-            }
-            else if(value.is_public = 1)
-            {
-                loadPublicWishlist(viewData);
-            }
-            else
-            {
-                console.log("Onverwachte waarde... value.ispublic=" + value.is_public);
-            }
-        })
-
-        //console.log("WL VIEW: Inside setView");
-        document.title = "Wishlist - AZ Games";
-        $("#component").html('<div class="col-12"><div class="col-12" id="wishlist"></div></div>');
-
-        loadWishlist(viewData);
+            document.title = "Error - AZ Games"
+            $("#component").load("/views/error/error.html");
+        }
+        else if (viewData[0].is_public == 1)
+        {
+            loadPublicWishlist(viewData);
+        }
+        else
+        {
+            console.log("viewData[0].is_public heeft onverwachte waarde. viewData[0].is_public = " + viewData[0].is_public);
+        }
     }
 
-    function loadPublicWishlist()
+    function loadPublicWishlist(data)
     {
-        $("#wishlist").load('/views/wishlist/wishlist.html', function ()
-            {
-                // add all wishlist items to html
-                var current = 0;
-                var count = 0;
-                $.each(viewData, function(key, value) {
+        document.title = "Verlanglijst " + data[0].first_name + " - AZ Games";
 
-                // Clone product
-                var wish__list__item = $('<div>').append($('#wish__list__item').clone());
+        $("#component").html('<div class="col-12" id="public_wishlist"></div>');
 
-                // Add product info
-                current = current +1
-                $(wish__list__item).find(".wish__list__id").append(current);
-                $(wish__list__item).find(".wish__list__image img").attr("src", value.image);
-                $(wish__list__item).find(".wish__list__title").html(value.title);
-                $(wish__list__item).find(".wish__list__price").append(("€ ")+value.price);
-                $(wish__list__item).find(".wish__list__platform").append(PlatformLogo(value.platform));
-                $(wish__list__item).find(".wish__list__availability").append(BeschikbaarheidKleur(value.stock));
-                //$(wish__list__item).find(".wish__list__likebutton").append();
-                $(wish__list__item).find("#delete_btn").attr("data-id", value.ean_number);
-                $(wish__list__item).find("#cart_btn").attr("data-id", value.ean_number);
+        $("#public_wishlist").load('/views/public_wishlist/public_wishlist.html', function ()
+        {
+            $("#public__wishlist__header").html("Verlanglijst van " + data[0].first_name);
 
-                $("#wish__list").append(wish__list__item);
-                count++;
-            });
 
-            if (count == 0) {
-                $("#public_wishlist_error_message").show();
-            }
+            var current = 0;
+            $.each(data, function(key, value)
+            {                
+                var wishlist_item = $('<div>').append( $('#wish__list__item').clone() );
 
-            // Remove the first list item, because this item is always empty
+                current++;
+                $(wishlist_item).find(".wish__list__id").append(current);
+                $(wishlist_item).find(".wish__list__image img").attr("src", value.image);
+                $(wishlist_item).find(".wish__list__title").html(value.title);
+                $(wishlist_item).find(".wish__list__price").append(("€ ")+value.price);
+                $(wishlist_item).find(".wish__list__platform").append(PlatformLogo(value.platform));
+                $(wishlist_item).find(".wish__list__availability").append(BeschikbaarheidKleur(value.stock));
+                $(wishlist_item).find(".wish__list__likebutton").append();
+                $(wishlist_item).find("#delete_btn").attr("data-id", value.ean_number);
+                $(wishlist_item).find("#cart_btn").attr("data-id", value.ean_number);
+
+                wishlist_item.appendTo($("#wish__list"));
+            })
+
             $("#wish__list__item").first().remove();
         });
-    }
-
-    function setActionListener(action)
-    {
-        $(document).ready(function() { action }); // if 'document ready' perform "action"
-    }
-
-    function setPublicListener(action)
-    {
-        $("#component").on("change", "#publicator", action);
     }
 
     return {
         setView: setView,
         loadPublicWishlist: loadPublicWishlist,
-        setActionListener: setActionListener,
-        setPublicListener: setPublicListener
+        setActionListener: setActionListener
     }
 
 

@@ -35,6 +35,17 @@ var WishlistViewHelper = function()
                 $(wish__list__item).find("#cart_btn").attr("data-id", value.ean_number);
 
                 $("#wish__list").append(wish__list__item);
+
+                if (count == 0) {
+                    if (value.is_public == 0) {
+                        $("#publicator").val("private");
+                    } else if (value.is_public == 1) {
+                        $("#publicator").val("public");
+                    } else {
+                        console.log("value has unexpected value. value = " + value);
+                    }
+                }
+
                 count++;
             });
 
@@ -64,7 +75,11 @@ var WishlistViewHelper = function()
 
     function setPublicListener(action)
     {
-        $("#component").on("change", "#publicator", action);
+        $("#component").on("change", "#publicator", function()
+        {
+            console.log(this.value);
+            action(this.value);
+        });
     }
 
     function hideItem(div_to_hide)

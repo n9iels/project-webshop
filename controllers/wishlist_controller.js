@@ -2,23 +2,21 @@ var WishlistController = function(viewHelper, model)
 {
     var Model = model;
     var ViewHelper = viewHelper;
-    var viewData = {};
-
-    function getWishlist()
-    {
-        Model.getWishlist(setView);
-    }
-
-    function setView(data)
-    {
-        ViewHelper.setView(data);
-    }
 
     function main()
     {
         ViewHelper.setActionListener(getWishlist);
         ViewHelper.setDeleteListener(deleteFromWishlist);
-        ViewHelper.setPublicListener();
+        ViewHelper.setPublicListener(switchPublicState);
+    }
+
+    function getWishlist()
+    {
+        Model.getWishlist(setView);
+    }
+    function setView(data)
+    {
+        ViewHelper.setView(data);
     }
 
     function deleteFromWishlist(ean, div_to_hide)
@@ -26,6 +24,14 @@ var WishlistController = function(viewHelper, model)
         Model.deleteFromWishlist(ean, function()
         {
             ViewHelper.hideItem(div_to_hide);
+        });
+    }
+
+    function switchPublicState(newStatus)
+    {
+        Model.switchPublicState(newStatus, function()
+        {
+            
         });
     }
 

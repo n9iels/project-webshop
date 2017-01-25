@@ -1,9 +1,9 @@
 var PublicWishlistModel = function(user_id)
 {
-    function getPublicWishlist(callback)
+    this.getPublicWishlist = function(callback)
     {
         $.ajax({
-            url: "https://localhost:8081/public_wishlist" + "/" + user_id,
+            url: "http://localhost:8081/public_wishlist/" + user_id,
             type: "get",
             dataType: 'json',
             success: function (data) {
@@ -13,10 +13,5 @@ var PublicWishlistModel = function(user_id)
                 $("#component").load("/views/error/error.html");
             }
         });
-    }
-    
-    return 
-    {
-        getPublicWishlist: getPublicWishlist
     }
 };
