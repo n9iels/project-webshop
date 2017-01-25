@@ -8,18 +8,32 @@ var PublicWishlistViewHelper = function()
     //change view of page
     function setView(viewData)
     {
-        if (viewData[0].is_public == 0)
+        console.log(viewData)
+        if (viewData.length == 0)
         {
             document.title = "Error - AZ Games"
             $("#component").load("/views/error/error.html");
         }
-        else if (viewData[0].is_public == 1)
+        else if (viewData.length > 0)
         {
-            loadPublicWishlist(viewData);
+            if (viewData[0].is_public == 1){
+                loadPublicWishlist(viewData);
+            }
+            else if (viewData[0].is_public == 0)
+            {
+                document.title = "Error - AZ Games"
+                $("#component").load("/views/error/error.html");
+            }
+            else{
+                console.log("viewData[0].is_public heeft onverwachte waarde. viewData[0].is_public = " + viewData[0].is_public);
+            }
+
+
+
         }
         else
         {
-            console.log("viewData[0].is_public heeft onverwachte waarde. viewData[0].is_public = " + viewData[0].is_public);
+            console.log("viewData[0].length heeft onverwachte waarde. viewData.length = " + viewData.length);
         }
     }
 

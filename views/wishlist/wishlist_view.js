@@ -33,14 +33,17 @@ var WishlistViewHelper = function()
                 $(wish__list__item).find(".wish__list__likebutton").append();
                 $(wish__list__item).find("#delete_btn").attr("data-id", value.ean_number);
                 $(wish__list__item).find("#cart_btn").attr("data-id", value.ean_number);
+                $("#example__btn").attr("href", "/public_wishlist/" + value.user_id)
 
                 $("#wish__list").append(wish__list__item);
 
                 if (count == 0) {
                     if (value.is_public == 0) {
                         $("#publicator").val("private");
+                        $("#example__btn").hide();
                     } else if (value.is_public == 1) {
                         $("#publicator").val("public");
+                        $("#example__btn").show();
                     } else {
                         console.log("value has unexpected value. value = " + value);
                     }
@@ -49,14 +52,18 @@ var WishlistViewHelper = function()
                 count++;
             });
 
+            // Als er geen items in wishlist staan, dan hide de volgende divs.
             if (count == 0) {
                 $("#wishlist_error_message").show();
+                $("#public__related").hide();
+                $("#wish__list").hide();
             }
 
             // Remove the first list item, because this item is always empty
             $("#wish__list__item").first().remove();
         });
     }
+
     function setActionListener(action)
     {
         $(document).ready(action); // if 'document ready' perform "action"       
