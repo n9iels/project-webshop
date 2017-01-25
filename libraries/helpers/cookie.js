@@ -35,7 +35,11 @@ function CookieHelper()
      */
     this.createCookie = function(name, value)
     {
-        document.cookie = name + '=' + value + ';';
+        var d = new Date(); 
+        d.setTime(d.getTime() + (1*24*60*60*1000)); 
+        var expires = "expires="+ d.toUTCString(); 
+
+        document.cookie = name + '=' + value + ';' + expires + ';path=/'; 
     }
 
     /**

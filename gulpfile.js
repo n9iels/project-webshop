@@ -28,7 +28,7 @@ gulp.task('sass', function () {
 
 /* Combine all scripts */
 gulp.task('scripts', function() {
-    gulp.src(['./libraries/**/*.js', './models/*.js', './controllers/*.js', './views/**/*.js', './js/pageSwitcher.js'])
+    gulp.src(['./libraries/**/*.js', './models/*.js', './controllers/*.js', './views/**/*.js'])
         .pipe(sourcemaps.init())
         .pipe(concat('app.js'))
         //.pipe(uglify())
