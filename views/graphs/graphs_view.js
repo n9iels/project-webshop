@@ -45,13 +45,13 @@ var StatsViewHelper = function ()
 
                     var el = $("#graph__toptenitems__cnvs");
                     var TopTenChart = new Chart(el, {
-                        type: 'bar',
+                        type: 'horizontalBar',
                         data: {
-                            labels: [["Grand Theft Auto:", " Vice City"], "God of War 3 - Essentials Edition", ["The Legend of Zelda:", "Breath of the Wild"], "Kirby's Adventure", "Super Mario Bros. 3", "Super Smash Bros Melee", "Guitar Hero III: Legends of Rock", "Paper Mario", "Trauma Center: New Blood", "Sonic Adventure 2", "Pokémon Yellow"], //["0","9","asdfasfd","7","6","234","5"],
+                            labels: labels, //[["Grand Theft Auto:", " Vice City"], "God of War 3 - Essentials Edition", ["The Legend of Zelda:", "Breath of the Wild"], "Kirby's Adventure", "Super Mario Bros. 3", "Super Smash Bros Melee", "Guitar Hero III: Legends of Rock", "Paper Mario", "Trauma Center: New Blood", "Sonic Adventure 2", "Pokémon Yellow"], //["0","9","asdfasfd","7","6","234","5"],
                             datasets: [{
                                 data: data,
-                                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                                borderColor: 'rgba(255,99,132,1)',
+                                backgroundColor: 'rgba(3, 169, 244, 1)',
+                                // borderColor: 'rgba(2, 136, 209,1)',
                                 borderWidth: 1
                             }]
                         },
@@ -63,7 +63,7 @@ var StatsViewHelper = function ()
                                 display:true,
                                 text: "Most Sold Games" // need in januari, in februari, etc.
                             },
-                            responsive:false,
+                            responsive:true,
                             scales: {
                                 yAxes: [{
                                     ticks: {
@@ -72,9 +72,9 @@ var StatsViewHelper = function ()
                                 }],
                                 xAxes: [{
                                     ticks: {
-                                        maxRotation: 90,
-                                        minRotation: 90,
-                                        autoSkip: false
+                                        // maxRotation: 90,
+                                        // minRotation: 90,
+                                        // autoSkip: false
                                     }
                                 }]
                             }
