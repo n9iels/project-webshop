@@ -8,8 +8,8 @@ var LogoutController = function(viewHelper, model)
     {
         Model.logout(function (data) {
             // show uitloggen button
-            $("#inloggen_text").show();
-            $("#uitloggen_text").hide();
+            $(".inloggen_text").show();
+            $(".uitloggen_text").hide();
 
             // set view to login form
             ViewHelper.setView();

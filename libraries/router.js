@@ -4,7 +4,7 @@ var Router = function ()
 
     function route(url, history)
     {
-        if (isInternal(url) == false)
+        if (isInternal(url) == false || url == "")
         {
             return;
         }
@@ -64,7 +64,7 @@ var Router = function ()
                 writeHistory({}, "A-Z Games", url);
 
                 // Load screen and close cart
-                $("#cart-sidebar").removeClass("sidebar--open");
+                $(".sidebar").removeClass("sidebar--open");
                 $(".overlay").removeClass("overlay--visible");
                 $("body").removeClass("sidebar--open");
                 showLoadScreen();
@@ -77,7 +77,7 @@ var Router = function ()
 
     function isInternal(url)
     {
-        if (url.indexOf("http") != -1 || url.indexOf("https") != -1 || url.indexOf("www") != -1)
+        if (url.indexOf("http") != -1 || url.indexOf("www") != -1 || url.indexOf("mailto") != -1)
         {
             window.location = url;
             

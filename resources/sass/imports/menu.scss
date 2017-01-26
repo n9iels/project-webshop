@@ -1,54 +1,24 @@
 .menu {
     background-color: #0288D1;
-    overflow: hidden;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
-    
-    .nav-right {
-        text-align: right;
-    }
-    ul {
-        display: inline-block;
 
-        li {
-            display: inline-block;
-
-            &.visible-admin,
-            &.visible-customer {
-                display: none;
-            }
-
-            a {
-                font-size: 15px;
-                color: #fff;
-                padding: 17px;
-                display: inline-block;
-                text-decoration: none;
-                -webkit-transition: .15s;
-                transition: .15s;
-
-                &:hover {
-                    background-color: #03A9F4;
-                }
-
-                &--active {
-                    background-color: #03A9F4;
-                }
-            }
-        }
+    .desktop-menu {
+        display: none;
     }
 
     &__logo {
         display: inline-block;
         vertical-align: top;
-        
+
         a {     
             padding: 10px;
             display: block;
             color: #fff;
             text-decoration: none;
+            float: left;
 
             &:hover,
             &:active,
@@ -62,31 +32,12 @@
                 vertical-align: middle;
             }
             span.logo__text {
-                font-size: 20px;
+                font-size: 18px;
                 vertical-align: middle;
             }
         }
     }
     
-    .searchtools {
-        display: none;
-        padding: 6px;
-        
-        .form-group {
-            width: 100%;
-        
-            .input-group {
-                input[type=text],
-                input[type=password] {
-                    padding: 5px;
-                }
-                .btn {
-                    padding: 10px 9px 9px;
-                }
-            }
-        }
-    }
-
     .cart_button { 
         padding: 10px;
         display: block;
@@ -114,6 +65,38 @@
         }
     }
 }
+.mmenu .nav {
+    display: block;
+
+    li {
+        border-bottom: 1px solid #ccc;
+
+        a {
+            color: #000;
+
+            &:hover {
+                background-color: transparent;
+            }
+        }
+
+        ul.nav__sub {
+            background-color: transparent;
+            width: 100%;
+            margin: 0;
+
+            li {
+                &:last-child {
+                    border-bottom: 0px;
+                }
+
+                a {
+                    padding-left: 35px;
+                }
+            }
+        }
+    }
+}
+
 
 @media (min-width: 768px)
 {
@@ -125,7 +108,31 @@
 }
 
 @media (min-width: 992px) {
-    .menu .searchtools {
-        display: block;
+    .menu {
+        &__logo .sidebar-toggle {
+            display: none;
+
+            span.logo__text {
+                font-size: 20px;
+            }
+        }
+
+        .desktop-menu {
+            display: block;
+        }
+        
+        ul.nav {
+            display: block;
+
+            & > li {
+                float: left;
+
+                ul.nav__sub {
+                    position: absolute;
+                    left: -9999%;
+                    margin-left: 0;
+                }
+            }
+        }
     }
 }
