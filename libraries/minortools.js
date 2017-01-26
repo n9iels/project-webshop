@@ -4,7 +4,10 @@ function PlatformLogo(platformnaam)
     platformnaam = platformnaam.toUpperCase();
     switch (platformnaam)
     {
-        //platforms
+        default:
+            return platformnaam;
+
+        //platforms - spelcomputers
         case "PS1":
             return "<img src='/resources/images/icons/ps1.png' />";
         case "PS3":
@@ -25,10 +28,8 @@ function PlatformLogo(platformnaam)
             return "<img src='/resources/images/icons/switch.png' />";
         case "NGC":
             return "<img src='/resources/images/icons/ngc.png' />";
-        default:
-            return platformnaam;
 
-        //publishers
+        //publishers - uitgevers
         case "NINTENDO":
             return "<img src='/resources/images/publishers/nintendo.png' />";
         case "UBISOFT":
