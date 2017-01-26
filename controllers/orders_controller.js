@@ -1,4 +1,4 @@
-var LogoutController = function(viewHelper, model)
+var OrdersController = function(viewHelper, model)
 {
     var Model      = model;
     var ViewHelper = viewHelper;
@@ -6,13 +6,8 @@ var LogoutController = function(viewHelper, model)
     // Function that is executed on a action listener
     function actionPerformed(event)
     {
-        Model.logout(function (data) {
-            // show uitloggen button
-            $(".inloggen_text").show();
-            $(".uitloggen_text").hide();
-
-            // set view to login form
-            ViewHelper.setView();
+        Model.getOrders(function(data) {
+            viewHelper.setView(data);
         });
     }
 

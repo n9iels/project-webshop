@@ -8,23 +8,27 @@ function showLoadScreen()
     $("#component").html('<div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div> </div>');
 }
 
+
 function onLoadPage()
 {
+    $(".mmenu").empty();
+    $(".nav").clone().appendTo(".mmenu");
+
     if (UserHelper.isAdmin())
     {
-        $(".visible-admin").css("display", "inline-block");
-        $(".visible-customer").css("display", "inline-block");
-        $("#inloggen_text").hide();
+        $(".visible-admin").css("display", "block");
+        $(".visible-customer").css("display", "block");
+        $(".inloggen_text").hide();
     }
     else if (UserHelper.isCustomer())
     {
-        $(".visible-customer").css("display", "inline-block");
-        $("#inloggen_text").hide();
+        $(".visible-customer").css("display", "block");
+        $(".inloggen_text").hide();
     }
     else
     {
         $(".visible-admin").hide();
         $(".visible-customer").hide();
-        $("#inloggen_text").css("display", "inline-block");
+        $("#inloggen_text").css("display", "block");
     }
 }

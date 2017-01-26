@@ -4,7 +4,7 @@ var Router = function ()
 
     function route(url, history)
     {
-        if (isInternal(url) == false)
+        if (isInternal(url) == false || url == "")
         {
             return;
         }
@@ -45,12 +45,19 @@ var Router = function ()
             case "admin_user":
                 new AdminUserController(new AdminUserViewHelper(), new AdminUserModel(particles[1])).main();
                 break;
+            case "checkout":
+                new CheckoutController(new CheckoutViewHelper(), new CheckoutModel()).main();
+                break;
+            case "orders":
+                new OrdersController(new OrdersViewHelper, new OrdersModel()).main();
+                break;
             case "order":
-                new OrderController(new OrderViewHelper(), new OrderModel()).main();
+                new OrderController(new OrderViewHelper, new OrderModel(particles[1])).main();
                 break;
             default:
                 new ErrorController(new ErrorViewHelper()).main();
                 break;
+            default:
         }
 
         if (history != false)
@@ -60,7 +67,7 @@ var Router = function ()
                 writeHistory({}, "A-Z Games", url);
 
                 // Load screen and close cart
-                $("#cart-sidebar").removeClass("sidebar--open");
+                $(".sidebar").removeClass("sidebar--open");
                 $(".overlay").removeClass("overlay--visible");
                 $("body").removeClass("sidebar--open");
                 showLoadScreen();
@@ -73,7 +80,7 @@ var Router = function ()
 
     function isInternal(url)
     {
-        if (url.indexOf("http") != -1 || url.indexOf("https") != -1 || url.indexOf("www") != -1)
+        if (url.indexOf("http") != -1 || url.indexOf("www") != -1 || url.indexOf("mailto") != -1)
         {
             window.location = url;
             
