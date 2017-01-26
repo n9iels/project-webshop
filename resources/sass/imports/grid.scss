@@ -4,8 +4,6 @@
 	padding-left: 15px;
 	margin-right: auto;
 	margin-left: auto;
-
-	
 }
 
 /* Grid system */
@@ -31,6 +29,7 @@ $grid-spacing:3%;
     -moz-box-sizing:border-box;
     box-sizing:border-box;
 	width: 100%;
+	min-height: 1px;
 
     &:last-child {
         margin-right:0%;

@@ -19,7 +19,8 @@
                 Router.route(window.location.pathname);
 
                 // Instanciate the cart
-                new CartController(new CartViewHelper(), new CartModel()).main();
+                cart = new CartController(new CartViewHelper(), new CartModel());
+                cart.main();
 
                 // Execute load events
                 onLoadPage();
@@ -112,10 +113,10 @@
             </div>
             <div class="sidebar__footer">
                 <div class="cart__total">
-                    <span class="label">Totaal</span><span class="price">€00.00</span>
+                    <span class="label">Totaal</span><span class="price">€0.00</span>
                 </div>
-                <div class="cart__checkout" style="display: none;">
-                    Verder naar bestellen <span class="fa fa-arrow-right"></span>
+                <div class="cart__checkout">
+                    <a href="/order">Verder naar bestellen <span class="fa fa-arrow-right"></span></a>
                 </div>
             </div>
         </div>
