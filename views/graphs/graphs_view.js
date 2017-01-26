@@ -21,6 +21,7 @@ var StatsViewHelper = function ()
 
                     var gameCount = 0;
                     var last_rank_num = 0; //assuming value.rank is never 0!
+                    var highestVal = 0;
 
                     $.each(graphData, function(key, value) {
                         gameCount++;
@@ -50,8 +51,8 @@ var StatsViewHelper = function ()
                             labels: labels, //[["Grand Theft Auto:", " Vice City"], "God of War 3 - Essentials Edition", ["The Legend of Zelda:", "Breath of the Wild"], "Kirby's Adventure", "Super Mario Bros. 3", "Super Smash Bros Melee", "Guitar Hero III: Legends of Rock", "Paper Mario", "Trauma Center: New Blood", "Sonic Adventure 2", "Pokémon Yellow"], //["0","9","asdfasfd","7","6","234","5"],
                             datasets: [{
                                 data: data,
-                                backgroundColor: 'rgba(3, 169, 244, 1)',
-                                // borderColor: 'rgba(2, 136, 209,1)',
+                                //backgroundColor: 'rgba(2, 136, 209, 1)', //blauw van menu
+                                backgroundColor: 'rgba(0, 200, 26, 1)', //groen
                                 borderWidth: 1
                             }]
                         },
@@ -72,9 +73,10 @@ var StatsViewHelper = function ()
                                 }],
                                 xAxes: [{
                                     ticks: {
+                                        beginAtZero:true,
+                                        //max: data[0] * 1.05 //[data.length-1] //* 1.05
                                         // maxRotation: 90,
                                         // minRotation: 90,
-                                        // autoSkip: false
                                     }
                                 }]
                             }
