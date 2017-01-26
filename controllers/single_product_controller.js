@@ -23,8 +23,8 @@ var ProductController = function(viewHelper, model)
         // let model send email and password to API
         Model.login(formData.email, formData.password, function (data) {
             // show uitloggen button
-            $("#inloggen_text").hide();
-            $("#uitloggen_text").show();
+            $(".inloggen_text").hide();
+            $(".uitloggen_text").show();
 
             // Weergeef een andere pagina gebasseerd op 'admin' of 'registered user'
             new PageController(new PageViewHelper(), new PageModel()).main();
