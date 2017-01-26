@@ -94,12 +94,29 @@ var WishlistViewHelper = function()
         div_to_hide.fadeTo(200, 0).slideUp(200);
     }
 
+    function showExampleButton()
+    {
+        console.log($("#example__btn__div").value);
+
+        // if (value.is_public == 0) {
+        //     $("#publicator").value;
+        //     $("#example__btn").hide();
+        // } else if (value.is_public == 1) {
+        //     $("#publicator").val("public");
+        //     $("#example__btn").show();
+        // } else {}
+
+
+        $("#example__btn__div").show();
+    }
+
     return {
         setView: setView,
         loadWishlist: loadWishlist,
         setActionListener: setActionListener,
         setDeleteListener: setDeleteListener,
         setPublicListener: setPublicListener,
-        hideItem: hideItem
+        hideItem: hideItem,
+        showExampleButton: showExampleButton
     }
 }

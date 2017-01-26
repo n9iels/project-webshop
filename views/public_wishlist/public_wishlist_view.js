@@ -27,9 +27,6 @@ var PublicWishlistViewHelper = function()
             else{
                 console.log("viewData[0].is_public heeft onverwachte waarde. viewData[0].is_public = " + viewData[0].is_public);
             }
-
-
-
         }
         else
         {
@@ -46,7 +43,6 @@ var PublicWishlistViewHelper = function()
         $("#public_wishlist").load('/views/public_wishlist/public_wishlist.html', function ()
         {
             $("#public__wishlist__header").html("Verlanglijst van " + data[0].first_name);
-
 
             var current = 0;
             $.each(data, function(key, value)
