@@ -34,9 +34,8 @@ var WishlistViewHelper = function()
                 $(wish__list__item).find("#delete_btn").attr("data-id", value.ean_number);
                 $(wish__list__item).find("#cart_btn").attr("data-id", value.ean_number);
                 $("#example__btn").attr("href", "/public_wishlist/" + value.user_id);
-                $("#share__btn").attr("href", "mailto:email@Mailto.co.uk?subject=Mijn verlanglijst op AZ-Games.nl!&body=Bekijk mijn verlanglijst op AZ-Games.nl!"); // CHECK DIS!
-                
-                clipboard__btn
+                $("#share__btn").attr("href", "mailto:?subject=Mijn verlanglijst op AZ-Games.nl!&body=Bekijk mijn verlanglijst op: http://az-games.nl/public_wishlist/" + value.user_id); // CHECK DIS!
+                $("#clipboard__btn").attr("href", "/public_wishlist/" + value.user_id);
 
                 $("#wish__list").append(wish__list__item);
 
@@ -96,21 +95,30 @@ var WishlistViewHelper = function()
         div_to_hide.fadeTo(200, 0).slideUp(200);
     }
 
-    function showExampleButton()
+    function showExampleButton(newStatus)
     {
-        console.log($("#example__btn__div").value);
+        console.log(newStatus);
 
-        // if (value.is_public == 0) {
-        //     $("#publicator").value;
-        //     $("#example__btn").hide();
-        // } else if (value.is_public == 1) {
-        //     $("#publicator").val("public");
-        //     $("#example__btn").show();
-        // } else {}
+        if (newStatus == "public") {
+            $("#example__btn").show();
+            $(".share__btn").show();
+            $(".clipboard__btn").show();
+        } else if (newStatus == "private") {
+            $("#example__btn").hide();
+            $(".share__btn").hide();
+            $(".clipboard__btn").hide();
+
+        } else {console.log("unexpected newStatus value, value = "+newStatus)}
 
 
         $("#example__btn__div").show();
     }
+
+    function OpenSmallMailWindow(url, windowName, features)
+    {
+        window.open(url, windowName, features);
+    }
+
 
     return {
         setView: setView,

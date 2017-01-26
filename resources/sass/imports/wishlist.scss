@@ -65,10 +65,21 @@
     }
 }
 
-.share__btn{
 
+.share__btn{
+    .btn{
+        .fa{
+            text-align:center;
+            margin-right: 1px;
+        }
+    }
 }
 
 .clipboard__btn{
-    
+    .btn{
+        .fa{
+            text-align:center;
+            margin-right: 1px;
+        }
+    }
 }

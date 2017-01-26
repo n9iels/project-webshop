@@ -31,7 +31,7 @@ var WishlistController = function(viewHelper, model)
     {
         Model.switchPublicState(newStatus, function()
         {
-            ViewHelper.showExampleButton();
+            ViewHelper.showExampleButton(newStatus);
         });
     }
 
