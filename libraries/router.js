@@ -51,6 +51,9 @@ var Router = function ()
             case "orders":
                 new OrdersController(new OrdersViewHelper, new OrdersModel()).main();
                 break;
+            case "order":
+                new OrderController(new OrderViewHelper, new OrderModel(particles[1])).main();
+                break;
             default:
                 new ErrorController(new ErrorViewHelper()).main();
                 break;

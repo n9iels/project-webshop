@@ -7,7 +7,6 @@ var OrdersViewHelper = function()
 
         $("#component").load('/views/orders/orders.html', function() {
             $.each(orders, function(key, value) {
-                console.log(value)
                 // Clone product
                 var order = $('#single_order').clone();
 
