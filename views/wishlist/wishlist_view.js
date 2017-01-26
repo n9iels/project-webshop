@@ -34,7 +34,7 @@ var WishlistViewHelper = function()
                 $(wish__list__item).find("#delete_btn").attr("data-id", value.ean_number);
                 $(wish__list__item).find("#cart_btn").attr("data-id", value.ean_number);
                 $("#example__btn").attr("href", "/public_wishlist/" + value.user_id);
-                $("#share__btn").attr("href", "mailto:info@example.com?subject=subject&cc=cc@example.com"); // CHECK DIS!
+                $("#share__btn").attr("href", "mailto:email@Mailto.co.uk?subject=Mijn verlanglijst op AZ-Games.nl!&body=Bekijk mijn verlanglijst op AZ-Games.nl!"); // CHECK DIS!
                 
                 clipboard__btn
 
