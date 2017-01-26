@@ -1,0 +1,161 @@
+<h1 class="page-title">
+    Game toevoegen
+</h1>
+
+<div class="error__message message message--error" id="error__message" style="display:none">
+    Oh, een error! Zijn alle velden wel goed ingevuld?
+</div>
+
+<form name="adminsert__form" id="adminsert__form" class="adminsert__form">
+    <fieldset id="pii__fieldset">
+        <div class="pii__title">
+            <legend>Platform onafhankelijke informatie</legend>
+            <hr>
+        </div>
+        <div class="form-group">
+            <div class="form-label">
+                <label for="publisher">Uitgever</label>
+            </div>
+            <div class="form-control">
+                <input type="text" name="publisher" id="publisher" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">
+                <label for="title">Titel</label>
+            </div>
+            <div class="form-control">
+                <input type="text" name="title" id="title" />
+            </div>
+        </div> 
+        <div class="form-group">
+            <div class="form-label">
+                <label for="subtitle">Ondertitel</label>
+            </div>
+            <div class="form-control">
+                <input type="text" name="subtitle" id="subtitle" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">
+                <label for="subtitle">Genre</label>
+            </div>
+            <div class="form-control">
+                <input type="text" name="genre" id="genre" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">
+                <label for="franchise">Franchise</label>
+            </div>
+            <div class="form-control">
+                <input type="text" name="franchise" id="franchise" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">
+                <label for="description">Beschrijving</label>
+            </div>
+            <div class="form-control">
+                <!--<input type="text" name="description" id="description" />-->
+                <textarea class="descr_box" type="text" name="description" id="description"></textarea>
+            </div>
+        </div>    
+    </fieldset>
+
+
+    <fieldset id="game__fieldset">
+        <div class="game__title">
+            <legend>Andere game informatie</legend>
+            <hr>
+        </div>
+
+        <div class="form-group">
+            <div class="form-label">
+                <label for="ean_number">Ean-nummer</label>
+            </div>
+            <div class="form-control">
+                <input type="text" name="ean_number" id="ean_number" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">
+                <label for="platform">Platform</label>
+            </div>
+            <div class="form-control">
+                <input type="text" name="platform" id="platform" />
+            </div>
+        </div>   
+        <div class="form-group">
+            <div class="form-label">
+                <label for="dag">Datum van uitgave</label>
+            </div>
+            <div class="form-control">
+                <select name="dag" id="dag">
+                </select>
+                <select name="maand" id="maand">
+                    <option value="01">Januari</option> 
+                    <option value="02">Februari</option>
+                    <option value="03">Maart</option> 
+                    <option value="04">April</option>
+                    <option value="05">Mei</option> 
+                    <option value="06">Juni</option>
+                    <option value="07">Juli</option> 
+                    <option value="08">Augustus</option>
+                    <option value="09">September</option> 
+                    <option value="10">Oktober</option>
+                    <option value="11">November</option> 
+                    <option value="12">December</option>
+                </select>
+                <select name="jaar" id="jaar">
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">
+                <label for="pegi_age">PEGI Leeftijd</label>
+            </div>
+            <div class="form-control">
+                <select name="pegi_age" id="pegi_age">
+                    <option value="3">3</option> 
+                    <option value="7">7</option>
+                    <option value="12">12</option> 
+                    <option value="16">16</option>
+                    <option value="18">18</option> 
+                </select>
+            </div>
+        </div>    
+
+        <div class="form-group">
+            <div class="form-label">
+                <label for="stock">Voorraad</label>
+            </div>
+            <div class="form-control">
+                <input type="text" name="stock" id="stock" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">
+                <label for="price">Prijs</label>
+            </div>
+            <div class="form-control">
+                <input type="text" name="price" id="price" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">
+                <label for="image">Afbeelding</label>
+            </div>
+            <div class="form-control">
+                <input type="text" name="image" id="image" />
+            </div>
+        </div>    
+    </fieldset>
+
+    <div class="adminsert__api__error__message message message--error" id="adminsert__api__error__message" style="display:none">
+        Oepsie! Er ging iets fout. Voor hulp kunt u met onze klantenservice contact opnemen.
+    </div>
+
+    <input class="btn btn--adminsert" type="submit" value="NewGame" id="adminsert_button"/>
+
+</form>
