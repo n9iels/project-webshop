@@ -45,6 +45,9 @@ var Router = function ()
             case "admin_user":
                 new AdminUserController(new AdminUserViewHelper(), new AdminUserModel(particles[1])).main();
                 break;
+            case "order":
+                new OrderController(new OrderViewHelper(), new OrderModel()).main();
+                break;
             case "public_wishlist":
                 new PublicWishlistController(new PublicWishlistViewHelper(), new PublicWishlistModel(particles[1])).main();
                 break;
@@ -59,7 +62,10 @@ var Router = function ()
             {
                 writeHistory({}, "A-Z Games", url);
 
-                 // Load screen
+                // Load screen and close cart
+                $("#cart-sidebar").removeClass("sidebar--open");
+                $(".overlay").removeClass("overlay--visible");
+                $("body").removeClass("sidebar--open");
                 showLoadScreen();
                 
                 // Scroll to top of page
