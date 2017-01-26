@@ -45,11 +45,14 @@ var Router = function ()
             case "admin_user":
                 new AdminUserController(new AdminUserViewHelper(), new AdminUserModel(particles[1])).main();
                 break;
-            /* HABBO: Does not work yet you dumb f*ck. First make it :p
-            case "favoritelist":
-                new FavouritelistController(new FavouritelistViewHelper(), new FavouritelistModel()).main();
+            // HABBO stuff
+            case "favoritelist": 
+                new FavoriteListController(new FavoriteListViewHelper(), new FavoriteListModel()).main();
                 break;
-            */
+            // HABBO stuff
+            case "order":
+                new OrderController(new OrderViewHelper(), new OrderModel()).main();
+                break;
             default:
                 new ErrorController(new ErrorViewHelper()).main();
                 break;
@@ -61,7 +64,10 @@ var Router = function ()
             {
                 writeHistory({}, "A-Z Games", url);
 
-                 // Load screen
+                // Load screen and close cart
+                $("#cart-sidebar").removeClass("sidebar--open");
+                $(".overlay").removeClass("overlay--visible");
+                $("body").removeClass("sidebar--open");
                 showLoadScreen();
                 
                 // Scroll to top of page

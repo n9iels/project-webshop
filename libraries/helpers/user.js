@@ -68,4 +68,26 @@ function UserHelper()
             return JSON.parse(atob(payload));
         }
     }
+
+    /**
+     * Get the information of the current user
+     */
+    this.getUserInfo = function(callback)
+    {
+        $.ajax({
+            url: "https://api.az-games.nl/user",
+            type: "get",
+            dataType: 'json',
+            headers: {
+                "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
+            },
+            success: function (data) {
+                callback(data);
+            },
+            error: function (xhr, status, error) {
+                Router.route("/login");
+            }
+        });
+
+    }
 }

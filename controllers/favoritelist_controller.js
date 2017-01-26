@@ -1,4 +1,4 @@
-var FavoritelistController = function(viewHelper, model)
+var FavoriteListController = function(viewHelper, model)
 {
     var Model = model;
     var ViewHelper = viewHelper;

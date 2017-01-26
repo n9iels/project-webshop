@@ -1,4 +1,4 @@
-var FavoritelistViewHelper = function()
+var FavoriteListViewHelper = function()
 {
     //change view of page
     function setView(viewData)
@@ -18,12 +18,14 @@ var FavoritelistViewHelper = function()
             // add all favoritelist items to html
             var current = 0;
             var count = 0;
+
             $.each(viewData, function(key, value) {
                 // Clone product
                 var favorite__list__item = $('<div>').append($('#favorite__list__item').clone());
 
                 // Add product info
-                current = current +1
+                current = current + 1;
+
                 $(favorite__list__item).find(".favorite__list__id").append(current);
                 $(favorite__list__item).find(".favorite__list__image img").attr("src", value.image);
                 $(favorite__list__item).find(".favorite__list__title").html(value.title);
@@ -38,7 +40,8 @@ var FavoritelistViewHelper = function()
                 count++;
             });
 
-            if (count == 0) {
+            if (count == 0) 
+            {
                 $("#favoritelist_error_message").show();
             }
 
@@ -46,6 +49,7 @@ var FavoritelistViewHelper = function()
             $("#favorite__list__item").first().remove();
         });
     }
+
     function setActionListener(action)
     {
         $(document).ready(action); // if 'document ready' perform "action"       
@@ -61,6 +65,7 @@ var FavoritelistViewHelper = function()
             action(ean, div_to_hide);
         } );
     }
+
     function hideItem(div_to_hide)
     {
         div_to_hide.fadeTo(200, 0).slideUp(200);

@@ -1,9 +1,9 @@
-var FavoritelistModel = function()
+var FavoriteListModel = function()
 {
-    function getFavoritelist(callback)
+    function GetFavoriteList(callback)
     {
         $.ajax({
-            url: "https://api.az-games.nl/favoritelist",
+            url: "https://localhost:8081/favoritelist", // "https://api.az-games.nl/favoritelist"
             type: "get",
             dataType: 'json',
             headers: {
@@ -18,10 +18,10 @@ var FavoritelistModel = function()
         });
     }
 
-    function addToFavoritelist(viewData, callback)
+    function AddToFavoriteList(viewData, callback)
     {
         $.ajax({
-            url: "https://api.az-games.nl/favoritelist/" + CookieHelper.getCookie("user_id") /*+ "/" + viewData.ean_number*/,
+            url: "https://localhost:8081/favoritelist/" + CookieHelper.getCookie("user_id") /*+ "/" + viewData.ean_number*/, // https://api.az-games.nl/favoritelist/
             type: "post",
             dataType: 'json',
             data: JSON.stringify({
@@ -40,10 +40,10 @@ var FavoritelistModel = function()
         });
     }
 
-    function deleteFromFavoritelist(ean, callback)
+    function DeleteFromFavoriteList(ean, callback)
     {
         $.ajax({
-            url: "https://api.az-games.nl/favoritelist/" + CookieHelper.getCookie("user_id") + "/" + String(ean), //"https://api.az-games.nl/
+            url: "https://localhost:8081/favoritelist/" + CookieHelper.getCookie("user_id") + "/" + String(ean), //"https://api.az-games.nl/favoritelist/
             type: "DELETE",
             dataType: 'json',
             // contentType: "application/json; charset=utf-8",
