@@ -16,6 +16,7 @@ var StatsViewHelper = function ()
 
                 if (count == 0) { //rows are the Top 10/11/12 etc. Games
                     var labels = new Array();
+                    //labels.push(""); //to get blank space away
                     var data = [];
 
                     var gameCount = 0;
@@ -25,6 +26,11 @@ var StatsViewHelper = function ()
                         gameCount++;
 
                         if (gameCount < 11 || value.rank == last_rank_num) {
+                            // split long game names into pieces. put the pieces as strings in an array, give that array to the labels array. chartjs will show pieces on new lines each.
+
+
+
+
                             labels.push(value.title);
                             data.push(value.super_amount);
                             
@@ -41,7 +47,7 @@ var StatsViewHelper = function ()
                     var TopTenChart = new Chart(el, {
                         type: 'bar',
                         data: {
-                            labels: labels, //["Grand Theft Auto: Vice City", "God of War 3 - Essentials Edition", "The Legend of Zelda: Breath of the Wild", "Kirby's Adventure", "Super Mario Bros. 3", "Super Smash Bros Melee", "Guitar Hero III: Legends of Rock", "Paper Mario", "Trauma Center: New Blood", "Sonic Adventure 2", "Pokémon Yellow"], //["0","9","asdfasfd","7","6","234","5"],
+                            labels: [["Grand Theft Auto:", " Vice City"], "God of War 3 - Essentials Edition", ["The Legend of Zelda:", "Breath of the Wild"], "Kirby's Adventure", "Super Mario Bros. 3", "Super Smash Bros Melee", "Guitar Hero III: Legends of Rock", "Paper Mario", "Trauma Center: New Blood", "Sonic Adventure 2", "Pokémon Yellow"], //["0","9","asdfasfd","7","6","234","5"],
                             datasets: [{
                                 data: data,
                                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
@@ -55,7 +61,7 @@ var StatsViewHelper = function ()
                             },
                             title: {
                                 display:true,
-                                text: "Top 10 Sold Games" // need in januari, in februari, etc.
+                                text: "Most Sold Games" // need in januari, in februari, etc.
                             },
                             responsive:false,
                             scales: {
@@ -66,8 +72,8 @@ var StatsViewHelper = function ()
                                 }],
                                 xAxes: [{
                                     ticks: {
-                                        //min: 0,
-                                        //beginAtZero:true,
+                                        maxRotation: 90,
+                                        minRotation: 90,
                                         autoSkip: false
                                     }
                                 }]
