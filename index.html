@@ -52,31 +52,50 @@
     <body>
         <div class="menu">    <!-- Menu begint hier! -->
             <div class="container">
-                <div class="col-3 col-mobile-2">
+                <div class="col-3 col-mobile-9">
                     <div class="menu__logo">
-                        <a href="/index.html"><span class="fa fa-gamepad"></span> <span class="logo__text hidden-mobile">A-Z Games</span></a>
+                        <a href="#" class="sidebar-toggle" data-sidebar="mobilemenu-sidebar">
+                            <span class="fa fa-bars"></span>
+                        </a>
+                        <a href="/index.html"><span class="fa fa-gamepad"></span> <span class="logo__text">A-Z Games</span></a>
                     </div>
                 </div>
-                <div class="col-8 col-mobile-7 nav-right">
-                   <ul>
-                       <li class="visible-customer">
-                            <a href="/wishlist">Verlanglijstje</a>
+                <div class="col-8 desktop-menu">
+                   <ul class="nav">
+                       <li class="nav__item">
+                           <a href="/">Producten</a>
                         </li>
-                        <li class="visible-stats">
-                            <a href="/stats">Statistics</a>
+                       <li class="nav__item nav__item--sub visible-customer">
+                           <a href="" class="nav__link">Mijn profiel</a>
+                           <ul class="nav__sub">
+                                <li class="nav__item">
+                                    <a href="/wishlist">Verlanglijstje</a>
+                                </li>
+                                <li class="nav__item">
+                                    <a href="/orders">Bestelgeschiedenis</a>
+                                </li>
+                            </ul>
                         </li>
-                        <li class="visible-admin">
-                            <a href="/admin">Admin</a>
+                        <li class="nav__item--sub visible-admin">
+                            <a href="">Admin</a>
+                            <ul class="nav__sub">
+                                <li>
+                                    <a href="/admin">Beheer gebruikers</a>
+                                </li>
+                                <li>
+                                    <a href="/stats">Statistieken</a>
+                                </li>    
+                            </ul>
                         </li>
-                        <li id="inloggen_text">
+                        <li class="nav__item inloggen_text">
                             <a href="/login">Inloggen</a>
                         </li>
-                        <li id="uitloggen_text" class="visible-customer" style="display: none;">
+                        <li class="nav__item uitloggen_text visible-customer" class="nav__item visible-customer">
                             <a href="/logout">Uitloggen</a>
                         </li>
                     </ul>
                 </div>
-                <div class="col-1 col-mobile-3 nav-right">
+                <div class="col-1 col-mobile-3">
                     <a href="#" class="cart_button sidebar-toggle hasTooltip" data-tooltip="Je winkelwagentje" data-sidebar="cart-sidebar">
                         <span class="fa fa-shopping-cart"></span> <span class="count">0</span>
                     </a>
@@ -87,6 +106,14 @@
         <div class="content"> <!-- Content begint hier! -->
             <div class="container" id="component">
 
+            </div>
+        </div>
+        
+        <div class="sidebar sidebar--left" id="mobilemenu-sidebar">
+            <div class="sidebar__title">
+                Menu <span class="sidebar__close"></span>
+            </div>
+            <div class="sidebar__content mmenu">
             </div>
         </div>
         <div class="sidebar sidebar--right" id="cart-sidebar">
@@ -116,7 +143,7 @@
                     <span class="label">Totaal</span><span class="price">€0.00</span>
                 </div>
                 <div class="cart__checkout">
-                    <a href="/order">Verder naar bestellen <span class="fa fa-arrow-right"></span></a>
+                    <a href="/checkout">Verder naar bestellen <span class="fa fa-arrow-right"></span></a>
                 </div>
             </div>
         </div>

@@ -6,36 +6,16 @@ var OrderController = function(viewHelper, model)
     // Function that is executed on a action listener
     function actionPerformed(event)
     {
-        Model.getOrderInformation(function (data) {
-            ViewHelper.setView(data);
+        Model.getOrder(function(data) {
+            viewHelper.setView(data);
         });
-    }
-
-    function order(event)
-    {
-        event.preventDefault();
-        event.stopImmediatePropagation();
-
-        var formData = $(this).serializeObject();
-
-        Model.saveOrder(formData, function() {
-            ViewHelper.finishOrder();
-            ViewHelper.clearCart();
-        })
     }
 
     // Main function, also the start startpoint for a page
     function main()
     {
-        if (UserHelper.isLogedIn() == false)
-        {
-            Router.route("/login");
-        }
-        else
-        {
-            ViewHelper.setActionListener(actionPerformed);
-            ViewHelper.setOrderListener(order)
-        }
+        // user fills in email and password; clicks 'login': VIEW notices this and reacts
+        ViewHelper.setActionListener(actionPerformed);
     }
 
     // Return the methods that can be used by other programs (the controller in this case)

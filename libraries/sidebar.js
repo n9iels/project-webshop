@@ -16,12 +16,20 @@ $(document).ready(function()
     })
 
     $(".overlay").click(function (e) {
-        toggleSidebar($(".sidebar"));
+        toggleSidebar($(".sidebar"), true);
     });
 
-    function toggleSidebar(sidebar)
+    function toggleSidebar(sidebar, forceClose)
     {
-        $(sidebar).toggleClass("sidebar--open");
+        if (forceClose)
+        {
+            $(sidebar).removeClass("sidebar--open");   
+        }
+        else
+        {
+            $(sidebar).toggleClass("sidebar--open");
+        }
+
         $(".overlay").toggleClass("overlay--visible");
         $("body").toggleClass("sidebar--open");
     }
