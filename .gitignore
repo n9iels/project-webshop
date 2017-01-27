@@ -420,3 +420,7 @@ __pycache__/
 
 ### VisualStudio Patch ###
 build/
+
+## Our stuff
+resources/js/app.js
+resources/css/layout.css
