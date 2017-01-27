@@ -11,11 +11,11 @@ var StatsController = function(viewHelper, model)
 
     function getGraphData()
     {
-        Model.getGraphData(setView);
+        Model.getGraphData(setTopTenView);
     }
-    function setView(data)
+    function setTopTenView(data)
     {
-        ViewHelper.setView(data);
+        ViewHelper.setTopTenView(data);
     }
 
     // Return the methods that can be used by other programs (the controller in this case)

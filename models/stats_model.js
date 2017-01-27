@@ -3,7 +3,7 @@ var StatsModel = function()
     function getGraphData(callback)
     {
         $.ajax({
-            url: "http://localhost:8081/stats",
+            url: "http://localhost:8081/stats/topgames",
             type: "GET",
             dataType: 'json',
             headers: {
