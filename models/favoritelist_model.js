@@ -1,15 +1,16 @@
 var FavoriteListModel = function()
 {
-    function GetFavoriteList(callback)
+    function getFavoriteList(callback)
     {
         $.ajax({
-            url: "https://localhost:8081/favoritelist", // "https://api.az-games.nl/favoritelist"
+            url: "http://localhost:8081/favoritelist", // "https://api.az-games.nl/favoritelist"
             type: "get",
             dataType: 'json',
             headers: {
                 "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
             },
             success: function (data) {
+                console.log("getFavoriteList ajax done");
                 callback(data);
             },
             error: function (xhr, status, error) {
@@ -18,10 +19,10 @@ var FavoriteListModel = function()
         });
     }
 
-    function AddToFavoriteList(viewData, callback)
+    function addToFavoriteList(viewData, callback)
     {
         $.ajax({
-            url: "https://localhost:8081/favoritelist/" + CookieHelper.getCookie("user_id") /*+ "/" + viewData.ean_number*/, // https://api.az-games.nl/favoritelist/
+            url: "http://localhost:8081/favoritelist/" + CookieHelper.getCookie("user_id") /*+ "/" + viewData.ean_number*/, // https://api.az-games.nl/favoritelist/
             type: "post",
             dataType: 'json',
             data: JSON.stringify({
@@ -40,10 +41,10 @@ var FavoriteListModel = function()
         });
     }
 
-    function DeleteFromFavoriteList(ean, callback)
+    function deleteFromFavoriteList(ean, callback)
     {
         $.ajax({
-            url: "https://localhost:8081/favoritelist/" + CookieHelper.getCookie("user_id") + "/" + String(ean), //"https://api.az-games.nl/favoritelist/
+            url: "http://localhost:8081/favoritelist/" + CookieHelper.getCookie("user_id") + "/" + String(ean), //"https://api.az-games.nl/favoritelist/
             type: "DELETE",
             dataType: 'json',
             // contentType: "application/json; charset=utf-8",
@@ -62,8 +63,8 @@ var FavoriteListModel = function()
 
     // Return the methods that can be used by other programs (the controller in this case)
     return {
-        getFavoritelist: getFavoritelist,
-        addToFavoritelist: addToFavoritelist,
-        deleteFromFavoritelist: deleteFromFavoritelist
+        getFavoriteList: getFavoriteList,
+        addToFavoriteList: addToFavoriteList,
+        deleteFromFavoriteList: deleteFromFavoriteList
     }
 };

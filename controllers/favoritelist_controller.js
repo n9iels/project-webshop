@@ -2,11 +2,16 @@ var FavoriteListController = function(viewHelper, model)
 {
     var Model = model;
     var ViewHelper = viewHelper;
-    var viewData = {};
-
-    function getFavoritelist()
+    
+    function main()
     {
-        Model.getFavoritelist(setView);
+        ViewHelper.setActionListener(getFavoriteList);
+        ViewHelper.setDeleteListener(deleteFromFavoriteList);
+    }
+
+    function getFavoriteList()
+    {
+        Model.getFavoriteList(setView);
     }
 
     function setView(data)
@@ -14,15 +19,9 @@ var FavoriteListController = function(viewHelper, model)
         ViewHelper.setView(data);
     }
 
-    function main()
+    function deleteFromFavoriteList(ean, div_to_hide)
     {
-        ViewHelper.setActionListener(getFavoritelist);
-        ViewHelper.setDeleteListener(deleteFromFavoritelist);
-    }
-
-    function deleteFromFavoritelist(ean, div_to_hide)
-    {
-        Model.deleteFromFavoritelist(ean, function()
+        Model.deleteFromFavoriteList(ean, function()
         {
             ViewHelper.hideItem(div_to_hide);
         });

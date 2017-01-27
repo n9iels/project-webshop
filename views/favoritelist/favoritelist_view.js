@@ -4,15 +4,13 @@ var FavoriteListViewHelper = function()
     function setView(viewData)
     {
         //console.log("WL VIEW: Inside setView");
-        document.title = "Favoritelist - AZ Games";
+        document.title = "Favorietenlijst - AZ Games";
         $("#component").html('<div class="col-12"><div class="col-12" id="favoritelist"></div></div>');
 
         loadFavoritelist(viewData);
     }
-
     function loadFavoritelist(viewData)
     {
-        //console.log("WL VIEW: Inside loadfavoriteList");
         $("#favoritelist").load('/views/favoritelist/favoritelist.html', function ()
         {
             // add all favoritelist items to html
@@ -32,7 +30,6 @@ var FavoriteListViewHelper = function()
                 $(favorite__list__item).find(".favorite__list__price").append(("€ ")+value.price);
                 $(favorite__list__item).find(".favorite__list__platform").append(PlatformLogo(value.platform));
                 $(favorite__list__item).find(".favorite__list__availability").append(BeschikbaarheidKleur(value.stock));
-                $(favorite__list__item).find(".favorite__list__likebutton").append();
                 $(favorite__list__item).find("#delete_btn").attr("data-id", value.ean_number);
                 $(favorite__list__item).find("#cart_btn").attr("data-id", value.ean_number);
 
@@ -57,6 +54,7 @@ var FavoriteListViewHelper = function()
 
     function setDeleteListener(action)
     {
+        console.log("setDeleteListener()");
         $("#component").off().on("click", "#delete_btn", function(e)
         {
             e.preventDefault();
