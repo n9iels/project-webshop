@@ -39,6 +39,9 @@ var Router = function ()
             case "wishlist":
                 new WishlistController(new WishlistViewHelper(), new WishlistModel()).main();
                 break;
+            case "stats":
+                new StatsController(new StatsViewHelper(), new StatsModel()).main();
+                break;
             case "admin":
                 new AdminController(new AdminViewHelper(), new AdminModel()).main();
                 break;
