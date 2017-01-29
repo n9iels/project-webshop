@@ -19,32 +19,10 @@ var FavoriteListModel = function()
         });
     }
 
-    function addToFavoriteList(viewData, callback)
-    {
-        $.ajax({
-            url: "http://localhost:8081/favoritelist/" + CookieHelper.getCookie("user_id") /*+ "/" + viewData.ean_number*/, // https://api.az-games.nl/favoritelist/
-            type: "post",
-            dataType: 'json',
-            data: JSON.stringify({
-                //user_id : viewData.user_id, DOUBT IF NECESSARY :p 
-                ean_number : viewData.ean_number
-            }),
-            headers: {
-                "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
-            },
-            success: function (data) {
-                callback(data);
-            },
-            error: function(xhr, status, error) {
-                $("#component").load("/views/error/error.html");
-            }
-        });
-    }
-
     function deleteFromFavoriteList(ean, callback)
     {
         $.ajax({
-            url: "http://localhost:8081/favoritelist/" + CookieHelper.getCookie("user_id") + "/" + String(ean), //"https://api.az-games.nl/favoritelist/
+            url: "http://localhost:8081/favoritelist/" + String(ean), //"https://api.az-games.nl/favoritelist/
             type: "DELETE",
             dataType: 'json',
             // contentType: "application/json; charset=utf-8",
@@ -64,7 +42,6 @@ var FavoriteListModel = function()
     // Return the methods that can be used by other programs (the controller in this case)
     return {
         getFavoriteList: getFavoriteList,
-        addToFavoriteList: addToFavoriteList,
         deleteFromFavoriteList: deleteFromFavoriteList
     }
 };
