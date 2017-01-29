@@ -13,7 +13,6 @@ var RegisterModel = function()
         $.ajax({
             url: "https://api.az-games.nl/user/register",
             type: "post",
-            dataType: 'json',
             data: JSON.stringify({
                 e_mail : formData.e_mailadres,
                 password : formData.wachtwoord,
@@ -30,6 +29,7 @@ var RegisterModel = function()
                 street_name : formData.straatnaam,
                 city : formData.plaats
             }),
+            contentType: "application/json;",
             success: function (data) {
                 callback(data);
             },
