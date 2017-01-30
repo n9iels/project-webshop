@@ -6,14 +6,14 @@ var StatsViewHelper = function ()
     }
 
     // Change the view of the page
-    function setTopTenView(graphData)
+    function setTopTenView(range, graphData)
     {
         console.log(graphData);
         document.title ="Stats - AZ Games";
 
         $("#component").load('/views/graphs/graphs.html', function () { // waar id = 'component' doe .load......
             // default select data
-            $("#component").find("#range_switch").val("quarter");
+            $("#component").find("#range_switch").val(range);
 
             // graph
             var labels = new Array();

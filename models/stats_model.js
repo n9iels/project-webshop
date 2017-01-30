@@ -3,15 +3,14 @@ var StatsModel = function()
     function getGraphData(range, callback)
     {
         $.ajax({
-            url: "http://localhost:8081/stats/topgames",
+            url: "http://localhost:8081/stats/topgames?range=" + range,
             type: "GET",
-            dataType: 'json',
-            data: JSON.stringify({range: range}),
             headers: {
                 "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
             },
+            contentType: "application/json;",
             success: function (data) {
-                callback(data);
+                callback(range, data);
             },
             error: function (xhr, status, error) {
                 $("#component").load("/views/error/error.html");

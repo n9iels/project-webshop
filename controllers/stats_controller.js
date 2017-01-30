@@ -14,9 +14,9 @@ var StatsController = function(viewHelper, model)
     {
         Model.getGraphData("quarter", setTopTenView);
     }
-    function setTopTenView(data)
+    function setTopTenView(range, data)
     {
-        ViewHelper.setTopTenView(data);
+        ViewHelper.setTopTenView(range, data);
     }
 
     function getChangedTopTen(range)
