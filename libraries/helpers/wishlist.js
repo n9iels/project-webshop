@@ -29,4 +29,12 @@ function WishlistHelper()
             }
         });
     }
+
+    this.copyLink = function()
+    {
+        // Select the content
+        document.querySelector("input#public_link").select();
+        // Copy to the clipboard
+        document.execCommand('copy');
+    }
 }
