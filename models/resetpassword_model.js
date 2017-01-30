@@ -2,7 +2,6 @@ var ResetPasswordModel = function()
 {
     function resetpassword(formData, callback)
     {
-        console.log(formData);
         $.ajax({
             url: "https://api.az-games.nl/user/resetpassword",
             type: "post",

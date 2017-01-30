@@ -42,13 +42,3 @@ function BeschikbaarheidKleur(stockvalue){
             return stockvalue
         }
 }
-
-// Van Wishlist pagina
-$(document).on("click", "span.like", function (event) {
-    $(this).toggleClass("like--active");
-});
-
-// Van Single Product pagina
-$(document).on("click", "span.single_like", function (event) {
-    $(this).toggleClass("single_like--active");
-});

@@ -2,6 +2,7 @@ var LogoutModel = function()
 {
     function logout(callback)
     {
+        // let controller resume with stuff
         CookieHelper.deleteCookie("access_token");
         CookieHelper.deleteCookie("user_id");
 
