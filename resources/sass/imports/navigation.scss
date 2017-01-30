@@ -1,0 +1,53 @@
+ul.nav { 
+    display: none;
+
+    &> li {
+        position: relative;
+
+        &.visible-admin,
+        &.visible-customer {
+            display: none;
+        }
+
+        &:hover {
+            ul.nav__sub {
+                left: 0;
+            }
+        }
+
+        &.nav__item--sub > a::after {
+            font: normal normal normal 14px/1 FontAwesome;
+            content:"\f107";
+            margin-left: 10px;
+        }
+
+        a {
+            width: 100%;
+            font-size: 15px;
+            color: #fff;
+            padding: 17px;
+            display: inline-block;
+            text-decoration: none;
+
+            &:hover {
+                background-color: #03A9F4;
+            }
+
+            &--active {
+                background-color: #03A9F4;
+            }
+        }
+
+        ul.nav__sub {
+            background-color: #0288D1;
+            width: 220px;
+            text-align: left;
+            padding-top: 1px;
+            margin-left: 25px;
+
+            li a {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,51 +1,49 @@
-var OrderModel = function()
+var OrderModel = function(order_id)
 {
-    function getOrderInformation(callback)
+    /**
+     * Get all order
+     */
+    function getOrder(callback)
     {
-        var cart = CookieHelper.getCookie('cart');
-
-        if (cart != undefined && cart != "")
-        {
-            callback(JSON.parse(cart));
-        }
-        else
-        {
-            callback([]);
-        }
-    }
-
-    function saveOrder(orderData, callback)
-    {
-        // Append data form other sources
-        orderData.status         = "paid";
-        orderData.btw_percentage = 21;
-        orderData.order_date     = new Date();
-        orderData.delivery_costs = 3.95;
-        orderData.cart           = JSON.parse(CookieHelper.getCookie("cart"));
-
         $.ajax({
-            url: "https://api.az-games.nl/orders",
-            type: "post",
+            url: "https://api.az-games.nl/orders/" + order_id,
+            type: "GET",
             dataType: 'json',
-            data: JSON.stringify(orderData),
             headers: {
                 "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
             },
-            success: function (data)
-            {
-                CookieHelper.deleteCookie("cart");
-                callback();
+            success: function (data) {
+                callback(data);
             },
             error: function (xhr, status, error) {
-                console.log("someting went wrong");
+                $("#component").load("/views/error/error.html");
             }
         });
+    }
 
+    function addToFavoriteList(ean_number, callback)
+    {
+        $.ajax({
+            url: "https://api.az-games.nl/favoritelist/" + ean_number, // "https://api.az-games.nl/favoritelist/"
+            type: "post",
+            dataType: 'json',
+            data: JSON.stringify({}),
+            headers: {
+                "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
+            },
+            success: function (data) {
+                callback(data);
+            },
+            error: function(xhr, status, error) {
+                alert("Product is al in je favorieten.");
+                // Comment to self = (ORDER + ORDER HISTORY verhaal Niels) + (FAVORIETEN LIJST verhaal Habbo) SAMENVOEGEN STRAKS OR ELSE...!!!!
+            }
+        });
     }
 
     // Return the methods that can be used by other programs (the controller in this case)
     return {
-        getOrderInformation: getOrderInformation,
-        saveOrder: saveOrder
+        getOrder: getOrder,
+        addToFavoriteList: addToFavoriteList
     }
 };

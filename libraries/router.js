@@ -4,7 +4,7 @@ var Router = function ()
 
     function route(url, history)
     {
-        if (isInternal(url) == false)
+        if (isInternal(url) == false || url == "")
         {
             return;
         }
@@ -39,6 +39,9 @@ var Router = function ()
             case "wishlist":
                 new WishlistController(new WishlistViewHelper(), new WishlistModel()).main();
                 break;
+            case "stats":
+                new StatsController(new StatsViewHelper(), new StatsModel()).main();
+                break;
             case "admin":
                 new AdminController(new AdminViewHelper(), new AdminModel()).main();
                 break;
@@ -48,8 +51,20 @@ var Router = function ()
             case "adminsert":
                 new AdminsertController(new AdminsertViewHelper(), new AdminsertModel()).main();
                 break;
+            case "favoritelist": 
+                new FavoriteListController(new FavoriteListViewHelper(), new FavoriteListModel()).main();
+                break;
+            case "checkout":
+                new CheckoutController(new CheckoutViewHelper(), new CheckoutModel()).main();
+                break;
+            case "orders":
+                new OrdersController(new OrdersViewHelper, new OrdersModel()).main();
+                break;
             case "order":
-                new OrderController(new OrderViewHelper(), new OrderModel()).main();
+                new OrderController(new OrderViewHelper, new OrderModel(particles[1])).main();
+                break;
+            case "public_wishlist":
+                new PublicWishlistController(new PublicWishlistViewHelper(), new PublicWishlistModel(particles[1])).main();
                 break;
             default:
                 new ErrorController(new ErrorViewHelper()).main();
@@ -63,7 +78,7 @@ var Router = function ()
                 writeHistory({}, "A-Z Games", url);
 
                 // Load screen and close cart
-                $("#cart-sidebar").removeClass("sidebar--open");
+                $(".sidebar").removeClass("sidebar--open");
                 $(".overlay").removeClass("overlay--visible");
                 $("body").removeClass("sidebar--open");
                 showLoadScreen();
@@ -76,7 +91,7 @@ var Router = function ()
 
     function isInternal(url)
     {
-        if (url.indexOf("http") != -1 || url.indexOf("https") != -1 || url.indexOf("www") != -1)
+        if (url.indexOf("http") != -1 || url.indexOf("www") != -1 || url.indexOf("mailto") != -1)
         {
             window.location = url;
             

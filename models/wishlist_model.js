@@ -43,16 +43,14 @@ var WishlistModel = function()
     function deleteFromWishlist(ean, callback)
     {
         $.ajax({
-            url: "https://api.az-games.nl/wishlist/" + CookieHelper.getCookie("user_id") + "/" + String(ean), //"https://api.az-games.nl/
+            url: "https://api.az-games.nl/wishlist/" + CookieHelper.getCookie("user_id") + "/" + String(ean),
             type: "DELETE",
             dataType: 'json',
-            // contentType: "application/json; charset=utf-8",
-            // data: JSON.stringify(data),
             headers: {
                 "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
             },
             success: function (data) {
-                callback(data); //moet data per se meegeven aan callback?
+                callback(data);
             },
             error: function (xhr, status, error) {
                 $("#component").load("/views/error/error.html");
@@ -60,10 +58,45 @@ var WishlistModel = function()
         });
     }
 
+    function switchPublicState(newStatus, callback)
+    {
+        var go = false;
+
+        var newDBStatus = "0";
+        if (newStatus == "public"){
+            newDBStatus = "1";
+            go = true;
+        } else if (newStatus == "private"){
+            go = true;
+        } else {
+            console.log("newStatus has unexpected value. newStatus = " + newStatus);
+        }
+
+        if (go)
+        {
+            $.ajax({
+                url: "https://api.az-games.nl/wishlist/switch_public",
+                type: "patch",
+                dataType: 'json',
+                data: JSON.stringify({"newDBStatus":newDBStatus}),
+                headers: {
+                    "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
+                },
+                success: function (data) {
+                    callback(data);
+                },
+                error: function (xhr, status, error) {
+                    $("#component").load("/views/error/error.html");
+                }
+            });
+        }
+    }
+
     // Return the methods that can be used by other programs (the controller in this case)
     return {
         getWishlist: getWishlist,
         addToWishlist: addToWishlist,
-        deleteFromWishlist: deleteFromWishlist
+        deleteFromWishlist: deleteFromWishlist,
+        switchPublicState: switchPublicState
     }
 };
