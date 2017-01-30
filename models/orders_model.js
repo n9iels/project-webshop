@@ -11,7 +11,6 @@ var OrdersModel = function()
             headers: {
                 "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
             },
-            contentType: "application/json;",
             success: function (data) {
                 callback(data);
             },
