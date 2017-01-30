@@ -6,12 +6,16 @@ var StatsViewHelper = function ()
     }
 
     // Change the view of the page
-    function setTopTenView(graphData)
+    function setTopTenView(range, graphData)
     {
         console.log(graphData);
         document.title ="Stats - AZ Games";
 
         $("#component").load('/views/graphs/graphs.html', function () { // waar id = 'component' doe .load......
+            // default select data
+            $("#component").find("#range_switch").val(range);
+
+            // graph
             var labels = new Array();
             var data = [];
 
@@ -82,8 +86,19 @@ var StatsViewHelper = function ()
         });
     }
 
+    function setTopTenChangeListener(action)
+    {
+        $("#component").on("change", "#range_switch", function()
+        {
+            var range = $("#range_switch").val();
+            console.log("range: " + range);
+            action(range);
+        })
+    }
+
     return {
         setActionListener: setActionListener,
         setTopTenView: setTopTenView,
+        setTopTenChangeListener: setTopTenChangeListener
     }
 }

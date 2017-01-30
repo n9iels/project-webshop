@@ -7,7 +7,6 @@ var PublicWishlistController = function(viewHelper, model)
     {
         console.log("in main");
         ViewHelper.setActionListener(getPublicWishlist);
-        //ViewHelper.getPage(getPublicWishlist);
     }
 
     function getPublicWishlist()

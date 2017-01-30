@@ -21,10 +21,14 @@ var LoginModel = function()
                 callback(data);
             },
             error: function (xhr, status, error) {
-                // show 'not good email or password to user'
-                $("#error_message").show();
-
-                //$("#component").html("error function");
+                if (xhr.status == 401)
+                {
+                    $("#error_message").show();
+                }
+                else if (xhr.status == 403)
+                {
+                    $("#error_blocked_message").show();
+                }
             }
         });
     }
