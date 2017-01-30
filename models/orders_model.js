@@ -8,7 +8,6 @@ var OrdersModel = function()
         $.ajax({
             url: "https://api.az-games.nl/orders",
             type: "GET",
-            dataType: 'json',
             headers: {
                 "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
             },
