@@ -24,7 +24,7 @@ var OrderModel = function(order_id)
     function addToFavoriteList(ean_number, callback)
     {
         $.ajax({
-            url: "http://localhost:8081/favoritelist/" + ean_number, // "https://api.az-games.nl/favoritelist/"
+            url: "https://api.az-games.nl/favoritelist/" + ean_number, // "https://api.az-games.nl/favoritelist/"
             type: "post",
             dataType: 'json',
             data: JSON.stringify({}),

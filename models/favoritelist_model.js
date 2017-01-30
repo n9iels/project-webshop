@@ -3,7 +3,7 @@ var FavoriteListModel = function()
     function getFavoriteList(callback)
     {
         $.ajax({
-            url: "http://localhost:8081/favoritelist", // "https://api.az-games.nl/favoritelist"
+            url: "https://api.az-games.nl/favoritelist", // "https://api.az-games.nl/favoritelist"
             type: "get",
             dataType: 'json',
             headers: {
@@ -22,7 +22,7 @@ var FavoriteListModel = function()
     function deleteFromFavoriteList(ean, callback)
     {
         $.ajax({
-            url: "http://localhost:8081/favoritelist/" + String(ean), //"https://api.az-games.nl/favoritelist/
+            url: "https://api.az-games.nl/favoritelist/" + String(ean), //"https://api.az-games.nl/favoritelist/
             type: "DELETE",
             dataType: 'json',
             // contentType: "application/json; charset=utf-8",
