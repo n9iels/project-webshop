@@ -26,8 +26,8 @@ var CheckoutModel = function()
         $.ajax({
             url: "https://api.az-games.nl/orders",
             type: "post",
-            dataType: 'json',
             data: JSON.stringify(orderData),
+            contentType: "application/json;",
             headers: {
                 "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
             },
