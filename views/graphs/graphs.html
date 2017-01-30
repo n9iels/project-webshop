@@ -3,9 +3,15 @@
         <h1><span class="fa fa-line-chart" id="stats_icon"></span> Statistieken</h1>
     </div>
 
+
     <div class="row">
         <div class="graph" id="graph__toptenitems__graph">
             <div class="graph__description message message--info" id="description__topten"></div>
+            <select id="range_switch">
+                <option value="month">Maand</option>
+                <option value="quarter">Kwartaal</option>
+                <option value="year">Jaar</option>
+            </select>
             <canvas id="graph__toptenitems__cnvs" width="800" height="400"></canvas>
         </div>
     </div>
