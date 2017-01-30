@@ -2,10 +2,12 @@
     text-decoration: none;
 }
 .like {
-    color: #ff0000;
-    font:normal normal normal 14px/1 FontAwesome;
-    
-    &::before {
-        content:"\f004";
+    &--active {
+        color: #ff0000;
+        font:normal normal normal 14px/1 FontAwesome;
+        
+        &::before {
+            content:"\f004";
+        }
     }
 }
