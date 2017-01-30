@@ -31,7 +31,7 @@ gulp.task('scripts', function() {
     gulp.src(['./libraries/**/*.js', './models/*.js', './controllers/*.js', './views/**/*.js'])
         .pipe(sourcemaps.init())
         .pipe(concat('app.js'))
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./resources/js'));
 });
