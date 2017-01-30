@@ -39,11 +39,17 @@ var Router = function ()
             case "wishlist":
                 new WishlistController(new WishlistViewHelper(), new WishlistModel()).main();
                 break;
+            case "stats":
+                new StatsController(new StatsViewHelper(), new StatsModel()).main();
+                break;
             case "admin":
                 new AdminController(new AdminViewHelper(), new AdminModel()).main();
                 break;
             case "admin_user":
                 new AdminUserController(new AdminUserViewHelper(), new AdminUserModel(particles[1])).main();
+                break;
+            case "favoritelist": 
+                new FavoriteListController(new FavoriteListViewHelper(), new FavoriteListModel()).main();
                 break;
             case "checkout":
                 new CheckoutController(new CheckoutViewHelper(), new CheckoutModel()).main();
@@ -54,10 +60,12 @@ var Router = function ()
             case "order":
                 new OrderController(new OrderViewHelper, new OrderModel(particles[1])).main();
                 break;
+            case "public_wishlist":
+                new PublicWishlistController(new PublicWishlistViewHelper(), new PublicWishlistModel(particles[1])).main();
+                break;
             default:
                 new ErrorController(new ErrorViewHelper()).main();
                 break;
-            default:
         }
 
         if (history != false)

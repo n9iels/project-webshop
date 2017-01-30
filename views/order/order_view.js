@@ -33,6 +33,7 @@ var OrderViewHelper = function()
                 $(product).find(".product__image img").attr("src", value.image);
                 $(product).find(".product__amount").html("<b>Aantal:</b> " + value.amount)
                 $(product).find(".product__price").append(("€ ") + value.price.toFixed(2));
+                $(product).find(".addToFavoritesButton").attr("data-id", value.ean_number);
 
                 $("#product__list").append(product);
                 $("#product__list").append("<hr />");
@@ -52,9 +53,20 @@ var OrderViewHelper = function()
         $(document).ready(action);
     }
 
+    function setAddToFavoritesListener(action)
+    {
+        $("#component").on("click", ".addToFavoritesButton", function(e)
+        {
+            e.preventDefault();
+            var ean = $(this).data("id");
+            action(ean);
+        })
+    }
+
     // Return the methods that can be used by other programs (the controller in this case)
     return {
         setView: setView,
-        setActionListener: setActionListener
+        setActionListener: setActionListener,
+        setAddToFavoritesListener: setAddToFavoritesListener
     }
 };

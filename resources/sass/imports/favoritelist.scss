@@ -1,4 +1,4 @@
-.wish__list{
+.favorite__list{
     border-radius:4px;
     border: 1px solid #ccc;
     font-size: 17px;
@@ -6,7 +6,7 @@
     text-align: center;
 }
 
-#wish__list__item{
+#favorite__list__item{
     border-radius:4px;
     border: 1px solid #ccc;
     font-size: 17px;
@@ -14,11 +14,11 @@
     background-color: #fff;
 }
 
-#wish__list__announcement{
+#favorite__list__announcement{
     font-weight:bold;
 }
 
-.wish__list__platform{
+.favorite__list__platform{
     img{
         max-height: 40px;
         max-width: 40px;
@@ -26,16 +26,16 @@
     }
 }
 
-.wish__list__price{
+.favorite__list__price{
     margin-top:10px;
 }
 
-.wish__list__title{
+.favorite__list__title{
     margin-top:10px;
 }
 
 
-.wish__list__image{
+.favorite__list__image{
     max-height: 60px;
         img{
             max-height: 60px;
@@ -44,46 +44,16 @@
         }
 }
 
-.wish__list__likebutton{
+.favorite__list__likebutton{
     margin-top: 15px;
 }
 
-.wish__list__headtitle {
+.favorite__list__headtitle {
     font-size: 17px;
     padding-bottom: 20px;
 }
 
 #to_shop_cart,
-#wish__list__deletebutton {
+#favorite__list__deletebutton {
     display: inline-block;
-}
-
-#example__btn__div{
-    font-weight:bold;
-    .btn{
-        font-size:13px;
-    }
-}
-
-
-.share__btn{
-    .btn{
-        .fa{
-            text-align:center;
-            margin-right: 1px;
-        }
-    }
-}
-
-.clipboard__btn{
-    .btn{
-        .fa{
-            text-align:center;
-            margin-right: 1px;
-        }
-    }
-}
-
-#wish_heart {
-    color:red;
 }

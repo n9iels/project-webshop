@@ -6,8 +6,6 @@ var ResetPasswordController = function(viewHelper, model)
      // Function that is executed on a action listener
     function actionPerformed()
     {
-        console.log("in actionPerformed"); //test
-
         // Prevent sending the form
         event.preventDefault();
 
@@ -67,7 +65,6 @@ var ResetPasswordController = function(viewHelper, model)
         {
             return false;
         }
-        console.log("continued")
         // let model send user info to API
         Model.resetpassword(formData, function (data) {
             ViewHelper.setView('views/resetpassword/after_reset.html');

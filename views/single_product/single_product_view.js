@@ -31,7 +31,7 @@ var ProductViewHelper = function()
 
                 var months = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"];
 
-                $(".singleproduct__releasedate").append(d.getDay() + " " + months[d.getMonth()] + " " + d.getFullYear());
+                $(".singleproduct__releasedate").append(d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear());
         });
     }
 
