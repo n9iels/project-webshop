@@ -16,6 +16,17 @@ var OrderController = function(viewHelper, model)
     {
         // user fills in email and password; clicks 'login': VIEW notices this and reacts
         ViewHelper.setActionListener(actionPerformed);
+        ViewHelper.setAddToFavoritesListener(addToFavoriteList);
+    }
+
+    function addToFavoriteList(ean_number)
+    {
+        Model.addToFavoriteList(ean_number, function onSuccess()
+        {
+            $(this).toggleClass("like--active");
+            alert("Product succesvol toegevoegd aan je favorieten."); // im staat voor imaginary/denkbeeldig
+            // Comment to self = (ORDER + ORDER HISTORY verhaal Niels) + (FAVORIETEN LIJST verhaal Habbo) SAMENVOEGEN STRAKS OR ELSE...!!!!
+        });
     }
 
     // Return the methods that can be used by other programs (the controller in this case)
