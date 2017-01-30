@@ -58,7 +58,32 @@
     display: inline-block;
 }
 
+#example__btn__div{
+    font-weight:bold;
+    .btn{
+        font-size:13px;
+    }
+}
+
+
+.share__btn{
+    .btn{
+        .fa{
+            text-align:center;
+            margin-right: 1px;
+        }
+    }
+}
+
+.clipboard__btn{
+    .btn{
+        .fa{
+            text-align:center;
+            margin-right: 1px;
+        }
+    }
+}
+
 #wish_heart {
     color:red;
 }
-

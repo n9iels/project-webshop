@@ -22,10 +22,10 @@ function WishlistHelper()
             },
             success: function (data) {
                 $(this).toggleClass("like--active");
-                alert("Product succesvol toegevoegd aan Wishlist.");
+                alert("Het product is succesvol toegevoegd aan je verlanglijst.");
             },
             error: function(xhr, status, error) {
-                alert("Product is al in Wishlist.");
+                alert("Dit product staat al op je verlanglijst.");
             }
         });
     }
