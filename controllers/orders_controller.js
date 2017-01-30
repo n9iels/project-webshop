@@ -1,4 +1,4 @@
-var OrderController = function(viewHelper, model)
+var OrdersController = function(viewHelper, model)
 {
     var Model      = model;
     var ViewHelper = viewHelper;
@@ -6,7 +6,7 @@ var OrderController = function(viewHelper, model)
     // Function that is executed on a action listener
     function actionPerformed(event)
     {
-        Model.getOrder(function(data) {
+        Model.getOrders(function(data) {
             viewHelper.setView(data);
         });
     }

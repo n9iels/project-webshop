@@ -1,12 +1,9 @@
-var OrderModel = function(order_id)
+var StatsModel = function()
 {
-    /**
-     * Get all order
-     */
-    function getOrder(callback)
+    function getGraphData(callback)
     {
         $.ajax({
-            url: "https://api.az-games.nl/orders/" + order_id,
+            url: "http://localhost:8081/stats/topgames",
             type: "GET",
             dataType: 'json',
             headers: {
@@ -23,6 +20,7 @@ var OrderModel = function(order_id)
 
     // Return the methods that can be used by other programs (the controller in this case)
     return {
-        getOrder: getOrder,
+        getGraphData: getGraphData
     }
+
 };

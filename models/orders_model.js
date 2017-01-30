@@ -1,12 +1,12 @@
-var OrderModel = function(order_id)
+var OrdersModel = function()
 {
     /**
-     * Get all order
+     * Get all orders
      */
-    function getOrder(callback)
+    function getOrders(callback)
     {
         $.ajax({
-            url: "https://api.az-games.nl/orders/" + order_id,
+            url: "https://api.az-games.nl/orders",
             type: "GET",
             dataType: 'json',
             headers: {
@@ -23,6 +23,6 @@ var OrderModel = function(order_id)
 
     // Return the methods that can be used by other programs (the controller in this case)
     return {
-        getOrder: getOrder,
+        getOrders: getOrders,
     }
 };
