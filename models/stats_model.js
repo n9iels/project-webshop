@@ -3,7 +3,7 @@ var StatsModel = function()
     function getGraphData(range, callback)
     {
         $.ajax({
-            url: "http://localhost:8081/stats/topgames?range=" + range,
+            url: "https://api.az-games.nl/stats/topgames?range=" + range,
             type: "GET",
             headers: {
                 "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
