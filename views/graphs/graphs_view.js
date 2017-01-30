@@ -2,11 +2,14 @@ var StatsViewHelper = function ()
 {
     function setActionListener(action)
     {
-        $(document).ready(action); // if 'document ready' perform "action"
+        $(document).ready(function()
+        {   
+            action("quarter");
+        }); // if 'document ready' perform "action"
     }
 
     // Change the view of the page
-    function setTopTenView(range, graphData)
+    function showGraphs(range, graphData)
     {
         console.log(graphData);
         document.title ="Stats - AZ Games";

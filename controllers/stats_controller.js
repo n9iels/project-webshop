@@ -7,23 +7,18 @@ var StatsController = function(viewHelper, model)
     function main()
     {
         ViewHelper.setActionListener(getGraphData);
-        ViewHelper.setTopTenChangeListener(getChangedTopTen);
+        ViewHelper.setRangeChangeListener(getGraphData);
     }
 
-    function getGraphData()
+    function getGraphData(range)
     {
-        Model.getGraphData("quarter", setTopTenView);
+        Model.getGraphData(range, showGraphs);
     }
-    function setTopTenView(range, data)
+    function showGraphs(range, data)
     {
-        ViewHelper.setTopTenView(range, data);
+        ViewHelper.showGraphs(range, data);
     }
-
-    function getChangedTopTen(range)
-    {
-        Model.getGraphData(range, setTopTenView);
-    }
-
+    
     // Return the methods that can be used by other programs (the controller in this case)
     return {
         main: main
