@@ -3,7 +3,7 @@ var LoginModel = function()
     function login(email, password, callback)
     {
         $.ajax({
-            url: "https://api.az-games.nl/user/login",
+            url: "http://localhost:8081/user/login",
             type: "GET",
             dataType: 'json',
             headers: {
@@ -21,10 +21,14 @@ var LoginModel = function()
                 callback(data);
             },
             error: function (xhr, status, error) {
-                // show 'not good email or password to user'
-                $("#error_message").show();
-
-                //$("#component").html("error function");
+                if (xhr.status == 401)
+                {
+                    $("#error_message").show();
+                }
+                else if (xhr.status == 403)
+                {
+                    $("#error_blocked_message").show();
+                }
             }
         });
     }
