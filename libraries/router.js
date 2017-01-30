@@ -48,6 +48,9 @@ var Router = function ()
             case "admin_user":
                 new AdminUserController(new AdminUserViewHelper(), new AdminUserModel(particles[1])).main();
                 break;
+            case "favoritelist": 
+                new FavoriteListController(new FavoriteListViewHelper(), new FavoriteListModel()).main();
+                break;
             case "checkout":
                 new CheckoutController(new CheckoutViewHelper(), new CheckoutModel()).main();
                 break;

@@ -30,7 +30,6 @@ var WishlistViewHelper = function()
                 $(wish__list__item).find(".wish__list__price").append(("€ ")+value.price);
                 $(wish__list__item).find(".wish__list__platform").append(PlatformLogo(value.platform));
                 $(wish__list__item).find(".wish__list__availability").append(BeschikbaarheidKleur(value.stock));
-                $(wish__list__item).find(".wish__list__likebutton").append();
                 $(wish__list__item).find("#delete_btn").attr("data-id", value.ean_number);
                 $(wish__list__item).find("#cart_btn").attr("data-id", value.ean_number);
                 $("#example__btn").attr("href", "/public_wishlist/" + value.user_id);
