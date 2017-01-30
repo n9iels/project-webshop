@@ -132,6 +132,12 @@ form {
         background-color: #d32f2f;
         border-color: darken(#d32f2f, 10);
         color: #fff;
+        
+    &--pressed{
+        pointer-events: none;
+        cursor: default;
+    }
+
     }
     &--register {
         background-color: royalblue;

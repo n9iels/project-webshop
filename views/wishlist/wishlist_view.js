@@ -74,10 +74,14 @@ var WishlistViewHelper = function()
     {
         $("#component").off().on("click", "#delete_btn", function(e)
         {
-            e.preventDefault();
-            var ean = $(this).data("id");
-            var div_to_hide = $(this).closest(".row");
-            action(ean, div_to_hide);
+            if (!$('#delete_btn').hasClass("btn--pressed")){
+                $("#delete_btn").addClass("btn--pressed");
+                
+                e.preventDefault();
+                var ean = $(this).data("id");
+                var div_to_hide = $(this).closest(".row");
+                action(ean, div_to_hide);
+            }
         } );
     }
 

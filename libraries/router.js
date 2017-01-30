@@ -63,7 +63,6 @@ var Router = function ()
             default:
                 new ErrorController(new ErrorViewHelper()).main();
                 break;
-            default:
         }
 
         if (history != false)
