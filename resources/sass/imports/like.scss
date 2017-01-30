@@ -8,18 +8,4 @@
     &::before {
         content:"\f004";
     }
-    &--active {
-        color: #ff0000;
-        font:normal normal normal 14px/1 FontAwesome;
-        
-        &::before {
-            content:"\f004";
-        }
-    }
-}
-
-@keyframes like {
-    0% {font-size: 17px; }
-    50% {font-size: 19px;}
-    100% {font-size: 17px;}
 }
