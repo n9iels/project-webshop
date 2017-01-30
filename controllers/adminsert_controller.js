@@ -1,6 +1,6 @@
-var AdminsertController = function(viewHelper, model)
+var AdminsertController = function(viewHelper, addModel)
 {
-    var Model = model;
+    var AddModel = addModel;
     var ViewHelper = viewHelper;
 
     function main()
@@ -62,7 +62,7 @@ var AdminsertController = function(viewHelper, model)
 
     function updateDB(formData)
     {
-        Model.updateDB(formData, function()
+        AddModel.updateDB(formData, function()
         {
             console.log("game succesvol opgeslagen met pi_id ....")
         });

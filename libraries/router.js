@@ -51,6 +51,9 @@ var Router = function ()
             case "adminsert":
                 new AdminsertController(new AdminsertViewHelper(), new AdminsertModel()).main();
                 break;
+            case "del_game":
+                new DelGameController(new DelGameViewHelper(), new DelGameModel()).main();
+                break;
             case "favoritelist": 
                 new FavoriteListController(new FavoriteListViewHelper(), new FavoriteListModel()).main();
                 break;
