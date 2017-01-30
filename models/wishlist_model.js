@@ -75,7 +75,7 @@ var WishlistModel = function()
         if (go)
         {
             $.ajax({
-                url: "http://localhost:8081/wishlist/switch_public",
+                url: "https://api.az-games.nl/wishlist/switch_public",
                 type: "patch",
                 dataType: 'json',
                 data: JSON.stringify({"newDBStatus":newDBStatus}),
