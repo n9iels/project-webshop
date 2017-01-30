@@ -60,10 +60,12 @@ var Router = function ()
             case "order":
                 new OrderController(new OrderViewHelper, new OrderModel(particles[1])).main();
                 break;
+            case "public_wishlist":
+                new PublicWishlistController(new PublicWishlistViewHelper(), new PublicWishlistModel(particles[1])).main();
+                break;
             default:
                 new ErrorController(new ErrorViewHelper()).main();
                 break;
-            default:
         }
 
         if (history != false)
