@@ -24,7 +24,7 @@ var CheckoutModel = function()
         orderData.cart           = JSON.parse(CookieHelper.getCookie("cart"));
 
         $.ajax({
-            url: "http://localhost:8081/orders",
+            url: "https://api.az-games.nl/orders",
             type: "post",
             data: JSON.stringify(orderData),
             contentType: "application/json;",
