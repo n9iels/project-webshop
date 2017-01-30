@@ -8,10 +8,10 @@ var OrdersModel = function()
         $.ajax({
             url: "https://api.az-games.nl/orders",
             type: "GET",
-            dataType: 'json',
             headers: {
                 "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
             },
+            contentType: "application/json;",
             success: function (data) {
                 callback(data);
             },
