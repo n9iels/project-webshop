@@ -1,6 +1,7 @@
 //Platform Logo's
 function PlatformLogo(platformnaam)
 {
+    console.log(platformnaam)
     platformnaam = platformnaam.toUpperCase();
     switch (platformnaam)
     {
