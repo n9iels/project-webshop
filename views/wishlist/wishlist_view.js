@@ -35,13 +35,14 @@ var WishlistViewHelper = function()
                 $("#example__btn").attr("href", "/public_wishlist/" + value.user_id);
                 $("#share__btn").attr("href", "mailto:?subject=Mijn verlanglijst op AZ-Games.nl!&body=Bekijk mijn verlanglijst op: http://az-games.nl/public_wishlist/" + value.user_id); // CHECK DIS!
                 $("#clipboard__btn").attr("href", "/public_wishlist/" + value.user_id);
+                $("#public_link").val("https://az-games.nl/public_wishlist/" + value.user_id);
 
                 $("#wish__list").append(wish__list__item);
 
                 if (count == 0) {
                     if (value.is_public == 0) {
                         $("#publicator").val("private");
-                        $("#example__btn").hide();
+                        $("#example__btn, .share__btn, .clipboard__btn").hide();
                     } else if (value.is_public == 1) {
                         $("#publicator").val("public");
                         $("#example__btn").show();
