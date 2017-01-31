@@ -29,6 +29,8 @@ var ProductsViewHelper = function()
                 $(product).find(".product__image img").attr("src", value.image);
                 $(product).find(".addtocart").attr("data-id", value.ean_number);
 
+                $(product).find(".product__subtitle img").attr("data-tooltip", String(value.platform));
+
                 $("#product__list").append(product);
             });
 
