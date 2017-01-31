@@ -2,106 +2,268 @@ var StatsViewHelper = function ()
 {
     function setActionListener(action)
     {
-        $(document).ready(function()
-        {   
-            action("quarter");
-        }); // if 'document ready' perform "action"
-    }
+        // $(document).ready(function()
+        // {   
+        //     //give default begin- and end dates to Model
+        //     cur_date = new Date();
+        //     var cur_day = cur_date.getDate();
+        //     var cur_month = cur_date.getMonth() + 1;
+        //     var cur_year = cur_date.getFullYear();
+        //     // create end date string to give to model -> api -> query
+        //     var end_date = String(cur_year) + "-" + putZeroBeforeNum(cur_month) + "-" + putZeroBeforeNum(cur_day);
 
-    // Change the view of the page
-    function showGraphs(range, graphData)
-    {
-        console.log(graphData);
-        document.title ="Stats - AZ Games";
 
-        $("#component").load('/views/graphs/graphs.html', function () { // waar id = 'component' doe .load......
-            // default select data
-            $("#component").find("#range_switch").val(range);
+        //     action("quarter");
+        // }); // if 'document ready' perform "action"
 
-            // graph
-            var labels = new Array();
-            var data = [];
-
-            var gameCount = 0;
-            var last_rank_num = 0; //assuming value.rank is never 0!
-            var highestVal = 0;
-
-            $.each(graphData, function(key, value) {
-                gameCount++;
-
-                if (gameCount < 11 || value.rank == last_rank_num) {
-                    labels.push(value.title);
-                    data.push(value.user_count);
-                    
-                    if (gameCount == 10) {
-                        last_rank_num = value.rank;
-                    }
-                }
-            });
-            
-            console.log(labels);
-            console.log(data);
-
-            var el = $("#graph__toptenitems__cnvs");
-            var TopTenChart = new Chart(el, {
-                type: 'horizontalBar',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        data: data,
-                        backgroundColor: 'rgba(0, 200, 26, 1)', //groen
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    legend: {
-                        display:false
-                    },
-                    title: {
-                        display:true,
-                        text: "Meest verkochte games" // need in januari, in februari, etc.
-                    },
-                    responsive:true,
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero:true
-                            }
-                        }],
-                        xAxes: [{
-                            ticks: {
-                                beginAtZero:true,
-                                // maxRotation: 90,
-                                // minRotation: 90,
-                            }
-                        }]
-                    }
-                }
-            })
-
-            // put desciption below graph
-            var descr = 'Deze grafiek laat de games zien met het meeste aantal gebruikers dat de game 1 of meer keer heeft gekocht in de gekozen tijdsperiode.';
-
-            var theDiv = document.getElementById("description__topten");
-            var content = document.createTextNode(descr); 
-            theDiv.appendChild(content); 
-
-        });
-    }
-
-    function setTopTenChangeListener(action)
-    {
-        $("#component").on("change", "#range_switch", function()
+        $(document).ready(function(action1, action2, action3)
         {
-            var range = $("#range_switch").val();
-            console.log("range: " + range);
-            action(range);
+            // load page
+            // put range switch to default
+            // get default values from html
+            // show TopTen graph
+
+            cur_date = new Date();
+            var cur_day = cur_date.getDate();
+            var cur_month = cur_date.getMonth() + 1;
+            var cur_year = cur_date.getFullYear();
+
+            var end_day = putZeroBeforeNum(cur_day);
+            var end_month = putZeroBeforeNum(cur_month);
+            var end_year = String(cur_year);
+
+            var begin_date = calcBeginDate(cur_day, cur_month, cur_year, 3); // array of strings: [0]=day [1]=month [2]=year
+            console.log("in ready: " + end_year, end_month, end_day, begin_date);
+
+            // load page
+            document.title ="Stats - AZ Games";
+            $("#component").load('/views/graphs/graphs.html', function()
+            {
+                for(i = 1; i < 32; i++)
+                {
+                    $("#range_bd").append("<option value='" + i + "'>" + i + "</option>");
+                    $("#range_ed").append("<option value='" + i + "'>" + i + "</option>");
+                }
+
+                for (i = 1900; i < cur_date.getFullYear() + 1; i++)
+                {
+                    if (i == 2000)
+                    {
+                        $("#range_by").append("<option value='" + i + "' selected='selected'>" + i + "</option>");
+                        $("#range_ey").append("<option value='" + i + "' selected='selected'>" + i + "</option>");
+                        continue;
+                    }
+
+                    $("#range_by").append("<option value='" + i + "'>" + i + "</option>");
+                    $("#range_ey").append("<option value='" + i + "'>" + i + "</option>");
+                }
+
+                // put range switches to default
+                // begin date
+                $("#component").find("#range_by").val(begin_date[2]);
+                $("#component").find("#range_bm").val(begin_date[1]);
+                $("#component").find("#range_bd").val(begin_date[0]);
+                //end date
+                $("#component").find("#range_ey").val(end_year     );
+                $("#component").find("#range_em").val(end_month    );
+                $("#component").find("#range_ed").val(end_day      );
+
+                showGraphByHtml(action1, action2, action3);
+            })
         })
+    }
+    function calcBeginDate(cd, cm, cy, months_earlier)
+    {
+        var begin_date = [];
+        var begin_day = cd;
+        var begin_month = cm;
+        var begin_year = cy;
+
+        while (months_earlier > 0) {
+            begin_month -= 1;
+            if (begin_month == 0) {
+                begin_year -= 1;
+                begin_month += 12;
+            }
+            months_earlier--;
+        }
+
+        begin_date.push(putZeroBeforeNum(begin_day));
+        begin_date.push(putZeroBeforeNum(begin_month));
+        begin_date.push(String(begin_year));
+        return begin_date;
+    }
+
+    function showGraphByHtml(showTopGames, showRevenue, showUserAmnt)
+    {
+        var by = $("#component").find("#range_by").val();
+        var bm = $("#component").find("#range_bm").val();
+        var bd = $("#component").find("#range_bd").val();
+        var ey = $("#component").find("#range_ey").val();
+        var em = $("#component").find("#range_em").val();
+        var ed = $("#component").find("#range_ed").val();
+
+        var begin_date = by + "-" + bm + "-" + bd;
+        var end_date = ey + "-" + em + "-" + ed;
+        console.log("in showGraphByHtml: " + begin_date, end_date);
+
+        var graph_choice = $("#component").find("#graph_choice").val();
+        if (graph_choice == "topgames") {
+            showTopGames(begin_date, end_date);
+        } else if (graph_choice == "revenue") {
+            showRevenue(begin_date, end_date);
+        } else if (graph_choice == "useramnt") {
+            showUserAmnt(begin_date, end_date);
+        } else {
+            console.log("graph_choice has unexpected value. graph_choice = " + graph_choice);
+        }
+    }
+
+    function setRangeChangeListeners(showTopGames, showRevenue, showUserAmnt)
+    {
+        var ids = ["#range_by", "#range_bm", "#range_bd", "#range_ey", "#range_em", "#range_ed"];
+
+        $.each(ids, function(id)
+        {
+            $("#component").on("change", id, function()
+            {
+                showGraphByHtml(showTopGames, showRevenue, showUserAmnt);
+            })
+        })
+    }
+
+    function setGraphSelectListener(showTopGames, showRevenue, showUserAmnt)
+    {
+        $("#component").on("change", "#graph_choice", function()
+        {
+            showGraphByHtml(showTopGames, showRevenue, showUserAmnt);
+        })
+    }
+
+    function putZeroBeforeNum (num) {
+        if (parseInt(num) < 10)
+        {
+            num = "0" + String(num);
+            return num;
+        } else {
+            return String(num);
+        }
+    }
+
+    // functions for showing a graph
+    function showTopGamesGraph(data)
+    {
+        console.log("in showTopGamesGraph:");
+        console.log(data);
+    }
+    function showRevenueGraph(data)
+    {
+
+    }
+    function showUserAmntGraph(data)
+    {
+
     }
 
     return {
         setActionListener: setActionListener,
-        setTopTenView: setTopTenView,
-        setTopTenChangeListener: setTopTenChangeListener
+        setRangeChangeListeners: setRangeChangeListeners,
+        setGraphSelectListener: setGraphSelectListener,
+        showTopGamesGraph: showTopGamesGraph,
+        showRevenueGraph: showRevenueGraph,
+        showUserAmntGraph: showUserAmntGraph
     }
 }
+
+    // // Change the view of the page
+    // function showGraphs(range, graphData)
+    // {
+    //     console.log(graphData);
+    //     document.title ="Stats - AZ Games";
+
+    //     $("#component").load('/views/graphs/graphs.html', function () { // waar id = 'component' doe .load......
+    //         // default select data
+    //         $("#component").find("#range_switch").val(range);
+
+    //         // graph
+    //         var labels = new Array();
+    //         var data = [];
+
+    //         var gameCount = 0;
+    //         var last_rank_num = 0; //assuming value.rank is never 0!
+    //         var highestVal = 0;
+
+    //         $.each(graphData, function(key, value) {
+    //             gameCount++;
+
+    //             if (gameCount < 11 || value.rank == last_rank_num) {
+    //                 labels.push(value.title);
+    //                 data.push(value.user_count);
+                    
+    //                 if (gameCount == 10) {
+    //                     last_rank_num = value.rank;
+    //                 }
+    //             }
+    //         });
+            
+    //         console.log(labels);
+    //         console.log(data);
+
+    //         var el = $("#graph__toptenitems__cnvs");
+    //         var TopTenChart = new Chart(el, {
+    //             type: 'horizontalBar',
+    //             data: {
+    //                 labels: labels,
+    //                 datasets: [{
+    //                     data: data,
+    //                     backgroundColor: 'rgba(0, 200, 26, 1)', //groen
+    //                     borderWidth: 1
+    //                 }]
+    //             },
+    //             options: {
+    //                 legend: {
+    //                     display:false
+    //                 },
+    //                 title: {
+    //                     display:true,
+    //                     text: "Meest verkochte games" // need in januari, in februari, etc.
+    //                 },
+    //                 responsive:true,
+    //                 scales: {
+    //                     yAxes: [{
+    //                         ticks: {
+    //                             beginAtZero:true
+    //                         }
+    //                     }],
+    //                     xAxes: [{
+    //                         ticks: {
+    //                             beginAtZero:true,
+    //                             // maxRotation: 90,
+    //                             // minRotation: 90,
+    //                         }
+    //                     }]
+    //                 }
+    //             }
+    //         })
+
+    //         // put desciption below graph
+    //         var descr = 'Deze grafiek laat de games zien met het meeste aantal gebruikers dat de game 1 of meer keer heeft gekocht in de gekozen tijdsperiode.';
+
+    //         var theDiv = document.getElementById("description__topten");
+    //         var content = document.createTextNode(descr); 
+    //         theDiv.appendChild(content); 
+
+    //     });
+    // }
+
+    // function setTopTenChangeListener(action)
+    // {
+    //     $("#component").on("change", "#range_switch", function()
+    //     {
+    //         var range = $("#range_switch").val();
+    //         console.log("range: " + range);
+    //         action(range);
+    //     })
+    // }
+
+

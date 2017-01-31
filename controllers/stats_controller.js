@@ -3,22 +3,51 @@ var StatsController = function(viewHelper, model)
     var Model      = model;
     var ViewHelper = viewHelper;
     
-    // Main function, also the start startpoint for a page
+    // Main function, also the startpoint for a page
     function main()
     {
-        ViewHelper.setActionListener(getGraphData);
-        ViewHelper.setRangeChangeListener(getGraphData);
+        ViewHelper.setActionListener(getTopTenData, getRevenueData, getUserAmntData); //
+        ViewHelper.setRangeChangeListeners(getTopTenData, getRevenueData, getUserAmntData);
+        ViewHelper.setGraphSelectListener(getTopTenData, getRevenueData, getUserAmntData);
     }
 
-    function getGraphData(range)
+    // functions for getting data
+    function getTopTenData(begin_date, end_date) //dateformat = "yyyy-mm-dd"
     {
-        Model.getGraphData(range, showGraphs);
+        Model.getTopTenData(begin_date, end_date, showTopGamesGraph);
     }
-    function showGraphs(range, data)
+    function getRevenueData(begin_date, end_date)
     {
-        ViewHelper.showGraphs(range, data);
+        Model.getRevenueData(begin_date, end_date, showRevenueGraph);
     }
-    
+    function getUserAmntData(begin_date, end_date)
+    {
+        Model.getUserAmntData(begin_date, end_date, showUserAmntGraph);
+    }
+
+    // functions for showing graphs using the gathered data
+    function showTopGamesGraph(data)
+    {
+        ViewHelper.showTopGamesGraph(data);
+    }
+    function showRevenueGraph(data)
+    {
+        ViewHelper.showRevenueGraph(data);
+    }
+    function showUserAmntGraph(data)
+    {
+        ViewHelper.showUserAmntGraph(data);
+    }
+
+    // function getGraphData(range)
+    // {
+    //     Model.getGraphData(range, showGraphs);
+    // }
+    // function showGraphs(range, data)
+    // {
+    //     ViewHelper.showGraphs(range, data);
+    // }
+
     // Return the methods that can be used by other programs (the controller in this case)
     return {
         main: main

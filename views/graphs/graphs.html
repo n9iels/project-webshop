@@ -5,25 +5,74 @@
 
 
     <div class="row">
-        <select id="range_switch">
-            <option value="month">Maand</option>
-            <option value="quarter">Kwartaal</option>
-            <option value="year">Jaar</option>
+        <select id="range_bd">
+        </select>
+        <select id="range_bm">
+            <option value="01">Januari</option> 
+            <option value="02">Februari</option>
+            <option value="03">Maart</option> 
+            <option value="04">April</option>
+            <option value="05">Mei</option> 
+            <option value="06">Juni</option>
+            <option value="07">Juli</option> 
+            <option value="08">Augustus</option>
+            <option value="09">September</option> 
+            <option value="10">Oktober</option>
+            <option value="11">November</option> 
+            <option value="12">December</option>
+        </select>
+        <select id="range_by">
         </select>
     </div>
 
     <div class="row">
+        <select id="range_ed">
+        </select>
+        <select id="range_em">
+            <option value="01">Januari</option> 
+            <option value="02">Februari</option>
+            <option value="03">Maart</option> 
+            <option value="04">April</option>
+            <option value="05">Mei</option> 
+            <option value="06">Juni</option>
+            <option value="07">Juli</option> 
+            <option value="08">Augustus</option>
+            <option value="09">September</option> 
+            <option value="10">Oktober</option>
+            <option value="11">November</option> 
+            <option value="12">December</option>
+        </select>
+        <select id="range_ey">
+        </select>
+    </div>
+
+    <div class="row">
+        <select id="graph_choice">
+            <option value="topgames">Meest verkochte games</option>
+            <option value="revenue">Omzet</option>
+            <option value="useramnt">Aantal gebruikers</option>
+        </select>
+    </div>
+
+    <div class="row">
+        <div class="graph" id="graph">
+            <div class="graph__description message message--info" id="graph__description"></div>
+            <canvas id="graph__cnvs" width="800" height="400"></canvas>
+        </div>
+    </div>
+
+    <!--<div class="row">
         <div class="graph" id="graph__toptenitems__graph">
             <div class="graph__description message message--info" id="description__topten"></div>
             <canvas id="graph__toptenitems__cnvs" width="800" height="400"></canvas>
         </div>
-    </div>
+    </div>-->
 
-    <div class="row">
+    <!--<div class="row">
         <div class="graph" id="graph__revenue">
             <canvas id="graph_rev" width="400" height="400"></canvas>
         </div>
-    </div>
+    </div>-->
 
     <!--<div class="row">
         <div class="graph" id="graph__useramount">
