@@ -94,7 +94,7 @@ var StatsViewHelper = function ()
         return begin_date;
     }
 
-    function showGraphByHtml(showTopGames, showRevenue, showUserAmnt)
+    function showGraphByHtml(action1, action2, action3)
     {
         var by = $("#component").find("#range_by").val();
         var bm = $("#component").find("#range_bm").val();
@@ -109,11 +109,11 @@ var StatsViewHelper = function ()
 
         var graph_choice = $("#component").find("#graph_choice").val();
         if (graph_choice == "topgames") {
-            showTopGames(begin_date, end_date);
+            action1(begin_date, end_date);
         } else if (graph_choice == "revenue") {
-            showRevenue(begin_date, end_date);
+            action2(begin_date, end_date);
         } else if (graph_choice == "useramnt") {
-            showUserAmnt(begin_date, end_date);
+            action3(begin_date, end_date);
         } else {
             console.log("graph_choice has unexpected value. graph_choice = " + graph_choice);
         }

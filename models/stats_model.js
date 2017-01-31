@@ -10,6 +10,7 @@ var StatsModel = function()
             },
             contentType: "application/json;",
             success: function (data) {
+                console.log("in model succes: " + data)
                 callback(data);
             },
             error: function (xhr, status, error) {
