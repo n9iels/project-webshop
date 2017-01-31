@@ -96,7 +96,7 @@ var ProductsViewHelper = function()
         });
 
         // Update de productenlijst als een waarde in de slider veranderd(alle manieren)
-        $("#component").on("change keyup", "input[name=price-max], input[name=price-min]", function(event) {
+        $("#component").off().on("change keyup", "input[name=price-max], input[name=price-min]", function(event) {
             if($("#pricemin").val() == null) {
                 $("#pricemin").val(0);
             }
@@ -108,7 +108,7 @@ var ProductsViewHelper = function()
             }
         });
 
-        $("#component").on("click", ".pagination__link", function(event)
+        $("#component").off().on("click", ".pagination__link", function(event)
         {
             $("#pagefilter").val($(this).html());
             refreshProducts();
