@@ -37,7 +37,6 @@ var CheckoutModel = function()
                 callback();
             },
             error: function (xhr, status, error) {
-                console.log("someting went wrong");
             }
         });
 

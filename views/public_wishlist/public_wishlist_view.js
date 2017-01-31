@@ -8,7 +8,6 @@ var PublicWishlistViewHelper = function()
     //change view of page
     function setView(viewData)
     {
-        console.log(viewData)
         if (viewData.length == 0)
         {
             document.title = "Error - AZ Games"
@@ -24,13 +23,6 @@ var PublicWishlistViewHelper = function()
                 document.title = "Error - AZ Games"
                 $("#component").load("/views/error/error.html");
             }
-            else{
-                console.log("viewData[0].is_public heeft onverwachte waarde. viewData[0].is_public = " + viewData[0].is_public);
-            }
-        }
-        else
-        {
-            console.log("viewData[0].length heeft onverwachte waarde. viewData.length = " + viewData.length);
         }
     }
 

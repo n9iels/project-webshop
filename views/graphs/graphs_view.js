@@ -8,7 +8,6 @@ var StatsViewHelper = function ()
     // Change the view of the page
     function setTopTenView(range, graphData)
     {
-        console.log(graphData);
         document.title ="Stats - AZ Games";
 
         $("#component").load('/views/graphs/graphs.html', function () { // waar id = 'component' doe .load......
@@ -36,9 +35,6 @@ var StatsViewHelper = function ()
                 }
             });
             
-            console.log(labels);
-            console.log(data);
-
             var el = $("#graph__toptenitems__cnvs");
             var TopTenChart = new Chart(el, {
                 type: 'horizontalBar',
@@ -91,7 +87,6 @@ var StatsViewHelper = function ()
         $("#component").on("change", "#range_switch", function()
         {
             var range = $("#range_switch").val();
-            console.log("range: " + range);
             action(range);
         })
     }
