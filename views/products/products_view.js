@@ -16,6 +16,25 @@ var ProductsViewHelper = function()
     function loadProducts(viewData)
     {
         $("#products").load('/views/products/products.html', function () { // waar id = 'component' doe .load......
+<<<<<<< HEAD
+            $.each(viewData, function(key, value) {
+                // Clone product
+                var product = $('<div>').append($('#product__list__item').clone());
+                
+                // Add product info
+                $(product).find(".product__title").html(value.title);
+                $(product).find(".product__subtitle").append(value.genre +(" | PEGI ") + value.pegi_age +(" | ")+ PlatformLogo(value.platform));
+                $(product).find(".product__description").html(CutString(value.description));
+                $(product).find(".product__price").append(("€ ")+value.price.toFixed(2));
+                $(product).find("#buttons__info, .product__image a, .product__title").attr("href", "product/" + value.ean_number);
+                $(product).find(".product__image img").attr("src", value.image);
+                $(product).find(".addtocart").attr("data-id", value.ean_number);
+
+                $(product).find(".product__subtitle img").attr("data-tooltip", String(value.platform));
+
+                $("#product__list").append(product);
+            });
+=======
             if (viewData.data != undefined && viewData.data != "")
             {
                 $.each(viewData.data, function(key, value) {
@@ -58,6 +77,7 @@ var ProductsViewHelper = function()
             {
                 $("#products").html("<div class='message message--info'><b>Helaas..</b><br />Er zijn geen games gevonden die voldoen aan de gekozen filters.</div>")
             }
+>>>>>>> origin/develop
 
             // Remove the first list item, because this item is always empty
             $("#product__list__item").first().remove();
