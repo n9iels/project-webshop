@@ -30,9 +30,9 @@ var StatsController = function(viewHelper, model)
     {
         ViewHelper.showTopGamesGraph(data);
     }
-    function showRevenueGraph(data)
+    function showRevenueGraph(begin_date, end_date, data)
     {
-        ViewHelper.showRevenueGraph(data);
+        ViewHelper.showRevenueGraph(begin_date, end_date, data);
     }
     function showUserAmntGraph(data)
     {

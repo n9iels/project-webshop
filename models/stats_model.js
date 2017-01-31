@@ -14,7 +14,7 @@ var StatsModel = function()
                 callback(data);
             },
             error: function (xhr, status, error) {
-                $("#component").load("/views/error/error.html");
+                //$("#component").load("/views/error/error.html");
             }
         });
     }
@@ -29,7 +29,7 @@ var StatsModel = function()
             },
             contentType: "application/json;",
             success: function (data) {
-                callback(data);
+                callback(begin_date, end_date, data);
             },
             error: function (xhr, status, error) {
                 $("#component").load("/views/error/error.html");
