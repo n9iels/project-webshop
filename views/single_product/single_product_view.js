@@ -18,6 +18,10 @@ var ProductViewHelper = function()
                 $(".singleproduct__descr").html(product.description)
                 $(".addtocart").attr("data-id", product.ean_number);
 
+                $(".singleproduct__publisher img").attr("data-tooltip", String(product.publisher));
+                $(".singleproduct__platform img").attr("data-tooltip", String(product.platform));
+
+
                 if (UserHelper.isLogedIn())
                 {
                     $(".addToWishlistButton").attr("onclick", "WishlistHelper.addItem(" + product.ean_number + ");");
