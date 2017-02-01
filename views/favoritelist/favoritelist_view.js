@@ -3,7 +3,6 @@ var FavoriteListViewHelper = function()
     //change view of page
     function setView(viewData)
     {
-        //console.log("WL VIEW: Inside setView");
         document.title = "Favorietenlijst - AZ Games";
         $("#component").html('<div class="col-12"><div class="col-12" id="favoritelist"></div></div>');
 
@@ -55,7 +54,6 @@ var FavoriteListViewHelper = function()
 
     function setDeleteListener(action)
     {
-        console.log("setDeleteListener()");
         $("#component").off().on("click", "#delete_btn", function(e)
         {
             e.preventDefault();

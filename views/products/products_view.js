@@ -30,7 +30,8 @@ var ProductsViewHelper = function()
                     $(product).find("#buttons__info, .product__image a, .product__title").attr("href", "product/" + value.ean_number);
                     $(product).find(".product__image img").attr("src", value.image);
                     $(product).find(".addtocart").attr("data-id", value.ean_number);
-
+                    $(product).find(".product__subtitle img").attr("data-tooltip", value.platform);
+                    
                     $("#product__list").append(product);
                 });
 

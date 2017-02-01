@@ -10,7 +10,6 @@ var FavoriteListModel = function()
                 "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
             },
             success: function (data) {
-                console.log("getFavoriteList ajax done");
                 callback(data);
             },
             error: function (xhr, status, error) {

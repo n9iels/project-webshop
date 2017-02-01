@@ -3,7 +3,6 @@ var WishlistViewHelper = function()
     //change view of page
     function setView(viewData)
     {
-        //console.log("WL VIEW: Inside setView");
         document.title = "Wishlist - AZ Games";
         $("#component").html('<div class="col-12"><div class="col-12" id="wishlist"></div></div>');
 
@@ -12,7 +11,6 @@ var WishlistViewHelper = function()
 
     function loadWishlist(viewData)
     {
-        //console.log("WL VIEW: Inside loadWishList");
         $("#wishlist").load('/views/wishlist/wishlist.html', function ()
         {
             // add all wishlist items to html
@@ -46,8 +44,6 @@ var WishlistViewHelper = function()
                     } else if (value.is_public == 1) {
                         $("#publicator").val("public");
                         $("#example__btn").show();
-                    } else {
-                        console.log("value has unexpected value. value = " + value);
                     }
                 }
                 count++;
@@ -89,7 +85,6 @@ var WishlistViewHelper = function()
     {
         $("#component").on("change", "#publicator", function()
         {
-            console.log(this.value);
             action(this.value);
         });
     }
@@ -101,8 +96,6 @@ var WishlistViewHelper = function()
 
     function showExampleButton(newStatus)
     {
-        console.log(newStatus);
-
         if (newStatus == "public") {
             $("#example__btn").show();
             $(".share__btn").show();
@@ -112,7 +105,7 @@ var WishlistViewHelper = function()
             $(".share__btn").hide();
             $(".clipboard__btn").hide();
 
-        } else {console.log("unexpected newStatus value, value = "+newStatus)}
+        }
 
 
         $("#example__btn__div").show();
