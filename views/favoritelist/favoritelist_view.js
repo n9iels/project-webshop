@@ -32,6 +32,8 @@ var FavoriteListViewHelper = function()
                 $(favorite__list__item).find("#delete_btn").attr("data-id", value.ean_number);
                 $(favorite__list__item).find("#cart_btn").attr("data-id", value.ean_number);
 
+                $(favorite__list__item).find(".favorite__list__platform img").attr("data-tooltip", String(value.platform));
+
                 $("#favorite__list").append(favorite__list__item);
 
                 count++;

@@ -16,6 +16,25 @@ var ProductsViewHelper = function()
     function loadProducts(viewData)
     {
         $("#products").load('/views/products/products.html', function () { // waar id = 'component' doe .load......
+
+            $.each(viewData.data, function(key, value) {
+                // Clone product
+                var product = $('<div>').append($('#product__list__item').clone());
+                
+                // Add product info
+                $(product).find(".product__title").html(value.title);
+                $(product).find(".product__subtitle").append(value.genre +(" | PEGI ") + value.pegi_age +(" | ")+ PlatformLogo(value.platform));
+                $(product).find(".product__description").html(CutString(value.description));
+                $(product).find(".product__price").append(("€ ")+value.price.toFixed(2));
+                $(product).find("#buttons__info, .product__image a, .product__title").attr("href", "product/" + value.ean_number);
+                $(product).find(".product__image img").attr("src", value.image);
+                $(product).find(".addtocart").attr("data-id", value.ean_number);
+
+                $(product).find(".product__subtitle img").attr("data-tooltip", String(value.platform));
+
+                $("#product__list").append(product);
+            });
+
             if (viewData.data != undefined && viewData.data != "")
             {
                 $.each(viewData.data, function(key, value) {
@@ -30,8 +49,7 @@ var ProductsViewHelper = function()
                     $(product).find("#buttons__info, .product__image a, .product__title").attr("href", "product/" + value.ean_number);
                     $(product).find(".product__image img").attr("src", value.image);
                     $(product).find(".addtocart").attr("data-id", value.ean_number);
-                    $(product).find(".product__subtitle img").attr("data-tooltip", value.platform);
-                    
+
                     $("#product__list").append(product);
                 });
 
@@ -90,14 +108,14 @@ var ProductsViewHelper = function()
     function setFilterListener(action)
     {
          // Hier het formulier versturen als we op een checkbox drukken
-        $("#component").on("change", "input[type=checkbox]", function(event) {
+        $("#component").off().on("change", "input[type=checkbox]", function(event) {
             $("#pagefilter").val(0);
             refreshProducts();
             $("#product_filter").submit();
         });
 
         // Update de productenlijst als een waarde in de slider veranderd(alle manieren)
-        $("#component").on("change keyup", "input[name=price-max], input[name=price-min]", function(event) {
+        $("#component").off().on("change keyup", "input[name=price-max], input[name=price-min]", function(event) {
             if($("#pricemin").val() == null) {
                 $("#pricemin").val(0);
             }
@@ -109,7 +127,7 @@ var ProductsViewHelper = function()
             }
         });
 
-        $("#component").on("click", ".pagination__link", function(event)
+        $("#component").off().on("click", ".pagination__link", function(event)
         {
             $("#pagefilter").val($(this).html());
             refreshProducts();
