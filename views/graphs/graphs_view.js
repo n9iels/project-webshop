@@ -212,80 +212,21 @@ var StatsViewHelper = function ()
         // graph
         var labels = new Array();
         var data = [];
-
-        // put all dates in x-axis. put all corresponding data in graph
-        var b_dateA = begin_date.split("-");
-        var y = parseInt(b_dateA[0]);
-        var m = parseInt(b_dateA[1]);
-        var d = parseInt(b_dateA[2]);
-
-        var e_dateA = end_date.split("-");
-        var end_y = parseInt(e_dateA[0]);
-        var end_m = parseInt(e_dateA[1]);
-        var end_d = parseInt(e_dateA[2]);
-
         var i = 0;
-        var db_date = graphData[i].order_date.split("T")[0];
-                    // var insert_into_next_iteration = 0;
-                    // var insert_prev=false;
-        while (!(y == end_y && m == end_m && d == end_d)) {
-            var date = (String(y) + "-" + putZeroBeforeNum(m) + "-" + putZeroBeforeNum(d));
-            //prevent major bug
-            if (getDateScore(db_date) < getDateScore(date) && i == 0) {
-                i+=1;
-                var db_date = graphData[i].order_date.split("T")[0];
-            }
-            //x-axis
-            labels.push(date);
-            //y-axis
-            if (date == db_date && i < graphData.length) {
-                data.push(graphData[i].day_price.toFixed(2))
-                            // if (insert_prev){
-                            //     data.push(insert_into_next_iteration)
-                            // } else {
-                            //     data.push(0);
-                            // }
-                            // insert_prev=true;
-                            // insert_into_next_iteration = graphData[i].day_price.toFixed(2);
-                // update db_date
-                i += 1;
-                if (i < graphData.length) {
-                    db_date = graphData[i].order_date.split("T")[0];
-                }
-            } else {
-                data.push(0);
-                            // if (insert_prev){
-                            //     data.push(insert_into_next_iteration);
-                            // } else {
-                            //     data.push(0);
-                            // }
-                            // insert_prev=false;
-            }
-            //make next date
-            d += 1;
-            if (d>31) {
-                d=1; m+=1;
-                if (m>12) {
-                    m=1; y+=1;
-                }
-            }
-        }
-        //// end date (doesn't go through the while loop above)
-        var date = (String(y) + "-" + putZeroBeforeNum(m) + "-" + putZeroBeforeNum(d));
-        //x-axis
-        labels.push(date);
-        //y-axis
-        if (date == db_date) {
-            data.push(graphData[i].day_price.toFixed(2));
-        } else {
-            data.push(0);
-        }
 
-                    // if (insert_prev){
-                    //     data.push(insert_into_next_iteration)
-                    // } else {
-                    //     data.push(0);
-                    // }
+        for (var d = new Date(begin_date); d <= new Date(end_date); d.setDate(d.getDate() + 1)) {
+            labels.push(d.getDate() + " " + d.toLocaleString("nl-NL", {month: "short"}) + " " + d.getFullYear());
+
+            if (i < graphData.length && new Date(graphData[i].order_date).setHours(0,0,0,0) == new Date(d).setHours(0,0,0,0))
+            {
+                data.push(graphData[i].day_price.toFixed(2));
+                i++;
+            }
+            else
+            {
+                data.push(0);
+            }
+        }
 
         // remove old chart
         var graph_el = $("#graph");
@@ -303,7 +244,7 @@ var StatsViewHelper = function ()
                     data: data,
                     backgroundColor: 'rgba(0, 200, 26, 1)', //groen //weg?
                     //borderWidth: 1, //weg?
-                    spanGaps:false,
+                    spanGaps:true,
                 }],
             },
             options: {
@@ -326,6 +267,8 @@ var StatsViewHelper = function ()
                             beginAtZero:true,
                             maxRotation: 90,
                             minRotation: 90,
+                            autoSkip: true,
+                            maxTicksLimit: 24
                         }
                     }]
                 }
@@ -336,7 +279,7 @@ var StatsViewHelper = function ()
         var theDiv = document.getElementById("graph__description");
         theDiv.innerHTML = "";
         // put desciption below graph
-        var descr = 'De gegenereerde omzet.';
+        var descr = 'Deze grafiek weergeeft de omzet van de gekozen periode.';
         var content = document.createTextNode(descr); 
         theDiv.appendChild(content);
     }
@@ -346,6 +289,8 @@ var StatsViewHelper = function ()
         // graph
         var labels = new Array();
         var data = [];
+        var score_diff = getDateScore(end_date) - getDateScore(begin_date);
+        console.log(score_diff);
 
         // put all dates in x-axis. put all corresponding data in graph
         var b_dateA = begin_date.split("-");
@@ -439,6 +384,8 @@ var StatsViewHelper = function ()
                             beginAtZero:true,
                             maxRotation: 90,
                             minRotation: 90,
+                            autoSkip: true,
+                            maxTicksLimit: 24
                         }
                     }]
                 }
@@ -448,9 +395,14 @@ var StatsViewHelper = function ()
         var theDiv = document.getElementById("graph__description");
         theDiv.innerHTML = "";
         // put desciption below graph
-        var descr = 'Deze grafiek geeft een overzicht van het aantal ';
+        var descr = 'Deze grafiek geeft een overzicht van het aantal gebruikers';
         var content = document.createTextNode(descr); 
         theDiv.appendChild(content);
+    }
+
+    function numToDate(m) {
+        var dates = ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"];
+        return dates[m-1];
     }
 
     function getDateScore(date) //expected format: "yyyy-mm-dd" (string)
