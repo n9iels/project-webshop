@@ -90,14 +90,14 @@ var ProductsViewHelper = function()
     function setFilterListener(action)
     {
          // Hier het formulier versturen als we op een checkbox drukken
-        $("#component").off().on("change", "input[type=checkbox]", function(event) {
+        $("#component").on("change", "input[type=checkbox]", function(event) {
             $("#pagefilter").val(0);
             refreshProducts();
             $("#product_filter").submit();
         });
 
         // Update de productenlijst als een waarde in de slider veranderd(alle manieren)
-        $("#component").off().on("change keyup", "input[name=price-max], input[name=price-min]", function(event) {
+        $("#component").on("change keyup", "input[name=price-max], input[name=price-min]", function(event) {
             if($("#pricemin").val() == null) {
                 $("#pricemin").val(0);
             }
@@ -109,7 +109,7 @@ var ProductsViewHelper = function()
             }
         });
 
-        $("#component").off().on("click", ".pagination__link", function(event)
+        $("#component").on("click", ".pagination__link", function(event)
         {
             $("#pagefilter").val($(this).html());
             refreshProducts();
