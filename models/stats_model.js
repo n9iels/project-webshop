@@ -3,7 +3,7 @@ var StatsModel = function()
     function getTopTenData(begin_date, end_date, callback)
     {
         $.ajax({
-            url: "http://localhost:8081/stats/topgames?b_date=" + begin_date + "&e_date=" + end_date,
+            url: "https://api.az-games.nl/stats/topgames?b_date=" + begin_date + "&e_date=" + end_date,
             type: "GET",
             headers: {
                 "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
@@ -21,7 +21,7 @@ var StatsModel = function()
     function getRevenueData(begin_date, end_date, callback)
     {
         $.ajax({
-            url: "http://localhost:8081/stats/rev?b_date=" + begin_date + "&e_date=" + end_date,
+            url: "https://api.az-games.nl/stats/rev?b_date=" + begin_date + "&e_date=" + end_date,
             type: "GET",
             headers: {
                 "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
@@ -31,7 +31,7 @@ var StatsModel = function()
                 callback(begin_date, end_date, data);
             },
             error: function (xhr, status, error) {
-                $("#component").load("/views/error/error.html");
+                //$("#component").load("/views/error/error.html");
             }
         });
     }
@@ -39,7 +39,7 @@ var StatsModel = function()
     function getUserAmntData(begin_date, end_date, callback)
     {
         $.ajax({
-            url: "http://localhost:8081/stats/useramnt?b_date=" + begin_date + "&e_date=" + end_date,
+            url: "https://api.az-games.nl/stats/useramnt?b_date=" + begin_date + "&e_date=" + end_date,
             type: "GET",
             headers: {
                 "Authorization": "Bearer " + CookieHelper.getCookie("access_token")
@@ -49,7 +49,7 @@ var StatsModel = function()
                 callback(begin_date, end_date, data);
             },
             error: function (xhr, status, error) {
-                $("#component").load("/views/error/error.html");
+               //$("#component").load("/views/error/error.html");
             }
         });
     }

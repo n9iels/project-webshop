@@ -226,8 +226,8 @@ var StatsViewHelper = function ()
 
         var i = 0;
         var db_date = graphData[i].order_date.split("T")[0];
-        var insert_into_next_iteration = 0;
-        var insert_prev=false;
+                    // var insert_into_next_iteration = 0;
+                    // var insert_prev=false;
         while (!(y == end_y && m == end_m && d == end_d)) {
             var date = (String(y) + "-" + putZeroBeforeNum(m) + "-" + putZeroBeforeNum(d));
             //prevent major bug
@@ -239,25 +239,27 @@ var StatsViewHelper = function ()
             labels.push(date);
             //y-axis
             if (date == db_date && i < graphData.length) {
-                if (insert_prev){
-                    data.push(insert_into_next_iteration)
-                } else {
-                    data.push(0);
-                }
-                insert_prev=true;
-                insert_into_next_iteration = graphData[i].day_price;
+                data.push(graphData[i].day_price.toFixed(2))
+                            // if (insert_prev){
+                            //     data.push(insert_into_next_iteration)
+                            // } else {
+                            //     data.push(0);
+                            // }
+                            // insert_prev=true;
+                            // insert_into_next_iteration = graphData[i].day_price.toFixed(2);
                 // update db_date
                 i += 1;
                 if (i < graphData.length) {
                     db_date = graphData[i].order_date.split("T")[0];
                 }
             } else {
-                if (insert_prev){
-                    data.push(insert_into_next_iteration);
-                } else {
-                    data.push(0);
-                }
-                insert_prev=false;
+                data.push(0);
+                            // if (insert_prev){
+                            //     data.push(insert_into_next_iteration);
+                            // } else {
+                            //     data.push(0);
+                            // }
+                            // insert_prev=false;
             }
             //make next date
             d += 1;
@@ -273,11 +275,17 @@ var StatsViewHelper = function ()
         //x-axis
         labels.push(date);
         //y-axis
-        if (insert_prev){
-            data.push(insert_into_next_iteration)
+        if (date == db_date) {
+            data.push(graphData[i].day_price.toFixed(2));
         } else {
             data.push(0);
         }
+
+                    // if (insert_prev){
+                    //     data.push(insert_into_next_iteration)
+                    // } else {
+                    //     data.push(0);
+                    // }
 
         // remove old chart
         var graph_el = $("#graph");
