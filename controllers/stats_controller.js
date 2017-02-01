@@ -34,9 +34,9 @@ var StatsController = function(viewHelper, model)
     {
         ViewHelper.showRevenueGraph(begin_date, end_date, data);
     }
-    function showUserAmntGraph(data)
+    function showUserAmntGraph(begin_date, end_date, data)
     {
-        ViewHelper.showUserAmntGraph(data);
+        ViewHelper.showUserAmntGraph(begin_date, end_date, data);
     }
 
     // function getGraphData(range)

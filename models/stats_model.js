@@ -10,7 +10,6 @@ var StatsModel = function()
             },
             contentType: "application/json;",
             success: function (data) {
-                console.log("in model succes: " + data)
                 callback(data);
             },
             error: function (xhr, status, error) {
@@ -47,7 +46,7 @@ var StatsModel = function()
             },
             contentType: "application/json;",
             success: function (data) {
-                callback(data);
+                callback(begin_date, end_date, data);
             },
             error: function (xhr, status, error) {
                 $("#component").load("/views/error/error.html");
