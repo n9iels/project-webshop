@@ -17,7 +17,7 @@ var ProductsViewHelper = function()
     {
         $("#products").load('/views/products/products.html', function () { // waar id = 'component' doe .load......
 
-            $.each(viewData, function(key, value) {
+            $.each(viewData.data, function(key, value) {
                 // Clone product
                 var product = $('<div>').append($('#product__list__item').clone());
                 
