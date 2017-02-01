@@ -11,7 +11,7 @@ var RegisterModel = function()
         delete formData.dag;
 
         $.ajax({
-            url: "https://api.az-games.nl/user/register",
+            url: "http://localhost:8081/user/register",
             type: "post",
             data: JSON.stringify({
                 e_mail : formData.e_mailadres,
@@ -27,7 +27,8 @@ var RegisterModel = function()
                 postal_code : formData.postcode,
                 number : formData.huisnummer,
                 street_name : formData.straatnaam,
-                city : formData.plaats
+                city : formData.plaats,
+                registration_date : new Date()
             }),
             contentType: "application/json;",
             success: function (data) {
