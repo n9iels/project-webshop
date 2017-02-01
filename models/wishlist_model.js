@@ -68,8 +68,6 @@ var WishlistModel = function()
             go = true;
         } else if (newStatus == "private"){
             go = true;
-        } else {
-            console.log("newStatus has unexpected value. newStatus = " + newStatus);
         }
 
         if (go)

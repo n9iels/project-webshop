@@ -13,6 +13,7 @@ var ProductsController = function(viewHelper, model)
     {
         // Prevent sending the form (page reload)
         event.preventDefault();
+        event.stopImmediatePropagation();
 
         var filters = $(this).serialize();
         Model.getPage(filters, function (data) { ViewHelper.loadProducts(data); });

@@ -5,7 +5,6 @@ var PublicWishlistController = function(viewHelper, model)
 
     function main()
     {
-        console.log("in main");
         ViewHelper.setActionListener(getPublicWishlist);
     }
 

@@ -13,7 +13,7 @@ var LoginModel = function()
                 // put token in cookie
                 CookieHelper.createCookie("access_token", data.access_token);
                 CookieHelper.createCookie("user_id", data.user_id);
-
+                
                 // 'reload' page
                 onLoadPage();
 
