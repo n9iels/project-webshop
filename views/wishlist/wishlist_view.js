@@ -35,6 +35,8 @@ var WishlistViewHelper = function()
                 $("#clipboard__btn").attr("href", "/public_wishlist/" + value.user_id);
                 $("#public_link").val("https://az-games.nl/public_wishlist/" + value.user_id);
 
+                $(wish__list__item).find(".wish__list__platform img").attr("data-tooltip", String(value.platform));
+
                 $("#wish__list").append(wish__list__item);
 
                 if (count == 0) {
