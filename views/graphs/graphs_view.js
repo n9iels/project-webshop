@@ -19,7 +19,6 @@ var StatsViewHelper = function ()
             var end_year = String(cur_year);
 
             var begin_date = calcBeginDate(cur_day, cur_month, cur_year, 3); // array of strings: [0]=day [1]=month [2]=year
-            console.log("in ready: " + end_year, end_month, end_day, begin_date);
 
             // load page
             document.title ="Stats - AZ Games";
@@ -99,8 +98,6 @@ var StatsViewHelper = function ()
             action2(begin_date, end_date);
         } else if (graph_choice == "useramnt") {
             action3(begin_date, end_date);
-        } else {
-            console.log("graph_choice has unexpected value. graph_choice = " + graph_choice);
         }
     }
 
@@ -290,7 +287,6 @@ var StatsViewHelper = function ()
         var labels = new Array();
         var data = [];
         var score_diff = getDateScore(end_date) - getDateScore(begin_date);
-        console.log(score_diff);
 
         // put all dates in x-axis. put all corresponding data in graph
         var b_dateA = begin_date.split("-");
